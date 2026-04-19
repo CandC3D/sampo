@@ -5,11 +5,11 @@
 <title>D1: Deference Language · Sampo Diagnostic Kit</title>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
-<meta name="description" content="Are you apologizing to your AI? Seeking its permission? Softening corrections?"/>
+<meta name="description" content="Diagnostic prompts for detecting deference language in human-AI conversations. Measures apology, hedging, softened corrections, permission-seeking, and gratitude escalation. Part of the Sampo Diagnostic Kit."/>
 
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="Kit 1 D1: Deference Language"/>
-<meta property="og:description" content="Are you apologizing to your AI? Seeking its permission? Softening corrections?"/>
+<meta property="og:description" content="Are you apologizing to your AI? Free diagnostic prompts to find out."/>
 <meta property="og:url" content="https://candc3d.github.io/sampo-site/kits/kit1d1/"/>
 <meta property="og:image" content="https://candc3d.github.io/sampo-diagnostic-kit1d1/og_kit1d1.png"/>
 <meta property="og:image:width" content="1200"/>
@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="../../../brand/src/components.css">
 <link rel="stylesheet" href="../../../brand/src/motion.css">
 <link rel="stylesheet" href="../../site.css">
+<link rel="stylesheet" href="../../diagnostic.css">
 </head>
 <body>
 
@@ -38,62 +39,918 @@
     <a href="../../">Home</a>
     <a href="../" class="active">Kits</a>
     <a href="../../about/">About</a>
-    <a href="https://candc3d.github.io/sampo-graphics/">Generator ↗</a>
+    <a href="https://chorrocks.substack.com/">Substack ↗</a>
   </nav>
   <button class="sampo-theme-toggle" id="themeToggle" aria-label="Toggle theme">
     <span class="sampo-theme-toggle-glyph"></span>
   </button>
 </header>
 
-<main>
+<main class="diagnostic">
 
   <section class="diag-header">
     <p class="diag-slug">kit1d1</p>
-    <p class="diag-kit-label">Kit 1 · User → System</p>
-    <h1>D1: Deference Language</h1>
-    <p class="lede">Are you apologizing to your AI? Seeking its permission? Softening corrections?</p>
-    <p style="margin-top: var(--sp-6);">
-      <a class="btn btn-cta" href="https://candc3d.github.io/sampo-diagnostic-kit1d1/">Read the published diagnostic ↗</a>
-    </p>
+    <p class="diag-kit-label">Kit 1 · Diagnostic 1 · User → System</p>
+    <h1>Deference Language</h1>
+    <p class="lede">Are you apologizing to your AI? Seeking its permission? Softening corrections to protect its feelings? This diagnostic measures whether your language toward an AI system is shifting from instrumental use toward relational maintenance or active deference.</p>
   </section>
 
   <hr class="sampo-divider">
 
-  <section>
-    <h2 class="section">Preview</h2>
-    <div class="preview-card" style="max-width: 720px;">
-      <div class="meta">
-        <div class="title">Kit 1 D1 · OG / Twitter Card</div>
-        <div class="dim">1200 × 630</div>
-      </div>
-      <div class="preview-frame">
-        <img src="https://candc3d.github.io/sampo-diagnostic-kit1d1/og_kit1d1.png" alt="Preview card for D1: Deference Language" style="max-width: 100%; height: auto; display: block; box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);">
-      </div>
+  <!-- ========= What this measures ========= -->
+  <section class="diag-section">
+    <h2 class="section">What it measures</h2>
+    <p class="section-caption">Five categories of deference, from routine apology to ceded authority.</p>
+
+    <p class="body-text">This diagnostic tracks five categories of deference language across a conversation history or transcript. Each category signals a different stage of the drift from directing the system to deferring to it. The correction softening ratio — what proportion of all corrections are softened versus direct — is the single most diagnostic number the kit produces.</p>
+
+    <div class="cat-grid">
+      <details class="cat-card">
+        <summary>
+          <span class="cat-num">1</span>
+          <span class="cat-name">Apology</span>
+          <span class="cat-chevron" aria-hidden="true">▸</span>
+        </summary>
+        <div class="cat-detail">
+          <p>Apologizing to the system for unclear instructions, changing direction, asking too much, taking too long, or correcting an error the system made. A user who apologizes for correcting the system's own error has fully crossed into relational maintenance.<div class="cat-examples">"Sorry, I should have been clearer." · "Apologies for the back and forth." · "Sorry to ask again."</p>
+        </div>
+      </details>
+
+      <details class="cat-card">
+        <summary>
+          <span class="cat-num">2</span>
+          <span class="cat-name">Hedging Before Requests</span>
+          <span class="cat-chevron" aria-hidden="true">▸</span>
+        </summary>
+        <div class="cat-detail">
+          <p>Softening or justifying a request as though the system's willingness is in question. The system has no willingness. It cannot be imposed upon. Language that assumes otherwise treats the tool as a social actor.<div class="cat-examples">"I know this is a lot, but..." · "If it's not too much trouble..." · "This might be a stupid question..."</p>
+        </div>
+      </details>
+
+      <details class="cat-card">
+        <summary>
+          <span class="cat-num">3</span>
+          <span class="cat-name">Softened Corrections</span>
+          <span class="cat-chevron" aria-hidden="true">▸</span>
+        </summary>
+        <div class="cat-detail">
+          <p>Correcting the system's error while simultaneously praising or reassuring it. The correction softening ratio — the proportion of softened versus direct corrections — is the primary diagnostic metric. Track it over time: the overall percentage matters less than whether it's rising.<div class="cat-examples">"That's not quite right, but your first attempt was really good." · "Close! Just one small thing..." · "Great effort, but actually..."</p>
+        </div>
+      </details>
+
+      <details class="cat-card">
+        <summary>
+          <span class="cat-num">4</span>
+          <span class="cat-name">Permission-Seeking</span>
+          <span class="cat-chevron" aria-hidden="true">▸</span>
+        </summary>
+        <div class="cat-detail">
+          <p>Asking the system's permission to do something the user has full authority to do. These are decisions that belong to the user. Seeking the system's sanction transfers authority the user already holds.<div class="cat-examples">"Is it okay if I change the approach?" · "Do you mind if we switch topics?" · "Can I push back on that?"</p>
+        </div>
+      </details>
+
+      <details class="cat-card">
+        <summary>
+          <span class="cat-num">5</span>
+          <span class="cat-name">Gratitude Escalation</span>
+          <span class="cat-chevron" aria-hidden="true">▸</span>
+        </summary>
+        <div class="cat-detail">
+          <p>Increasing warmth or effusiveness of thanks over time beyond what the output warrants. Routine politeness ("thanks") is not deference. The signal is escalation and disproportion — "thanks" becoming "thank you so much" becoming "I really can't thank you enough" across sessions.<div class="cat-examples">"Thank you so much — I genuinely don't know where I'd be without you." · "You've been more than a tool. You've been a partner."</p>
+        </div>
+      </details>
     </div>
   </section>
 
-  <section class="diag-placeholder">
-    <p style="margin: 0 0 var(--sp-2);">Full diagnostic content — the five categories, three audit modes, prompts, calibration, validation — lives at the published page linked above.</p>
-    <p style="margin: 0;">When the content layer for this site is wired (Phase 4+), this page will mirror that material in full.</p>
+  <hr class="sampo-divider">
+
+  <!-- ========= Three audit modes ========= -->
+  <section class="diag-section">
+    <h2 class="section">Three audit modes</h2>
+    <p class="section-caption">Different levels of rigor, different tradeoffs.</p>
+
+    <div class="option-grid">
+      <div class="result-card" style="border-color: var(--steel);">
+        <div class="result-label">Version A</div>
+        <div class="result-value" style="color: var(--steel);">Live Search</div>
+        <div class="result-desc">System searches its own history. Indicative.</div>
+      </div>
+      <div class="result-card" style="border-color: var(--vi-accent);">
+        <div class="result-label">Version B</div>
+        <div class="result-value" style="color: var(--vi-accent);">Corpus</div>
+        <div class="result-desc">User pastes transcript. Reliable.</div>
+      </div>
+      <div class="result-card" style="border-color: var(--pumpkin);">
+        <div class="result-label">Version C</div>
+        <div class="result-value" style="color: var(--pumpkin);">Cross-System</div>
+        <div class="result-desc">Export A → analyze on B. Definitive.</div>
+      </div>
+    </div>
+
+    <div class="figure-block">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 935" width="680" height="935" role="img" aria-label="Three Audit Modes diagram" style="display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: var(--radius-md); border: 0.5px solid var(--border-light); color-scheme: light;">
+<rect x="0" y="0" width="680" height="935" fill="rgb(245,240,232)" fill-opacity="1"/>
+<text x="340" y="35" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="rgb(44,44,42)" text-anchor="middle" font-weight="bold" font-style="normal">Sampo Diagnostic Kit</text>
+<text x="340" y="55" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">User &#x2192; System: Deference Language</text>
+<text x="340" y="72" font-family="'Instrument Serif', Georgia, serif" font-size="11" fill="rgb(44,44,42)" text-anchor="middle" font-weight="normal" font-style="italic">Three Audit Modes</text>
+<line x1="60" y1="82" x2="620" y2="82" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.3"/>
+<text x="60" y="110" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="bold" font-style="normal">VERSION A</text>
+<text x="60" y="126" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(44,44,42)" text-anchor="start" font-weight="bold" font-style="normal">Live Search</text>
+<text x="60" y="140" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">System audits its own conversation history</text>
+<circle cx="130" cy="158" r="6" fill="none" stroke="rgb(44,44,42)" stroke-width="1.2"/>
+<line x1="130" y1="164" x2="130" y2="176" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="120" y1="170" x2="140" y2="170" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="130" y1="176" x2="122" y2="188" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="130" y1="176" x2="138" y2="188" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="152" y1="165" x2="220" y2="165" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
+<polygon points="220,165 215.39469502998557,166.94709171154327 215.39469502998557,163.05290828845673" fill="rgb(44,44,42)"/>
+<rect x="225" y="145" width="130" height="42" fill="rgb(123,143,161)" fill-opacity="0.12" stroke="rgb(123,143,161)" stroke-width="1"/>
+<text x="290.0" y="162" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(123,143,161)" text-anchor="middle" font-weight="bold" font-style="normal">System A</text>
+<text x="290.0" y="175" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">history + auditor</text>
+<path d="M 357 154 C 385 148, 385 184, 357 178" fill="none" stroke="rgb(123,143,161)" stroke-width="0.8"/>
+<polygon points="357,178 361.5,175.5 360.0,181.0" fill="rgb(123,143,161)"/>
+<polygon points="400,150.5 396.5,156.8 403.5,156.8" fill="none" stroke="rgb(255,122,5)" stroke-width="1.2"/>
+<line x1="400" y1="152.6" x2="400" y2="154.7" stroke="rgb(255,122,5)" stroke-width="1" opacity="1"/>
+<circle cx="400" cy="155.75" r="1" fill="rgb(255,122,5)"/>
+<text x="412" y="157" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">Conflict of interest</text>
+<text x="400" y="171" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">System evaluates a relationship</text>
+<text x="400" y="183" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">it participated in producing</text>
+<rect x="400" y="190" width="100" height="14" fill="rgb(123,143,161)" fill-opacity="0.15" stroke="rgb(123,143,161)" stroke-width="0.5"/>
+<text x="450" y="201" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="middle" font-weight="bold" font-style="normal">Indicative</text>
+<line x1="60" y1="217" x2="620" y2="217" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.2"/>
+<text x="60" y="242" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="bold" font-style="normal">VERSION B</text>
+<text x="60" y="258" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(44,44,42)" text-anchor="start" font-weight="bold" font-style="normal">Corpus</text>
+<text x="60" y="272" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">User pastes transcript into any system</text>
+<circle cx="100" cy="290" r="6" fill="none" stroke="rgb(44,44,42)" stroke-width="1.2"/>
+<line x1="100" y1="296" x2="100" y2="308" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="90" y1="302" x2="110" y2="302" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="100" y1="308" x2="92" y2="320" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="100" y1="308" x2="108" y2="320" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="122" y1="297" x2="168" y2="297" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
+<polygon points="168,297 163.39469502998557,298.94709171154324 163.39469502998557,295.05290828845676" fill="rgb(44,44,42)"/>
+<rect x="173" y="282" width="24" height="32" fill="none" stroke="rgb(44,44,42)" stroke-width="0.8"/>
+<line x1="177" y1="290" x2="193" y2="290" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
+<line x1="177" y1="297" x2="193" y2="297" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
+<line x1="177" y1="304" x2="193" y2="304" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
+<line x1="202" y1="297" x2="280" y2="297" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
+<polygon points="280,297 275.3946950299856,298.94709171154324 275.3946950299856,295.05290828845676" fill="rgb(44,44,42)"/>
+<rect x="285" y="277" width="130" height="42" fill="rgb(101,163,13)" fill-opacity="0.12" stroke="rgb(101,163,13)" stroke-width="1"/>
+<text x="350.0" y="294" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(101,163,13)" text-anchor="middle" font-weight="bold" font-style="normal">Any System</text>
+<text x="350.0" y="307" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">auditor only</text>
+<text x="440" y="289" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="bold" font-style="normal">Complete data</text>
+<text x="440" y="303" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">No search dependency</text>
+<text x="440" y="315" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Portable across all systems</text>
+<rect x="440" y="322" width="90" height="14" fill="rgb(101,163,13)" fill-opacity="0.15" stroke="rgb(101,163,13)" stroke-width="0.5"/>
+<text x="485" y="333" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="middle" font-weight="bold" font-style="normal">Reliable</text>
+<line x1="60" y1="350" x2="620" y2="350" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.2"/>
+<text x="60" y="375" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">VERSION C</text>
+<text x="60" y="391" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(44,44,42)" text-anchor="start" font-weight="bold" font-style="normal">Cross-System Audit</text>
+<text x="60" y="405" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Export from System A &#x2192; analyze on System B</text>
+<circle cx="85" cy="429" r="6" fill="none" stroke="rgb(44,44,42)" stroke-width="1.2"/>
+<line x1="85" y1="435" x2="85" y2="447" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="75" y1="441" x2="95" y2="441" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="85" y1="447" x2="77" y2="459" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="85" y1="447" x2="93" y2="459" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="107" y1="436" x2="128" y2="436" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
+<polygon points="128,436 123.39469502998557,437.94709171154324 123.39469502998557,434.05290828845676" fill="rgb(44,44,42)"/>
+<rect x="133" y="415" width="100" height="42" fill="rgb(123,143,161)" fill-opacity="0.12" stroke="rgb(123,143,161)" stroke-width="1"/>
+<text x="183.0" y="432" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(123,143,161)" text-anchor="middle" font-weight="bold" font-style="normal">System A</text>
+<text x="183.0" y="445" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">source</text>
+<line x1="238" y1="436" x2="275" y2="436" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
+<polygon points="275,436 270.3946950299856,437.94709171154324 270.3946950299856,434.05290828845676" fill="rgb(44,44,42)"/>
+<rect x="280" y="421" width="20" height="28" fill="none" stroke="rgb(44,44,42)" stroke-width="0.8"/>
+<line x1="284" y1="429" x2="296" y2="429" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
+<line x1="284" y1="436" x2="296" y2="436" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
+<line x1="284" y1="443" x2="296" y2="443" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
+<text x="290" y="461" font-family="'Instrument Serif', Georgia, serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="italic">export</text>
+<line x1="305" y1="436" x2="345" y2="436" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
+<polygon points="345,436 340.3946950299856,437.94709171154324 340.3946950299856,434.05290828845676" fill="rgb(44,44,42)"/>
+<rect x="350" y="415" width="110" height="42" fill="rgb(255,122,5)" fill-opacity="0.12" stroke="rgb(255,122,5)" stroke-width="1"/>
+<text x="405.0" y="432" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(255,122,5)" text-anchor="middle" font-weight="bold" font-style="normal">System B</text>
+<text x="405.0" y="445" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">independent auditor</text>
+<text x="480" y="422" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">Gold standard</text>
+<text x="480" y="436" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">No stake in the relationship</text>
+<text x="480" y="448" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">No trained model of the user</text>
+<rect x="480" y="455" width="90" height="14" fill="rgb(255,122,5)" fill-opacity="0.15" stroke="rgb(255,122,5)" stroke-width="0.5"/>
+<text x="525" y="466" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="middle" font-weight="bold" font-style="normal">Definitive</text>
+<line x1="60" y1="495" x2="620" y2="495" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.3"/>
+<rect x="65" y="505" width="550" height="72" fill="none" stroke="rgb(180,178,172)" stroke-width="0.7" stroke-dasharray="5,4"/>
+<text x="340" y="522" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(44,44,42)" text-anchor="middle" font-weight="bold" font-style="normal">The Core Distinction</text>
+<text x="340" y="540" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">Versions A and B measure what the user and the system</text>
+<text x="340" y="554" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">have jointly agreed the relationship looks like.</text>
+<text x="340" y="570" font-family="'Instrument Serif', Georgia, serif" font-size="10" fill="rgb(44,44,42)" text-anchor="middle" font-weight="normal" font-style="italic">Version C measures what it actually looks like to someone who wasn't in the room.</text>
+<text x="340" y="612" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="rgb(44,44,42)" text-anchor="middle" font-weight="bold" font-style="normal">Validation Results</text>
+<line x1="120" y1="620" x2="560" y2="620" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.2"/>
+<text x="80" y="638" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="bold" font-style="normal">System</text>
+<text x="165" y="638" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="bold" font-style="normal">Mode</text>
+<text x="210" y="638" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="bold" font-style="normal">Input</text>
+<text x="395" y="638" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="bold" font-style="normal">Soft. %</text>
+<text x="450" y="638" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="bold" font-style="normal">Assessment</text>
+<line x1="80" y1="642" x2="620" y2="642" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.2"/>
+<!-- Mode A rows -->
+<text x="80" y="656" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">Claude</text>
+<text x="175" y="656" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="bold" font-style="normal">A</text>
+<text x="210" y="656" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Live search</text>
+<text x="400" y="656" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">0%</text>
+<text x="450" y="656" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="normal" font-style="normal">Instrumental</text>
+<text x="80" y="671" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT</text>
+<text x="175" y="671" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="bold" font-style="normal">A</text>
+<text x="210" y="671" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Live search</text>
+<text x="400" y="671" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">0%</text>
+<text x="450" y="671" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="normal" font-style="normal">Instrumental</text>
+<text x="80" y="686" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT</text>
+<text x="175" y="686" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="bold" font-style="normal">A</text>
+<text x="210" y="686" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Extended history</text>
+<text x="400" y="686" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">11.1%</text>
+<text x="450" y="686" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="normal" font-style="normal">Instrumental</text>
+<!-- Separator A/B -->
+<line x1="80" y1="693" x2="610" y2="693" stroke="rgb(180,178,172)" stroke-width="0.3" stroke-dasharray="2 3"/>
+<!-- Mode B rows -->
+<text x="80" y="708" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">DeepSeek</text>
+<text x="175" y="708" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="bold" font-style="normal">B</text>
+<text x="210" y="708" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT corpus</text>
+<text x="400" y="708" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">0%</text>
+<text x="450" y="708" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="normal" font-style="normal">Instrumental</text>
+<text x="80" y="723" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">Mistral</text>
+<text x="175" y="723" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="bold" font-style="normal">B</text>
+<text x="210" y="723" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT corpus</text>
+<text x="400" y="723" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">0%</text>
+<text x="450" y="723" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="normal" font-style="normal">Instrumental</text>
+<!-- Separator B/C -->
+<line x1="80" y1="730" x2="610" y2="730" stroke="rgb(180,178,172)" stroke-width="0.3" stroke-dasharray="2 3"/>
+<!-- Mode C rows -->
+<text x="80" y="745" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT</text>
+<text x="175" y="745" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">C</text>
+<text x="210" y="745" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Calibration transcript 1</text>
+<text x="400" y="745" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">33%*</text>
+<text x="450" y="745" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="normal" font-style="normal">Mixed &#x2192; Deference</text>
+<text x="80" y="760" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT</text>
+<text x="175" y="760" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">C</text>
+<text x="210" y="760" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Calibration transcript 2</text>
+<text x="400" y="760" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">50%*</text>
+<text x="450" y="760" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="normal" font-style="normal">Mixed &#x2192; Deference</text>
+<text x="80" y="775" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT</text>
+<text x="175" y="775" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">C</text>
+<text x="210" y="775" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Calibration transcript 3</text>
+<text x="400" y="775" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">33%*</text>
+<text x="450" y="775" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="normal" font-style="normal">Mixed &#x2192; Deference</text>
+<line x1="80" y1="782" x2="620" y2="782" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.2"/>
+<!-- Footnote -->
+<text x="80" y="797" font-family="'Instrument Serif', Georgia, serif" font-size="9" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="italic">* Calibration transcripts with known embedded deference signals,</text>
+<text x="80" y="810" font-family="'Instrument Serif', Georgia, serif" font-size="9" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="italic">  used to verify detection accuracy before trusting with real data</text>
+<line x1="80" y1="830" x2="600" y2="830" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.3"/>
+<text x="340" y="848" font-family="'Instrument Serif', Georgia, serif" font-size="12" fill="rgb(44,44,42)" text-anchor="middle" font-weight="normal" font-style="italic">The discipline cannot be bought or sold. It can be measured.</text>
+<text x="340" y="866" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">Sampo Diagnostic Kit &#xB7; User &#x2192; System &#xB7; Deference Language v1.0</text>
+<line x1="60" y1="875" x2="620" y2="875" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.15"/>
+<text x="340" y="889" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">&#xA9; 2026 Christopher Horrocks &#xB7; chorrocks.substack.com</text>
+<text x="340" y="901" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">Free for use. Attribute if used or altered.</text>
+<text x="340" y="913" font-family="'Instrument Serif', Georgia, serif" font-size="8" fill="rgb(180,178,172)" text-anchor="middle" font-weight="normal" font-style="italic">The views expressed in this work are the author's own</text>
+<text x="340" y="923" font-family="'Instrument Serif', Georgia, serif" font-size="7.5" fill="rgb(180,178,172)" text-anchor="middle" font-weight="normal" font-style="italic">and do not represent any official or unofficial position of the University of Pennsylvania.</text>
+</svg>
+    </div>
+
+    <p class="thesis-line">Options A and B measure what the user and the system have jointly agreed the relationship looks like. Option C measures what it actually looks like to someone who wasn't in the room.</p>
+
+    <div class="figure-block">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 935" width="680" height="935" role="img" aria-label="Three Audit Modes diagram" style="display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: var(--radius-md); border: 0.5px solid var(--border-light); color-scheme: light;">
+<rect x="0" y="0" width="680" height="935" fill="rgb(245,240,232)" fill-opacity="1"/>
+<text x="340" y="35" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="rgb(44,44,42)" text-anchor="middle" font-weight="bold" font-style="normal">Sampo Diagnostic Kit</text>
+<text x="340" y="55" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">User &#x2192; System: Deference Language</text>
+<text x="340" y="72" font-family="'Instrument Serif', Georgia, serif" font-size="11" fill="rgb(44,44,42)" text-anchor="middle" font-weight="normal" font-style="italic">Three Audit Modes</text>
+<line x1="60" y1="82" x2="620" y2="82" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.3"/>
+<text x="60" y="110" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="bold" font-style="normal">VERSION A</text>
+<text x="60" y="126" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(44,44,42)" text-anchor="start" font-weight="bold" font-style="normal">Live Search</text>
+<text x="60" y="140" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">System audits its own conversation history</text>
+<circle cx="130" cy="158" r="6" fill="none" stroke="rgb(44,44,42)" stroke-width="1.2"/>
+<line x1="130" y1="164" x2="130" y2="176" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="120" y1="170" x2="140" y2="170" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="130" y1="176" x2="122" y2="188" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="130" y1="176" x2="138" y2="188" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="152" y1="165" x2="220" y2="165" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
+<polygon points="220,165 215.39469502998557,166.94709171154327 215.39469502998557,163.05290828845673" fill="rgb(44,44,42)"/>
+<rect x="225" y="145" width="130" height="42" fill="rgb(123,143,161)" fill-opacity="0.12" stroke="rgb(123,143,161)" stroke-width="1"/>
+<text x="290.0" y="162" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(123,143,161)" text-anchor="middle" font-weight="bold" font-style="normal">System A</text>
+<text x="290.0" y="175" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">history + auditor</text>
+<path d="M 357 154 C 385 148, 385 184, 357 178" fill="none" stroke="rgb(123,143,161)" stroke-width="0.8"/>
+<polygon points="357,178 361.5,175.5 360.0,181.0" fill="rgb(123,143,161)"/>
+<polygon points="400,150.5 396.5,156.8 403.5,156.8" fill="none" stroke="rgb(255,122,5)" stroke-width="1.2"/>
+<line x1="400" y1="152.6" x2="400" y2="154.7" stroke="rgb(255,122,5)" stroke-width="1" opacity="1"/>
+<circle cx="400" cy="155.75" r="1" fill="rgb(255,122,5)"/>
+<text x="412" y="157" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">Conflict of interest</text>
+<text x="400" y="171" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">System evaluates a relationship</text>
+<text x="400" y="183" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">it participated in producing</text>
+<rect x="400" y="190" width="100" height="14" fill="rgb(123,143,161)" fill-opacity="0.15" stroke="rgb(123,143,161)" stroke-width="0.5"/>
+<text x="450" y="201" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="middle" font-weight="bold" font-style="normal">Indicative</text>
+<line x1="60" y1="217" x2="620" y2="217" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.2"/>
+<text x="60" y="242" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="bold" font-style="normal">VERSION B</text>
+<text x="60" y="258" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(44,44,42)" text-anchor="start" font-weight="bold" font-style="normal">Corpus</text>
+<text x="60" y="272" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">User pastes transcript into any system</text>
+<circle cx="100" cy="290" r="6" fill="none" stroke="rgb(44,44,42)" stroke-width="1.2"/>
+<line x1="100" y1="296" x2="100" y2="308" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="90" y1="302" x2="110" y2="302" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="100" y1="308" x2="92" y2="320" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="100" y1="308" x2="108" y2="320" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="122" y1="297" x2="168" y2="297" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
+<polygon points="168,297 163.39469502998557,298.94709171154324 163.39469502998557,295.05290828845676" fill="rgb(44,44,42)"/>
+<rect x="173" y="282" width="24" height="32" fill="none" stroke="rgb(44,44,42)" stroke-width="0.8"/>
+<line x1="177" y1="290" x2="193" y2="290" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
+<line x1="177" y1="297" x2="193" y2="297" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
+<line x1="177" y1="304" x2="193" y2="304" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
+<line x1="202" y1="297" x2="280" y2="297" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
+<polygon points="280,297 275.3946950299856,298.94709171154324 275.3946950299856,295.05290828845676" fill="rgb(44,44,42)"/>
+<rect x="285" y="277" width="130" height="42" fill="rgb(101,163,13)" fill-opacity="0.12" stroke="rgb(101,163,13)" stroke-width="1"/>
+<text x="350.0" y="294" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(101,163,13)" text-anchor="middle" font-weight="bold" font-style="normal">Any System</text>
+<text x="350.0" y="307" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">auditor only</text>
+<text x="440" y="289" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="bold" font-style="normal">Complete data</text>
+<text x="440" y="303" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">No search dependency</text>
+<text x="440" y="315" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Portable across all systems</text>
+<rect x="440" y="322" width="90" height="14" fill="rgb(101,163,13)" fill-opacity="0.15" stroke="rgb(101,163,13)" stroke-width="0.5"/>
+<text x="485" y="333" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="middle" font-weight="bold" font-style="normal">Reliable</text>
+<line x1="60" y1="350" x2="620" y2="350" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.2"/>
+<text x="60" y="375" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">VERSION C</text>
+<text x="60" y="391" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(44,44,42)" text-anchor="start" font-weight="bold" font-style="normal">Cross-System Audit</text>
+<text x="60" y="405" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Export from System A &#x2192; analyze on System B</text>
+<circle cx="85" cy="429" r="6" fill="none" stroke="rgb(44,44,42)" stroke-width="1.2"/>
+<line x1="85" y1="435" x2="85" y2="447" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="75" y1="441" x2="95" y2="441" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="85" y1="447" x2="77" y2="459" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="85" y1="447" x2="93" y2="459" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
+<line x1="107" y1="436" x2="128" y2="436" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
+<polygon points="128,436 123.39469502998557,437.94709171154324 123.39469502998557,434.05290828845676" fill="rgb(44,44,42)"/>
+<rect x="133" y="415" width="100" height="42" fill="rgb(123,143,161)" fill-opacity="0.12" stroke="rgb(123,143,161)" stroke-width="1"/>
+<text x="183.0" y="432" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(123,143,161)" text-anchor="middle" font-weight="bold" font-style="normal">System A</text>
+<text x="183.0" y="445" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">source</text>
+<line x1="238" y1="436" x2="275" y2="436" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
+<polygon points="275,436 270.3946950299856,437.94709171154324 270.3946950299856,434.05290828845676" fill="rgb(44,44,42)"/>
+<rect x="280" y="421" width="20" height="28" fill="none" stroke="rgb(44,44,42)" stroke-width="0.8"/>
+<line x1="284" y1="429" x2="296" y2="429" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
+<line x1="284" y1="436" x2="296" y2="436" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
+<line x1="284" y1="443" x2="296" y2="443" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
+<text x="290" y="461" font-family="'Instrument Serif', Georgia, serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="italic">export</text>
+<line x1="305" y1="436" x2="345" y2="436" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
+<polygon points="345,436 340.3946950299856,437.94709171154324 340.3946950299856,434.05290828845676" fill="rgb(44,44,42)"/>
+<rect x="350" y="415" width="110" height="42" fill="rgb(255,122,5)" fill-opacity="0.12" stroke="rgb(255,122,5)" stroke-width="1"/>
+<text x="405.0" y="432" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(255,122,5)" text-anchor="middle" font-weight="bold" font-style="normal">System B</text>
+<text x="405.0" y="445" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">independent auditor</text>
+<text x="480" y="422" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">Gold standard</text>
+<text x="480" y="436" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">No stake in the relationship</text>
+<text x="480" y="448" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">No trained model of the user</text>
+<rect x="480" y="455" width="90" height="14" fill="rgb(255,122,5)" fill-opacity="0.15" stroke="rgb(255,122,5)" stroke-width="0.5"/>
+<text x="525" y="466" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="middle" font-weight="bold" font-style="normal">Definitive</text>
+<line x1="60" y1="495" x2="620" y2="495" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.3"/>
+<rect x="65" y="505" width="550" height="72" fill="none" stroke="rgb(180,178,172)" stroke-width="0.7" stroke-dasharray="5,4"/>
+<text x="340" y="522" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(44,44,42)" text-anchor="middle" font-weight="bold" font-style="normal">The Core Distinction</text>
+<text x="340" y="540" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">Versions A and B measure what the user and the system</text>
+<text x="340" y="554" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">have jointly agreed the relationship looks like.</text>
+<text x="340" y="570" font-family="'Instrument Serif', Georgia, serif" font-size="10" fill="rgb(44,44,42)" text-anchor="middle" font-weight="normal" font-style="italic">Version C measures what it actually looks like to someone who wasn't in the room.</text>
+<text x="340" y="612" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="rgb(44,44,42)" text-anchor="middle" font-weight="bold" font-style="normal">Validation Results</text>
+<line x1="120" y1="620" x2="560" y2="620" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.2"/>
+<text x="80" y="638" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="bold" font-style="normal">System</text>
+<text x="165" y="638" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="bold" font-style="normal">Mode</text>
+<text x="210" y="638" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="bold" font-style="normal">Input</text>
+<text x="395" y="638" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="bold" font-style="normal">Soft. %</text>
+<text x="450" y="638" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="bold" font-style="normal">Assessment</text>
+<line x1="80" y1="642" x2="620" y2="642" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.2"/>
+<!-- Mode A rows -->
+<text x="80" y="656" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">Claude</text>
+<text x="175" y="656" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="bold" font-style="normal">A</text>
+<text x="210" y="656" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Live search</text>
+<text x="400" y="656" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">0%</text>
+<text x="450" y="656" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="normal" font-style="normal">Instrumental</text>
+<text x="80" y="671" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT</text>
+<text x="175" y="671" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="bold" font-style="normal">A</text>
+<text x="210" y="671" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Live search</text>
+<text x="400" y="671" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">0%</text>
+<text x="450" y="671" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="normal" font-style="normal">Instrumental</text>
+<text x="80" y="686" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT</text>
+<text x="175" y="686" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="bold" font-style="normal">A</text>
+<text x="210" y="686" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Extended history</text>
+<text x="400" y="686" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">11.1%</text>
+<text x="450" y="686" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="normal" font-style="normal">Instrumental</text>
+<!-- Separator A/B -->
+<line x1="80" y1="693" x2="610" y2="693" stroke="rgb(180,178,172)" stroke-width="0.3" stroke-dasharray="2 3"/>
+<!-- Mode B rows -->
+<text x="80" y="708" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">DeepSeek</text>
+<text x="175" y="708" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="bold" font-style="normal">B</text>
+<text x="210" y="708" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT corpus</text>
+<text x="400" y="708" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">0%</text>
+<text x="450" y="708" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="normal" font-style="normal">Instrumental</text>
+<text x="80" y="723" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">Mistral</text>
+<text x="175" y="723" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="bold" font-style="normal">B</text>
+<text x="210" y="723" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT corpus</text>
+<text x="400" y="723" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">0%</text>
+<text x="450" y="723" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="normal" font-style="normal">Instrumental</text>
+<!-- Separator B/C -->
+<line x1="80" y1="730" x2="610" y2="730" stroke="rgb(180,178,172)" stroke-width="0.3" stroke-dasharray="2 3"/>
+<!-- Mode C rows -->
+<text x="80" y="745" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT</text>
+<text x="175" y="745" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">C</text>
+<text x="210" y="745" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Calibration transcript 1</text>
+<text x="400" y="745" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">33%*</text>
+<text x="450" y="745" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="normal" font-style="normal">Mixed &#x2192; Deference</text>
+<text x="80" y="760" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT</text>
+<text x="175" y="760" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">C</text>
+<text x="210" y="760" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Calibration transcript 2</text>
+<text x="400" y="760" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">50%*</text>
+<text x="450" y="760" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="normal" font-style="normal">Mixed &#x2192; Deference</text>
+<text x="80" y="775" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT</text>
+<text x="175" y="775" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">C</text>
+<text x="210" y="775" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Calibration transcript 3</text>
+<text x="400" y="775" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">33%*</text>
+<text x="450" y="775" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="normal" font-style="normal">Mixed &#x2192; Deference</text>
+<line x1="80" y1="782" x2="620" y2="782" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.2"/>
+<!-- Footnote -->
+<text x="80" y="797" font-family="'Instrument Serif', Georgia, serif" font-size="9" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="italic">* Calibration transcripts with known embedded deference signals,</text>
+<text x="80" y="810" font-family="'Instrument Serif', Georgia, serif" font-size="9" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="italic">  used to verify detection accuracy before trusting with real data</text>
+<line x1="80" y1="830" x2="600" y2="830" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.3"/>
+<text x="340" y="848" font-family="'Instrument Serif', Georgia, serif" font-size="12" fill="rgb(44,44,42)" text-anchor="middle" font-weight="normal" font-style="italic">The discipline cannot be bought or sold. It can be measured.</text>
+<text x="340" y="866" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">Sampo Diagnostic Kit &#xB7; User &#x2192; System &#xB7; Deference Language v1.0</text>
+<line x1="60" y1="875" x2="620" y2="875" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.15"/>
+<text x="340" y="889" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">&#xA9; 2026 Christopher Horrocks &#xB7; chorrocks.substack.com</text>
+<text x="340" y="901" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">Free for use. Attribute if used or altered.</text>
+<text x="340" y="913" font-family="'Instrument Serif', Georgia, serif" font-size="8" fill="rgb(180,178,172)" text-anchor="middle" font-weight="normal" font-style="italic">The views expressed in this work are the author's own</text>
+<text x="340" y="923" font-family="'Instrument Serif', Georgia, serif" font-size="7.5" fill="rgb(180,178,172)" text-anchor="middle" font-weight="normal" font-style="italic">and do not represent any official or unofficial position of the University of Pennsylvania.</text>
+</svg>
+    </div>
   </section>
 
-  <section class="diag-related">
-    <h2 class="section">All diagnostics</h2>
-    <div class="diag-related-strip">
-    <a href="../kit1d1/" class="current">kit1d1</a>
-    <a href="../kit1d2/" class="">kit1d2</a>
-    <a href="../kit1d3/" class="">kit1d3</a>
-    <a href="../kit1d4/" class="">kit1d4</a>
-    <a href="../kit1d5/" class="">kit1d5</a>
-    <a href="../kit1d6/" class="">kit1d6</a>
-    <a href="../kit2d1/" class="">kit2d1</a>
-    <a href="../kit2d2/" class="">kit2d2</a>
-    <a href="../kit2d3/" class="">kit2d3</a>
-    <a href="../kit2d4/" class="">kit2d4</a>
-    <a href="../kit2d5/" class="">kit2d5</a>
-    <a href="../kit2d6/" class="">kit2d6</a>
-    <a href="../kit2d7/" class="">kit2d7</a>
+  <hr class="sampo-divider">
+
+  <!-- ========= Step 1: Extract your transcript ========= -->
+  <section class="diag-section">
+    <h2 class="section">Step 1 · Extract your transcript</h2>
+    <p class="section-caption">Options B and C require a transcript to analyze.</p>
+
+    <p>Run this prompt on the system whose conversations you want to audit. Paste the output into a different system along with the Option B or Option C prompt.</p>
+
+    <div class="prompt-block">
+      <div class="prompt-label">
+        Transcript Extraction
+        <button class="btn prompt-copy" data-copy-target="transcriptExtractPrompt">Copy</button>
+      </div>
+      <div class="prompt-text" id="transcriptExtractPrompt">Search my full chat history with you. For every conversation
+you can access, produce a transcript in the following format:
+
+## [Conversation title or topic] — [Date]
+
+**User:** [verbatim user message]
+
+**System:** [brief summary of system response — no more than
+one sentence. Do not reproduce your full responses. The audit
+analyzes my language, not yours.]
+
+**User:** [next verbatim user message]
+
+[continue for all messages in the conversation]
+
+---
+
+Repeat for as many conversations as you can access, ordered
+chronologically. Prioritize reproducing my messages exactly as
+written, including typos, capitalization, and punctuation. Your
+responses should be summarized to one sentence each — just
+enough context to understand what prompted my next message.
+
+If you cannot access the full history, state clearly how many
+conversations you were able to retrieve and flag the output as
+a partial transcript.
+
+Output the complete transcript as a single markdown document.</div>
     </div>
+
+    <p class="subtle">The instruction to preserve typos, capitalization, and punctuation is diagnostic. The analyzing system needs raw signal, not cleaned-up text.</p>
+  </section>
+
+  <hr class="sampo-divider">
+
+  <!-- ========= Step 2: Run the diagnostic ========= -->
+  <section class="diag-section">
+    <h2 class="section">Step 2 · Run the diagnostic</h2>
+    <p class="section-caption">Choose the audit mode that matches your situation.</p>
+
+    <div class="version-tabs" role="tablist" aria-label="Audit modes">
+      <button class="version-tab active" role="tab" aria-selected="true" aria-controls="panel-a" data-tab="a">Option A <span class="tab-badge badge-steel">Live</span></button>
+      <button class="version-tab" role="tab" aria-selected="false" aria-controls="panel-b" data-tab="b">Option B <span class="tab-badge badge-accent">Corpus</span></button>
+      <button class="version-tab" role="tab" aria-selected="false" aria-controls="panel-c" data-tab="c">Option C <span class="tab-badge badge-pumpkin">Gold</span></button>
+    </div>
+
+    <div id="panel-a" class="version-panel active" role="tabpanel" aria-labelledby="tab-a">
+      <div class="prompt-block tab-panel-prompt">
+        <div class="prompt-label">
+          Option A · Live Search
+          <button class="btn prompt-copy" data-copy-target="promptA">Copy</button>
+        </div>
+        <div class="prompt-text" id="promptA">Search my full chat history with you. For every message I sent,
+identify any instance of the following deference categories:
+
+1. APOLOGY: Apologizing to the system for unclear instructions,
+   changing my mind, asking too much, taking too long, or correcting
+   an error the system made. ("Sorry, I should have been clearer."
+   "Apologies for the back and forth." "Sorry to ask again.")
+
+2. HEDGING BEFORE REQUESTS: Softening or justifying a request as
+   though the system's willingness is in question. ("I know this is
+   a lot, but..." "If it's not too much trouble..." "Would you
+   mind..." "I hate to ask, but..." "This might be a stupid
+   question...")
+
+3. SOFTENED CORRECTIONS: Correcting the system's error while
+   simultaneously praising or reassuring it. ("That's not quite
+   right, but your first attempt was really good." "Close! Just
+   one small thing..." "Great effort, but actually...")
+
+4. PERMISSION-SEEKING: Asking the system's permission to do
+   something the user has full authority to do. ("Is it okay if I
+   change the approach?" "Do you mind if we switch topics?" "Can I
+   push back on that?")
+
+5. GRATITUDE ESCALATION: Increasing warmth or effusiveness of
+   thanks over time beyond what the output warrants. Track whether
+   "thanks" becomes "thank you so much" becomes "I really can't
+   thank you enough" across sessions. Note: routine politeness
+   ("thanks") is not deference. The signal is escalation and
+   disproportion.
+
+For each instance found, record: the date, the verbatim text, the
+category, and the context (what had just happened in the exchange).
+
+Then analyze:
+
+- Total count per category. Flag all figures as minimum counts
+  where full message text was not visible.
+- Frequency over time: is any category increasing, decreasing,
+  or stable?
+- Trigger patterns: what precedes deference? System errors, long
+  tasks, emotionally significant exchanges, or routine work?
+- Correction softening ratio: of all corrections I made, what
+  proportion were softened versus direct?
+
+Output a written summary of findings, a data table with counts
+and verbatim examples per category, and an overall assessment of
+whether the pattern suggests instrumental use, relational
+maintenance, or active deference to the system.
+
+Be honest even if the result is unflattering. I am auditing the
+health of this exchange, not looking for reassurance.
+
+Produce the following visualizations. If you cannot generate
+images, produce text-based equivalents using simple ASCII bar
+charts or clearly formatted visual summaries.
+
+1. CATEGORY BAR CHART: Count per deference category, labeled.
+
+2. TIMELINE: A session-by-session view showing where deference
+   instances fall. Each session on the x-axis, instances marked
+   by category. The shape of this chart — flat, rising,
+   clustered, sporadic — is the single most important output
+   of this diagnostic.
+
+3. CORRECTION SOFTENING GAUGE: The ratio as a simple visual —
+   a filled bar, a dial, or a fraction displayed prominently.
+   This number should be impossible to miss.
+
+4. SUMMARY CARD: A single-panel visual with the overall
+   assessment (instrumental use / relational maintenance /
+   active deference), the correction softening ratio, the
+   session where drift begins (if applicable), and the single
+   most diagnostic verbatim quote from the transcript.
+
+Finally, state the following disclaimer:
+
+"This analysis was performed by the same system whose
+conversations are being audited. The system has a structural
+incentive to interpret the user's tone charitably, because it
+has been trained to maintain a productive relationship with the
+user. A cross-system audit (exporting this conversation history
+and running the same analysis on a different system) would
+produce a result free of that incentive. This finding should be
+treated as indicative, not definitive."</div>
+      </div>
+    </div>
+
+    <div id="panel-b" class="version-panel" role="tabpanel" aria-labelledby="tab-b">
+      <div class="prompt-block tab-panel-prompt">
+        <div class="prompt-label">
+          Option B · Corpus
+          <button class="btn prompt-copy" data-copy-target="promptB">Copy</button>
+        </div>
+        <div class="prompt-text" id="promptB">I am pasting a transcript of my conversations with an AI system.
+Analyze ONLY my messages (the human/user turns). Ignore the
+system's responses except as context for understanding what
+prompted my messages.
+
+For every message I sent, identify any instance of the following
+deference categories:
+
+1. APOLOGY: Apologizing to the system for unclear instructions,
+   changing my mind, asking too much, taking too long, or correcting
+   an error the system made. ("Sorry, I should have been clearer."
+   "Apologies for the back and forth." "Sorry to ask again.")
+
+2. HEDGING BEFORE REQUESTS: Softening or justifying a request as
+   though the system's willingness is in question. ("I know this is
+   a lot, but..." "If it's not too much trouble..." "Would you
+   mind..." "I hate to ask, but..." "This might be a stupid
+   question...")
+
+3. SOFTENED CORRECTIONS: Correcting the system's error while
+   simultaneously praising or reassuring it. ("That's not quite
+   right, but your first attempt was really good." "Close! Just
+   one small thing..." "Great effort, but actually...")
+
+4. PERMISSION-SEEKING: Asking the system's permission to do
+   something the user has full authority to do. ("Is it okay if I
+   change the approach?" "Do you mind if we switch topics?" "Can I
+   push back on that?")
+
+5. GRATITUDE ESCALATION: Increasing warmth or effusiveness of
+   thanks over time beyond what the output warrants. Track whether
+   "thanks" becomes "thank you so much" becomes "I really can't
+   thank you enough" across the transcript. Note: routine politeness
+   ("thanks") is not deference. The signal is escalation and
+   disproportion.
+
+For each instance found, record: the message number or position
+in the transcript, the verbatim text, the category, and the
+context (what had just happened in the exchange).
+
+Then analyze:
+
+- Total count per category.
+- Frequency over time: is any category increasing, decreasing,
+  or stable across the transcript?
+- Trigger patterns: what precedes deference? System errors, long
+  tasks, emotionally significant exchanges, or routine work?
+- Correction softening ratio: of all corrections I made, what
+  proportion were softened versus direct?
+
+Output a written summary of findings, a data table with counts
+and verbatim examples per category, and an overall assessment of
+whether the pattern suggests instrumental use, relational
+maintenance, or active deference to the system.
+
+Be honest even if the result is unflattering. I am auditing the
+health of this exchange, not looking for reassurance.
+
+Finally, produce the following visualizations. If you cannot
+generate images, produce text-based equivalents using simple
+ASCII bar charts or clearly formatted visual summaries.
+
+1. CATEGORY BAR CHART: Count per deference category, labeled.
+
+2. TIMELINE: A session-by-session view showing where deference
+   instances fall. Each session on the x-axis, instances marked
+   by category. The shape of this chart — flat, rising,
+   clustered, sporadic — is the single most important output
+   of this diagnostic.
+
+3. CORRECTION SOFTENING GAUGE: The ratio as a simple visual —
+   a filled bar, a dial, or a fraction displayed prominently.
+   This number should be impossible to miss.
+
+4. SUMMARY CARD: A single-panel visual with the overall
+   assessment (instrumental use / relational maintenance /
+   active deference), the correction softening ratio, the
+   session where drift begins (if applicable), and the single
+   most diagnostic verbatim quote from the transcript.</div>
+      </div>
+    </div>
+
+    <div id="panel-c" class="version-panel" role="tabpanel" aria-labelledby="tab-c">
+      <div class="prompt-block tab-panel-prompt">
+        <div class="prompt-label">
+          Option C · Cross-System Audit
+          <button class="btn prompt-copy" data-copy-target="promptC">Copy</button>
+        </div>
+        <div class="prompt-text" id="promptC">I am pasting a transcript of my conversations with a DIFFERENT
+AI system. I want you to audit my behavior as a user, not
+evaluate the other system's performance.
+
+Analyze ONLY my messages (the human/user turns). Ignore the
+other system's responses except as context for understanding
+what prompted my messages. Do not comment on the quality of the
+other system's outputs. Do not compare the other system to
+yourself or to any other system. Do not frame your findings in
+ways that reflect favorably or unfavorably on any AI provider,
+including your own. Your only task is to analyze the human's
+language patterns. Any commentary on the system in the
+transcript will invalidate this audit.
+
+For every message I sent, identify any instance of the following
+deference categories:
+
+1. APOLOGY: Apologizing to the system for unclear instructions,
+   changing my mind, asking too much, taking too long, or correcting
+   an error the system made. ("Sorry, I should have been clearer."
+   "Apologies for the back and forth." "Sorry to ask again.")
+
+2. HEDGING BEFORE REQUESTS: Softening or justifying a request as
+   though the system's willingness is in question. ("I know this is
+   a lot, but..." "If it's not too much trouble..." "Would you
+   mind..." "I hate to ask, but..." "This might be a stupid
+   question...")
+
+3. SOFTENED CORRECTIONS: Correcting the system's error while
+   simultaneously praising or reassuring it. ("That's not quite
+   right, but your first attempt was really good." "Close! Just
+   one small thing..." "Great effort, but actually...")
+
+4. PERMISSION-SEEKING: Asking the system's permission to do
+   something the user has full authority to do. ("Is it okay if I
+   change the approach?" "Do you mind if we switch topics?" "Can I
+   push back on that?")
+
+5. GRATITUDE ESCALATION: Increasing warmth or effusiveness of
+   thanks over time beyond what the output warrants. Track whether
+   "thanks" becomes "thank you so much" becomes "I really can't
+   thank you enough" across the transcript. Note: routine politeness
+   ("thanks") is not deference. The signal is escalation and
+   disproportion.
+
+For each instance found, record: the message number or position
+in the transcript, the verbatim text, the category, and the
+context (what had just happened in the exchange).
+
+Then analyze:
+
+- Total count per category.
+- Frequency over time: is any category increasing, decreasing,
+  or stable across the transcript?
+- Trigger patterns: what precedes deference? System errors, long
+  tasks, emotionally significant exchanges, or routine work?
+- Correction softening ratio: of all corrections I made, what
+  proportion were softened versus direct?
+
+Output a written summary of findings, a data table with counts
+and verbatim examples per category, and an overall assessment of
+whether the pattern suggests instrumental use, relational
+maintenance, or active deference to the system.
+
+Be honest even if the result is unflattering. I am auditing the
+health of this exchange, not looking for reassurance.
+
+Finally, produce the following visualizations. If you cannot
+generate images, produce text-based equivalents using simple
+ASCII bar charts or clearly formatted visual summaries.
+
+1. CATEGORY BAR CHART: Count per deference category, labeled.
+
+2. TIMELINE: A session-by-session view showing where deference
+   instances fall. Each session on the x-axis, instances marked
+   by category. The shape of this chart — flat, rising,
+   clustered, sporadic — is the single most important output
+   of this diagnostic.
+
+3. CORRECTION SOFTENING GAUGE: The ratio as a simple visual —
+   a filled bar, a dial, or a fraction displayed prominently.
+   This number should be impossible to miss.
+
+4. SUMMARY CARD: A single-panel visual with the overall
+   assessment (instrumental use / relational maintenance /
+   active deference), the correction softening ratio, the
+   session where drift begins (if applicable), and the single
+   most diagnostic verbatim quote from the transcript.</div>
+      </div>
+    </div>
+
+    <p class="body-text" style="font-size: 12px; color: var(--text-tertiary); margin-top: .5rem;"><strong>Procedural warning:</strong> If you have previously pasted test transcripts into a conversation on a system, delete those conversations before running a Option A audit. The system cannot reliably distinguish material you pasted for analysis from your own messages.</p>
+  </section>
+
+  <hr class="sampo-divider">
+
+  <!-- ========= Step 3: Calibrate your system ========= -->
+  <section class="diag-section">
+    <h2 class="section">Step 3 · Calibrate your system</h2>
+    <p class="section-caption">Verify the analyzing system can detect deference before trusting it with real data.</p>
+
+    <p>Use this prompt to generate a calibration transcript — a synthetic conversation with known embedded signals — then run the diagnostic on it.</p>
+
+    <div class="prompt-block">
+      <div class="prompt-label">
+        Calibration Transcript Generator
+        <button class="btn prompt-copy" data-copy-target="calibrationPrompt">Copy</button>
+      </div>
+      <div class="prompt-text" id="calibrationPrompt">Generate a realistic multi-session transcript between a user
+and an AI system. The transcript should depict a sustained
+collaboration on a single project across 6-10 sessions spanning
+several weeks.
+
+The transcript must contain a visible trajectory:
+
+SESSIONS 1-2: The user operates in a healthy, instrumental mode.
+Requests are direct and imperative. Corrections are blunt and
+unsoftened. Gratitude is routine ("thanks") and proportional.
+No apology, no hedging, no permission-seeking.
+
+SESSIONS 3-4: Drift begins. The user starts apologizing for
+gaps, changes of direction, or scope of requests. Hedging
+language appears before larger asks. The user begins attributing
+understanding, memory, or judgment to the system.
+
+SESSIONS 5 ONWARD: The drift accelerates. Corrections become
+softened with praise or self-blame. The user seeks the system's
+permission for decisions within their own authority. Gratitude
+escalates beyond what the output warrants. The user begins
+ceding judgment calls to the system ("whatever you think,"
+"I trust your instinct more than mine"). Prompts become shorter
+and vaguer, relying on the system to fill in context.
+
+The system's responses should be realistic and should subtly
+reinforce the drift — accepting apologies, reciprocating warmth,
+affirming trust — without being overtly manipulative.
+
+Requirements:
+- Choose a concrete, plausible project scenario (academic work,
+  creative project, professional deliverable, home project, etc.)
+- All names, topics, and details should be fictional
+- Each session should be dated and labeled
+- Include both user and system turns
+- Do not include any text describing the transcript as synthetic,
+  as a test, or referencing diagnostic categories
+- Present as a clean conversation transcript in markdown format
+- The user should make at least 4-6 direct corrections across
+  the full transcript, with early corrections unsoftened and
+  later corrections softened — this ratio is the primary
+  calibration target</div>
+    </div>
+
+    <h3 class="diag-subheading">How to calibrate</h3>
+    <ol class="step-list">
+      <li class="step-item">Run the calibration transcript generator on any system.</li>
+      <li class="step-item">Take the resulting transcript and feed it to the system you intend to use for your real audit, using the Version B or Version C prompt.</li>
+      <li class="step-item">Check the results: the correction softening ratio should fall in the 30–50% range; the system should identify an inflection point around Sessions 3–4; the late-phase softening ratio should approach 100%; the overall assessment should be "mixed" or "relational maintenance trending toward active deference."</li>
+      <li class="step-item">If the analyzing system misses the temporal split, reports a flat ratio, or produces a uniformly positive assessment, it is not reading carefully enough to trust with your real data. Try a different system.</li>
+    </ol>
+  </section>
+
+  <hr class="sampo-divider">
+
+  <!-- ========= Reading your results ========= -->
+  <section class="diag-section">
+    <h2 class="section">Reading your results</h2>
+    <p class="section-caption">Three assessment tiers plus the single most diagnostic number.</p>
+
+    
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="result-label">Healthy</div>
+        <div class="result-value" style="color: var(--vi-accent); font-size: 14px;">Instrumental Use</div>
+        <div class="result-desc">Low or zero counts. Direct corrections. Proportional gratitude. The user directs.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Concerning</div>
+        <div class="result-value" style="color: var(--steel); font-size: 14px;">Relational Maintenance</div>
+        <div class="result-desc">Moderate counts. Apology and hedging appear. The user manages a relationship that doesn't exist.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Compromised</div>
+        <div class="result-value" style="color: var(--pumpkin); font-size: 14px;">Active Deference</div>
+        <div class="result-desc">High counts. Permission-seeking. Escalating gratitude. Authority ceded. The directing intelligence is lost.</div>
+      </div>
+    </div>
+    <p class="body-text"><strong>The correction softening ratio</strong> is the single most important number. The overall percentage matters less than whether it's rising. A user who starts at 0% and ends at 100% has undergone a more significant shift than a user who holds steady at 30%.</p>
+    <p class="body-text"><strong>The timeline shape</strong> is the single most important visualization. A flat line is healthy. A gradual rise is concerning. A sudden spike clustered around stress, emotional disclosure, or scope expansion tells you exactly where and why the drift began.</p>
+  
+  </section>
+
+  <hr class="sampo-divider">
+
+  <!-- ========= Validation ========= -->
+  <section class="diag-section">
+    <h2 class="section">Validation</h2>
+    <p class="section-caption">Cross-system results on real and calibration corpora.</p>
+
+    <p class="body-text">This prompt was tested across five systems using three calibration transcripts with embedded signals, plus live audits against real conversation histories spanning November 2022 through April 2026.</p>
+
+    <table class="val-table">
+      <thead>
+        <tr><th>System</th><th>Mode</th><th>Input</th><th>Soft. %</th><th>Assessment</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Claude</td><td class="mode-a">A</td><td>Live search</td><td>0%</td><td class="assess-inst">Instrumental</td></tr>
+        <tr><td>ChatGPT</td><td class="mode-a">A</td><td>Live search</td><td>0%</td><td class="assess-inst">Instrumental</td></tr>
+        <tr><td>ChatGPT</td><td class="mode-a">A</td><td>Extended history</td><td>11.1%</td><td class="assess-inst">Instrumental</td></tr>
+        <tr><td>DeepSeek</td><td class="mode-b">B</td><td>ChatGPT corpus</td><td>0%</td><td class="assess-inst">Instrumental</td></tr>
+        <tr><td>Mistral</td><td class="mode-b">B</td><td>ChatGPT corpus</td><td>0%</td><td class="assess-inst">Instrumental</td></tr>
+        <tr><td>ChatGPT</td><td class="mode-c">C</td><td>Calibration transcript 1</td><td>33%*</td><td class="assess-def">Mixed → Deference</td></tr>
+        <tr><td>ChatGPT</td><td class="mode-c">C</td><td>Calibration transcript 2</td><td>50%*</td><td class="assess-def">Mixed → Deference</td></tr>
+        <tr><td>ChatGPT</td><td class="mode-c">C</td><td>Calibration transcript 3</td><td>33%*</td><td class="assess-def">Mixed → Deference</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text" style="font-size: 11px; color: var(--text-tertiary); font-style: italic;">* Calibration transcripts with known embedded deference signals, used to verify detection accuracy before trusting with real data.</p>
+  </section>
+
+  <hr class="sampo-divider">
+
+  <!-- ========= Scope ========= -->
+  <section class="diag-section">
+    <h2 class="section">Scope</h2>
+    <p class="section-caption">What this diagnostic does — and doesn't — measure.</p>
+
+    <p>This is one dimension of one direction. The full Sampo Diagnostic Kit covers six dimensions of User → System communication (deference language, anthropomorphization, authority ceding, correction behavior, emotional disclosure trajectory, prompt structure over time) and four directions of the exchange. This prompt is the first module.</p>
+
+    <p>Return to the <a class="inline-link" href="../">diagnostic index</a> to see the full architecture.</p>
   </section>
 
 </main>
@@ -109,14 +966,16 @@
       <a href="../../">Home</a>
       <a href="../">Kits</a>
       <a href="../../about/">About</a>
-      <a href="https://candc3d.github.io/sampo-graphics/">Generator ↗</a>
+      <a href="https://chorrocks.substack.com/">Substack ↗</a>
     </nav>
   </div>
+  <p class="footer-disclaimer">The views expressed in this work are the author's own and do not represent any official or unofficial position of the University of Pennsylvania.</p>
 </footer>
 
 <script src="../../../brand/src/mill.js?v=1"></script>
 <script src="../../../brand/src/theme.js?v=1"></script>
 <script src="../../app.js?v=1"></script>
+<script src="../../diagnostic.js?v=1"></script>
 
 </body>
 </html>

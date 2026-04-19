@@ -1,0 +1,450 @@
+/* ====================================================================
+ * @sampo/site — diagnostic.css
+ * Per-diagnostic page layout. Loaded only on kits/[slug]/ pages.
+ * Everything here assumes tokens.css, themes.css, components.css,
+ * site.css are already in the cascade.
+ * ==================================================================== */
+
+.diagnostic {
+  max-width: 780px;
+}
+
+/* ── Header block ─────────────────────────────────────────────────── */
+
+.diag-header {
+  padding: var(--sp-12) 0 var(--sp-8);
+}
+
+.diag-slug {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-small);
+  color: var(--steel);
+  font-weight: 500;
+  margin: 0 0 var(--sp-3);
+  letter-spacing: 0.04em;
+}
+
+.diag-kit-label {
+  font-family: var(--ff-display);
+  font-style: italic;
+  color: var(--muted);
+  font-size: var(--fs-body);
+  margin: 0 0 var(--sp-4);
+}
+
+.diag-header h1 {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  margin: 0 0 var(--sp-6);
+  max-width: 18ch;
+}
+
+.diag-header .lede {
+  margin-top: 0;
+}
+
+/* ── Section scaffolding ──────────────────────────────────────────── */
+
+.diag-section {
+  padding: var(--sp-10) 0;
+}
+
+.diag-section > p,
+.diag-section .diag-body p {
+  max-width: 60ch;
+  margin: 0 0 var(--sp-4);
+  line-height: var(--lh-body);
+}
+
+.diag-section > p.section-caption {
+  max-width: none;
+  margin-bottom: var(--sp-6);
+}
+
+.diag-subheading {
+  font-family: var(--ff-body);
+  font-weight: 600;
+  font-size: var(--fs-h3);
+  margin: var(--sp-8) 0 var(--sp-3);
+  letter-spacing: -0.005em;
+}
+
+.subtle {
+  font-size: var(--fs-small);
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+/* ── Category cards (native <details>) ────────────────────────────── */
+
+.cat-grid {
+  display: grid;
+  gap: var(--sp-2);
+  margin: var(--sp-6) 0;
+}
+
+.cat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: border-color .15s, border-style .15s, background .15s;
+}
+
+.cat-card[open] {
+  border-color: var(--olive);
+  background: var(--surface-2);
+}
+
+.cat-card:hover {
+  border-color: var(--border-strong);
+}
+
+.cat-card summary {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-5);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.cat-card summary::-webkit-details-marker { display: none; }
+.cat-card summary::marker { content: ""; }
+
+.cat-num {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-small);
+  color: var(--olive);
+  font-weight: 500;
+  flex: 0 0 1.5rem;
+}
+
+.cat-name {
+  font-weight: 600;
+  flex: 1;
+  color: var(--ink);
+}
+
+.cat-chevron {
+  color: var(--muted);
+  transition: transform .2s ease, color .2s ease;
+  font-size: var(--fs-small);
+}
+
+.cat-card[open] .cat-chevron {
+  transform: rotate(90deg);
+  color: var(--olive);
+}
+
+.cat-detail {
+  padding: 0 var(--sp-5) var(--sp-5);
+  border-top: 1px dashed var(--border);
+  padding-top: var(--sp-4);
+}
+
+.cat-detail p {
+  margin: 0 0 var(--sp-3);
+  line-height: var(--lh-body);
+  color: var(--ink);
+}
+
+.cat-detail p:last-child { margin-bottom: 0; }
+
+.cat-examples {
+  font-family: var(--ff-display);
+  font-style: italic;
+  color: var(--muted);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+/* ── Option grid (Option A/B/C cards) ─────────────────────────────── */
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+  margin: var(--sp-6) 0;
+}
+
+@media (max-width: 640px) {
+  .option-grid { grid-template-columns: 1fr; }
+}
+
+.result-card {
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-4);
+  background: var(--surface);
+}
+
+.result-card .result-label {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--sp-2);
+}
+
+.result-card .result-value {
+  font-family: var(--ff-body);
+  font-weight: 700;
+  font-size: var(--fs-h3);
+  margin-bottom: var(--sp-2);
+}
+
+.result-card .result-desc {
+  font-size: var(--fs-small);
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Reading-results variant — three assessment tiers, different accent per
+   level. The source markup already sets border-color inline. */
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+  margin: var(--sp-6) 0;
+}
+
+@media (max-width: 640px) {
+  .result-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Thesis line ──────────────────────────────────────────────────── */
+
+.thesis-line {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: var(--fs-h3);
+  color: var(--ink);
+  line-height: 1.45;
+  padding: var(--sp-4) var(--sp-6);
+  border-left: 2px solid var(--olive);
+  margin: var(--sp-6) 0;
+  max-width: 60ch;
+}
+
+/* ── Figure block (Three Audit Modes SVG) ─────────────────────────── */
+
+.figure-block {
+  margin: var(--sp-8) 0;
+  display: flex;
+  justify-content: center;
+}
+
+.figure-block svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: var(--g-bg);
+  color-scheme: light;  /* force light treatment — diagram is cream-native */
+}
+
+/* ── Prompt blocks ────────────────────────────────────────────────── */
+
+.prompt-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-4) var(--sp-5);
+  margin: var(--sp-4) 0;
+}
+
+.prompt-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-small);
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px dashed var(--border);
+  margin-bottom: var(--sp-4);
+}
+
+.prompt-text {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-mono);
+  color: var(--ink);
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.prompt-copy {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  padding: 4px 10px;
+}
+
+.prompt-copy.copied {
+  background: var(--olive);
+  color: var(--bg);
+  border-color: var(--olive);
+}
+
+/* ── Version tabs ─────────────────────────────────────────────────── */
+
+.version-tabs {
+  display: flex;
+  gap: var(--sp-1);
+  border-bottom: 1px dashed var(--border);
+  margin: var(--sp-6) 0 0;
+  flex-wrap: wrap;
+}
+
+.version-tab {
+  background: transparent;
+  border: none;
+  font: inherit;
+  font-size: var(--fs-small);
+  color: var(--muted);
+  padding: var(--sp-3) var(--sp-4);
+  cursor: pointer;
+  position: relative;
+  transition: color .15s;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.version-tab::after {
+  content: "";
+  position: absolute;
+  left: var(--sp-2);
+  right: var(--sp-2);
+  bottom: -1px;
+  height: 2px;
+  background: transparent;
+  transition: background .15s;
+}
+
+.version-tab:hover { color: var(--ink); }
+
+.version-tab.active {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.version-tab.active::after { background: var(--olive); }
+
+.tab-badge {
+  font-family: var(--ff-mono);
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: var(--r-sm);
+  letter-spacing: 0.04em;
+}
+
+.badge-steel   { background: rgba(123, 143, 161, 0.15); color: var(--steel); }
+.badge-accent  { background: rgba(101, 163, 13, 0.15);  color: var(--olive); }
+.badge-pumpkin { background: rgba(255, 122, 5, 0.15);   color: var(--pumpkin); }
+
+.version-panel { display: none; }
+.version-panel.active { display: block; }
+
+.tab-panel-prompt {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: 0;
+}
+
+/* ── Step list (calibration how-to) ───────────────────────────────── */
+
+.step-list {
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+  margin: var(--sp-4) 0;
+  display: grid;
+  gap: var(--sp-3);
+  max-width: 60ch;
+}
+
+.step-list > li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 2.5rem;
+  line-height: var(--lh-body);
+}
+
+.step-list > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--olive);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-item { /* match upstream class name for compatibility */ }
+
+/* ── Validation table ─────────────────────────────────────────────── */
+
+.val-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--sp-4) 0 var(--sp-3);
+  font-size: var(--fs-small);
+}
+
+.val-table th,
+.val-table td {
+  text-align: left;
+  padding: var(--sp-2) var(--sp-3);
+  border-bottom: 1px dashed var(--border);
+}
+
+.val-table th {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  border-bottom-style: solid;
+  border-color: var(--border-strong);
+}
+
+.val-table .mode-a { color: var(--steel); font-weight: 600; font-family: var(--ff-mono); }
+.val-table .mode-b { color: var(--olive); font-weight: 600; font-family: var(--ff-mono); }
+.val-table .mode-c { color: var(--pumpkin); font-weight: 600; font-family: var(--ff-mono); }
+.val-table .assess-inst { color: var(--steel); }
+.val-table .assess-def  { color: var(--pumpkin); }
+
+/* ── Inline link treatment ────────────────────────────────────────── */
+
+.inline-link {
+  color: var(--olive);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color .15s;
+}
+
+.inline-link:hover { color: var(--ink); }
+
+/* ── Legacy class aliases from the source page ────────────────────── */
+
+.body-text { max-width: 60ch; margin: 0 0 var(--sp-4); line-height: var(--lh-body); }

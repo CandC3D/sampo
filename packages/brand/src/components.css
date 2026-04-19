@@ -102,10 +102,10 @@
    Phase 5; at rest the element is a static fixture. */
 .sampo-watermark {
   position: absolute;
-  right: -40px;
-  top: -30px;
-  width: 280px;
-  height: 280px;
+  right: -80px;
+  top: 24px;
+  width: 260px;
+  height: 260px;
   opacity: 0.08;
   pointer-events: none;
   z-index: 0;

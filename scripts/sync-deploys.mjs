@@ -60,7 +60,7 @@ const PACKAGES = {
   site: {
     src: path.join(ROOT, 'packages', 'site'),
     deploy: path.join(SIBLINGS, 'sampo-site'),
-    include: ['index.html', 'site.css', 'app.js', 'kits', 'about', '404.html'],
+    include: ['index.html', 'site.css', 'app.js', 'diagnostic.css', 'diagnostic.js', 'kits', 'about', '404.html'],
     baseline: ['google5315ac0eabfa5ec3.html', 'sitemap.xml'],
     rewrite: rewriteBrandPathsHTTPS,
   },
