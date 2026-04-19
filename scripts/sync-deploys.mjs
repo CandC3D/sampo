@@ -59,9 +59,28 @@ const PACKAGES = {
   },
   site: {
     src: path.join(ROOT, 'packages', 'site'),
-    deploy: path.join(SIBLINGS, 'sampo-site'),
-    include: ['index.html', 'site.css', 'app.js', 'diagnostic.css', 'diagnostic.js', 'kits', 'about', '404.html'],
-    baseline: ['google5315ac0eabfa5ec3.html', 'sitemap.xml'],
+    // Deployed to candc3d/sampo-diagnostic — the canonical public URL.
+    // (Old candc3d/sampo-site was an internal staging mirror.)
+    deploy: path.join(SIBLINGS, 'sampo-diagnostic'),
+    include: [
+      'index.html', 'site.css', 'app.js',
+      'diagnostic.css', 'diagnostic.js',
+      'kits', 'about', '404.html', 'sitemap.xml',
+      'favicon.svg', 'favicon-32x32.png', 'apple-touch-icon.png',
+    ],
+    // Preserved from the deploy repo (not tracked in monorepo):
+    //   - Google Search Console verification file
+    //   - repo-only docs + tooling (CLAUDE.md, scripts/, .gitignore)
+    //   - generic landing OG/social graphics
+    baseline: [
+      'google5315ac0eabfa5ec3.html',
+      'CLAUDE.md',
+      'scripts',
+      '.claude',
+      '.gitignore',
+      'og_image.png', 'og_square.png',
+      'github_social_preview.png', 'substack_header.png',
+    ],
     rewrite: rewriteBrandPathsHTTPS,
   },
 };
@@ -126,11 +145,15 @@ function sync(name) {
   console.log(`src:    ${cfg.src}`);
   console.log(`deploy: ${cfg.deploy}`);
 
-  // Snapshot baseline files that live only in the deploy repo.
+  // Snapshot baseline files that live only in the deploy repo. Only
+  // plain files are snapshotted — directory baselines (e.g. scripts/)
+  // survive via the wipe skip below, no restore needed.
   const baselineSnapshot = {};
   for (const f of cfg.baseline) {
     const p = path.join(cfg.deploy, f);
-    if (fs.existsSync(p)) baselineSnapshot[f] = fs.readFileSync(p);
+    if (fs.existsSync(p) && fs.statSync(p).isFile()) {
+      baselineSnapshot[f] = fs.readFileSync(p);
+    }
   }
 
   // Wipe everything in the deploy repo except .git and baseline files.
