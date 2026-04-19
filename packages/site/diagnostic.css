@@ -172,7 +172,7 @@
   display: flex;
   align-items: baseline;
   gap: var(--sp-5);
-  padding: var(--sp-4) var(--sp-6);
+  padding: var(--sp-4) var(--sp-8);
   cursor: pointer;
   list-style: none;
   user-select: none;
@@ -224,9 +224,8 @@
 }
 
 .cat-detail {
-  padding: 0 var(--sp-5) var(--sp-5);
+  padding: var(--sp-4) var(--sp-8) var(--sp-5);
   border-top: 1px dashed var(--border);
-  padding-top: var(--sp-4);
 }
 
 .cat-detail p {
