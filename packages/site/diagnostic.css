@@ -612,6 +612,18 @@
   color: var(--ink);
 }
 
+/* Below 900px (no left rail anyway), trade vertical stack for a
+   horizontal wrap. Saves vertical real estate on phones where
+   every tap target gets a line of its own. */
+@media (max-width: 900px) {
+  .kit-nav-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--sp-3) var(--sp-4);
+  }
+  .kit-nav-list li.current { width: auto; }
+}
+
 /* ── Legacy class aliases from the source page ────────────────────── */
 
 .body-text { max-width: 60ch; margin: 0 0 var(--sp-4); line-height: var(--lh-body); }
