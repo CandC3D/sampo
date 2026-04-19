@@ -10,9 +10,126 @@
  * demos at packages/brand/demos/.
  * ==================================================================== */
 
+/* ── Lockup — brand mark + stacked wordmark ───────────────────────── */
+
+/* Canonical brand header. Consumers render the mill SVG into the
+   `.sampo-lockup-mark` span via SampoMill.iconMark(); the wordmark
+   is plain text in the markup.
+
+     <a class="sampo-lockup" href="/">
+       <span class="sampo-lockup-mark" id="lockupMark"></span>
+       <span class="sampo-lockup-type">
+         <span class="sampo-lockup-wordmark">SAMPO</span>
+         <span class="sampo-lockup-sub">DIAGNOSTIC KIT</span>
+       </span>
+     </a>
+*/
+
+.sampo-lockup,
+.lockup /* legacy alias */ {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.sampo-lockup-mark,
+.lockup-mark {
+  display: block;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+}
+
+.sampo-lockup-mark svg,
+.lockup-mark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sampo-lockup-type,
+.lockup-type {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 3px;
+}
+
+.sampo-lockup-wordmark,
+.lockup-wordmark {
+  font-family: var(--ff-body);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.sampo-lockup-sub,
+.lockup-sub {
+  font-family: var(--ff-body);
+  font-weight: 500;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+}
+
+/* ── Sampo divider — standalone dashed rule ───────────────────────── */
+
+/* Horizontal rule that carries the mill's dashed-ring vocabulary.
+   Use between sections, or as a sibling inside a full-width band. */
+.sampo-divider {
+  border: 0;
+  border-top: 1px dashed var(--border-strong);
+  margin: var(--sp-6) 0;
+}
+
+/* ── Sampo watermark — big faint mill for section backgrounds ─────── */
+
+/* Decorative mill that sits behind content. Parent needs position:
+   relative; sensible defaults for common placements can be overridden
+   with data-* or inline style.
+
+     <section style="position: relative">
+       <div class="sampo-watermark" aria-hidden="true"></div>
+       …content…
+     </section>
+
+   The SVG is injected via SampoMill.iconMark(size, { transparent: true,
+   showOuter: true, theme }). Motion (slow rotation on scroll) comes in
+   Phase 5; at rest the element is a static fixture. */
+.sampo-watermark {
+  position: absolute;
+  right: -40px;
+  top: -30px;
+  width: 280px;
+  height: 280px;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+  transform-origin: center center;
+  transition: opacity .25s ease, transform .6s ease;
+}
+
+.sampo-watermark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Slightly more visible in dark mode — the cream ink disappears
+   against the dark background at 0.08. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .sampo-watermark { opacity: 0.12; }
+}
+:root[data-theme="dark"] .sampo-watermark { opacity: 0.12; }
+
 /* ── Theme toggle ─────────────────────────────────────────────────── */
 
-.theme-toggle {
+.sampo-theme-toggle,
+.theme-toggle /* legacy alias */ {
   background: transparent;
   border: 1px solid var(--border);
   border-radius: 50%;
@@ -27,6 +144,7 @@
   margin-left: 4px;
 }
 
+.sampo-theme-toggle:hover,
 .theme-toggle:hover {
   border-color: var(--border-strong);
   border-style: dashed;
@@ -35,6 +153,7 @@
 /* Moon-glyph: a circle with an offset inner shadow creating the
    crescent. Flips correctly between themes via currentColor-adjacent
    tokens. */
+.sampo-theme-toggle-glyph,
 .theme-toggle-glyph {
   display: block;
   width: 16px;
@@ -215,6 +334,53 @@ button.btn.primary:hover {
   border-style: dashed;
 }
 
+/* Ghost — transparent bg, subtle border. Used for secondary actions
+   in prose-heavy contexts (the site's section CTAs). */
+button.btn.btn-ghost,
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+button.btn.btn-ghost:hover,
+.btn-ghost:hover {
+  border-color: var(--border-strong);
+  background: var(--surface);
+}
+
+/* Dashed-hover — solid border at rest, dashed on hover. Utility
+   class for any interactive surface where we want the mill's
+   dashed-ring vocabulary to leak in on interaction. Stack it with
+   any other button modifier. */
+.btn-dashed-hover {
+  transition: border-style .15s, border-color .15s;
+}
+
+.btn-dashed-hover:hover {
+  border-style: dashed;
+  border-color: var(--border-strong);
+}
+
+/* CTA — the one place the pumpkin accent fills an interactive
+   element. Reserved for primary site actions ("Try the kit",
+   "Open the generator"). The generator's inline primary buttons
+   use var(--ink) instead; the site uses pumpkin. */
+button.btn.btn-cta,
+.btn-cta {
+  background: var(--pumpkin);
+  color: #fff;
+  border: 1px solid var(--pumpkin);
+  font-weight: 600;
+}
+
+button.btn.btn-cta:hover,
+.btn-cta:hover {
+  filter: brightness(1.08);
+  border-style: dashed;
+  border-color: var(--pumpkin);
+}
+
 /* Buttons inside a preview-card live on cream — force graphic-palette
    colors so they read consistently in both light and dark mode. */
 .preview-card button.btn {
@@ -240,7 +406,8 @@ button.btn.primary:hover {
 
 /* ── Toast ────────────────────────────────────────────────────────── */
 
-.toast {
+.sampo-toast,
+.toast /* legacy alias */ {
   position: fixed;
   bottom: 24px;
   right: 24px;
@@ -257,6 +424,7 @@ button.btn.primary:hover {
   z-index: 100;
 }
 
+.sampo-toast.show,
 .toast.show {
   opacity: 1;
   transform: translateY(0);

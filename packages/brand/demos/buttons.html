@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>@sampo/brand · Buttons</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="stylesheet" href="../src/fonts.css">
+<link rel="stylesheet" href="../src/tokens.css">
+<link rel="stylesheet" href="../src/themes.css">
+<link rel="stylesheet" href="../src/components.css">
+<link rel="stylesheet" href="../src/motion.css">
+<link rel="stylesheet" href="_demo.css">
+
+</head>
+<body>
+
+<header class="demo-header">
+  <a class="back" href="index.html">← demos</a>
+  <a class="sampo-lockup" href="index.html" style="margin-left: var(--sp-3)">
+    <span class="sampo-lockup-mark" id="lockupMark"></span>
+    <span class="sampo-lockup-type">
+      <span class="sampo-lockup-wordmark">SAMPO</span>
+      <span class="sampo-lockup-sub">BRAND DEMOS</span>
+    </span>
+  </a>
+  <button class="sampo-theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="sampo-theme-toggle-glyph"></span>
+  </button>
+</header>
+
+<h1>Buttons<code>.btn / .btn-*</code></h1>
+<p class="lede">Base button plus variant modifiers. Stack <code>.btn-dashed-hover</code> on top of any variant for the mill's dashed-ring hover vocabulary.</p>
+
+
+<section class="demo-specimen">
+  <div style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
+    <button class="btn">Default</button>
+    <button class="btn primary">Primary</button>
+    <button class="btn btn-ghost">Ghost</button>
+    <button class="btn btn-cta">CTA — Pumpkin</button>
+    <button class="btn btn-dashed-hover">Dashed on hover</button>
+  </div>
+</section>
+
+<pre class="demo-source">&lt;button class="btn"&gt;Default&lt;/button&gt;
+&lt;button class="btn primary"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-ghost"&gt;Ghost&lt;/button&gt;
+&lt;button class="btn btn-cta"&gt;CTA&lt;/button&gt;
+&lt;button class="btn btn-dashed-hover"&gt;Dashed on hover&lt;/button&gt;</pre>
+
+<p style="color: var(--muted); margin-top: var(--sp-6); font-size: var(--fs-small);">
+  The <code>.btn-cta</code> pumpkin fill is reserved for the site's one-per-page primary action. Ghost and dashed-hover stack freely; use them when the interaction shouldn't draw the eye.
+</p>
+
+
+<script src="../src/mill.js"></script>
+<script src="../src/theme.js"></script>
+<script>
+  function applyBrand() {
+    const theme = window.SampoTheme.getTheme();
+    const el = document.getElementById('lockupMark');
+    if (el) el.innerHTML = window.SampoMill.iconMark(44, { transparent: true, showOuter: false, theme });
+    
+  }
+  window.SampoTheme.initThemeToggle({ onChange: applyBrand });
+</script>
+
+</body>
+</html>

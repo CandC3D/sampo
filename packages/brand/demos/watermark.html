@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>@sampo/brand · Watermark</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="stylesheet" href="../src/fonts.css">
+<link rel="stylesheet" href="../src/tokens.css">
+<link rel="stylesheet" href="../src/themes.css">
+<link rel="stylesheet" href="../src/components.css">
+<link rel="stylesheet" href="../src/motion.css">
+<link rel="stylesheet" href="_demo.css">
+
+</head>
+<body>
+
+<header class="demo-header">
+  <a class="back" href="index.html">← demos</a>
+  <a class="sampo-lockup" href="index.html" style="margin-left: var(--sp-3)">
+    <span class="sampo-lockup-mark" id="lockupMark"></span>
+    <span class="sampo-lockup-type">
+      <span class="sampo-lockup-wordmark">SAMPO</span>
+      <span class="sampo-lockup-sub">BRAND DEMOS</span>
+    </span>
+  </a>
+  <button class="sampo-theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="sampo-theme-toggle-glyph"></span>
+  </button>
+</header>
+
+<h1>Watermark<code>.sampo-watermark</code></h1>
+<p class="lede">Big faint mill for section backgrounds. 0.08 opacity in light mode, 0.12 in dark. Pair with a positioned parent. Slow scroll-linked rotation arrives in Phase 5.</p>
+
+
+<section class="demo-specimen" style="min-height: 260px; position: relative; overflow: hidden;">
+  <div class="sampo-watermark" id="watermarkDemo" aria-hidden="true"></div>
+  <div style="position: relative; z-index: 1; max-width: 420px;">
+    <h2 style="margin:0 0 var(--sp-3); font-family: var(--ff-display); font-weight:400; font-size: var(--fs-h2);">A section with a watermark</h2>
+    <p style="margin:0; color: var(--muted);">
+      The watermark sits on <code>z-index: 0</code> and <code>position: absolute</code>;
+      content reads over it via a positioned stacking context.
+    </p>
+  </div>
+</section>
+
+<pre class="demo-source">&lt;section style="position: relative; overflow: hidden;"&gt;
+  &lt;div class="sampo-watermark" aria-hidden="true"&gt;&lt;/div&gt;
+  &lt;div style="position: relative; z-index: 1;"&gt;…content…&lt;/div&gt;
+&lt;/section&gt;
+
+document.querySelector('.sampo-watermark').innerHTML =
+  SampoMill.iconMark(280, { transparent: true, showOuter: true, theme });</pre>
+
+
+<script src="../src/mill.js"></script>
+<script src="../src/theme.js"></script>
+<script>
+  function applyBrand() {
+    const theme = window.SampoTheme.getTheme();
+    const el = document.getElementById('lockupMark');
+    if (el) el.innerHTML = window.SampoMill.iconMark(44, { transparent: true, showOuter: false, theme });
+    const wm = document.getElementById('watermarkDemo');
+    if (wm) wm.innerHTML = window.SampoMill.iconMark(280, { transparent: true, showOuter: true, theme });
+  }
+  window.SampoTheme.initThemeToggle({ onChange: applyBrand });
+</script>
+
+</body>
+</html>

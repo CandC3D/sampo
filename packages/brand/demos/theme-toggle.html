@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>@sampo/brand · Theme toggle</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="stylesheet" href="../src/fonts.css">
+<link rel="stylesheet" href="../src/tokens.css">
+<link rel="stylesheet" href="../src/themes.css">
+<link rel="stylesheet" href="../src/components.css">
+<link rel="stylesheet" href="../src/motion.css">
+<link rel="stylesheet" href="_demo.css">
+
+</head>
+<body>
+
+<header class="demo-header">
+  <a class="back" href="index.html">← demos</a>
+  <a class="sampo-lockup" href="index.html" style="margin-left: var(--sp-3)">
+    <span class="sampo-lockup-mark" id="lockupMark"></span>
+    <span class="sampo-lockup-type">
+      <span class="sampo-lockup-wordmark">SAMPO</span>
+      <span class="sampo-lockup-sub">BRAND DEMOS</span>
+    </span>
+  </a>
+  <button class="sampo-theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="sampo-theme-toggle-glyph"></span>
+  </button>
+</header>
+
+<h1>Theme toggle<code>.sampo-theme-toggle</code></h1>
+<p class="lede">Moon-glyph button. Cycles system → light → dark → system. Persists to localStorage under 'sampo.theme'. JS lives in @sampo/brand's theme.js.</p>
+
+
+<section class="demo-specimen" style="text-align: center;">
+  <p style="color: var(--muted); margin: 0 0 var(--sp-4);">Use the toggle in the demo header above — it's the same component.</p>
+  <button class="sampo-theme-toggle" id="themeToggleLocal" aria-label="Toggle theme">
+    <span class="sampo-theme-toggle-glyph"></span>
+  </button>
+  <p style="color: var(--muted); margin: var(--sp-4) 0 0; font-size: var(--fs-small);">
+    Current theme: <code id="themeLabel" style="font-family: var(--ff-mono)"></code>
+  </p>
+</section>
+
+<pre class="demo-source">&lt;button class="sampo-theme-toggle" id="themeToggle"&gt;
+  &lt;span class="sampo-theme-toggle-glyph"&gt;&lt;/span&gt;
+&lt;/button&gt;
+
+window.SampoTheme.initThemeToggle({
+  buttonSelector: '#themeToggle',
+  onChange: () =&gt; { /* re-render theme-sensitive SVGs here */ }
+});</pre>
+
+
+<script src="../src/mill.js"></script>
+<script src="../src/theme.js"></script>
+<script>
+  function applyBrand() {
+    const theme = window.SampoTheme.getTheme();
+    const el = document.getElementById('lockupMark');
+    if (el) el.innerHTML = window.SampoMill.iconMark(44, { transparent: true, showOuter: false, theme });
+    const label = document.getElementById('themeLabel');
+    if (label) label.textContent = window.SampoTheme.getTheme();
+    // Local toggle is a demo-only extra — hook it up too.
+    const local = document.getElementById('themeToggleLocal');
+    if (local && !local.__hooked) {
+      local.__hooked = true;
+      window.SampoTheme.initThemeToggle({ buttonSelector: '#themeToggleLocal', onChange: applyBrand });
+    }
+  }
+  window.SampoTheme.initThemeToggle({ onChange: applyBrand });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>@sampo/brand · Preview card</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="stylesheet" href="../src/fonts.css">
+<link rel="stylesheet" href="../src/tokens.css">
+<link rel="stylesheet" href="../src/themes.css">
+<link rel="stylesheet" href="../src/components.css">
+<link rel="stylesheet" href="../src/motion.css">
+<link rel="stylesheet" href="_demo.css">
+
+</head>
+<body>
+
+<header class="demo-header">
+  <a class="back" href="index.html">← demos</a>
+  <a class="sampo-lockup" href="index.html" style="margin-left: var(--sp-3)">
+    <span class="sampo-lockup-mark" id="lockupMark"></span>
+    <span class="sampo-lockup-type">
+      <span class="sampo-lockup-wordmark">SAMPO</span>
+      <span class="sampo-lockup-sub">BRAND DEMOS</span>
+    </span>
+  </a>
+  <button class="sampo-theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="sampo-theme-toggle-glyph"></span>
+  </button>
+</header>
+
+<h1>Preview card<code>.preview-card</code></h1>
+<p class="lede">Cream-framed asset embed. Interior stays cream in both themes because that's what the exported PNG looks like — inverting it would lie about what ships.</p>
+
+
+<div class="preview-card" style="margin-top: var(--sp-6)">
+  <div class="meta">
+    <div class="title">Generic · OG / Twitter Card</div>
+    <div class="dim">1200 × 630</div>
+    <div class="actions">
+      <button class="btn">Copy SVG</button>
+      <button class="btn primary">Download PNG</button>
+    </div>
+  </div>
+  <div class="preview-frame">
+    <div id="previewDemo" style="min-height: 300px; display: flex; align-items: center; justify-content: center; color: var(--g-muted); font-family: var(--ff-display); font-style: italic;">
+      (preview SVG is injected via JS — see source)
+    </div>
+  </div>
+</div>
+
+<pre class="demo-source">&lt;div class="preview-card"&gt;
+  &lt;div class="meta"&gt;
+    &lt;div class="title"&gt;Generic · OG / Twitter Card&lt;/div&gt;
+    &lt;div class="dim"&gt;1200 × 630&lt;/div&gt;
+    &lt;div class="actions"&gt;
+      &lt;button class="btn"&gt;Copy SVG&lt;/button&gt;
+      &lt;button class="btn primary"&gt;Download PNG&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="preview-frame"&gt;
+    &lt;!-- Inject the composed SVG here --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+const { svg } = SampoMill.composePreview('og', { kitLabel: '' });
+document.querySelector('.preview-frame').innerHTML = svg;</pre>
+
+
+<script src="../src/mill.js"></script>
+<script src="../src/theme.js"></script>
+<script>
+  function applyBrand() {
+    const theme = window.SampoTheme.getTheme();
+    const el = document.getElementById('lockupMark');
+    if (el) el.innerHTML = window.SampoMill.iconMark(44, { transparent: true, showOuter: false, theme });
+    const pv = document.getElementById('previewDemo');
+    if (pv && window.SampoMill.composePreview) {
+      const r = window.SampoMill.composePreview('og', { kitLabel: '' });
+      pv.innerHTML = r.svg || r;
+    }
+  }
+  window.SampoTheme.initThemeToggle({ onChange: applyBrand });
+</script>
+
+</body>
+</html>

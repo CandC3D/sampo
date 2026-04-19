@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>@sampo/brand · Lockup</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="stylesheet" href="../src/fonts.css">
+<link rel="stylesheet" href="../src/tokens.css">
+<link rel="stylesheet" href="../src/themes.css">
+<link rel="stylesheet" href="../src/components.css">
+<link rel="stylesheet" href="../src/motion.css">
+<link rel="stylesheet" href="_demo.css">
+
+</head>
+<body>
+
+<header class="demo-header">
+  <a class="back" href="index.html">← demos</a>
+  <a class="sampo-lockup" href="index.html" style="margin-left: var(--sp-3)">
+    <span class="sampo-lockup-mark" id="lockupMark"></span>
+    <span class="sampo-lockup-type">
+      <span class="sampo-lockup-wordmark">SAMPO</span>
+      <span class="sampo-lockup-sub">BRAND DEMOS</span>
+    </span>
+  </a>
+  <button class="sampo-theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="sampo-theme-toggle-glyph"></span>
+  </button>
+</header>
+
+<h1>Lockup<code>.sampo-lockup</code></h1>
+<p class="lede">Brand mark + stacked wordmark. The canonical site header. The mill SVG is injected via SampoMill.iconMark() so the hub inverts correctly in dark mode.</p>
+
+
+<section class="demo-specimen">
+  <a class="sampo-lockup" href="#">
+    <span class="sampo-lockup-mark" id="lockupMarkDemo"></span>
+    <span class="sampo-lockup-type">
+      <span class="sampo-lockup-wordmark">SAMPO</span>
+      <span class="sampo-lockup-sub">DIAGNOSTIC KIT</span>
+    </span>
+  </a>
+</section>
+
+<pre class="demo-source">&lt;a class="sampo-lockup" href="/"&gt;
+  &lt;span class="sampo-lockup-mark" id="lockupMark"&gt;&lt;/span&gt;
+  &lt;span class="sampo-lockup-type"&gt;
+    &lt;span class="sampo-lockup-wordmark"&gt;SAMPO&lt;/span&gt;
+    &lt;span class="sampo-lockup-sub"&gt;DIAGNOSTIC KIT&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/a&gt;
+
+// Then inject the mill:
+document.getElementById('lockupMark').innerHTML =
+  SampoMill.iconMark(44, { transparent: true, showOuter: false, theme });</pre>
+
+
+<script src="../src/mill.js"></script>
+<script src="../src/theme.js"></script>
+<script>
+  function applyBrand() {
+    const theme = window.SampoTheme.getTheme();
+    const el = document.getElementById('lockupMark');
+    if (el) el.innerHTML = window.SampoMill.iconMark(44, { transparent: true, showOuter: false, theme });
+    const demo = document.getElementById('lockupMarkDemo');
+    if (demo) demo.innerHTML = window.SampoMill.iconMark(44, { transparent: true, showOuter: false, theme });
+  }
+  window.SampoTheme.initThemeToggle({ onChange: applyBrand });
+</script>
+
+</body>
+</html>

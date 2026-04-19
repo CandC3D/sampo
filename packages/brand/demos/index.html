@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>@sampo/brand — component demos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="stylesheet" href="../src/fonts.css">
+<link rel="stylesheet" href="../src/tokens.css">
+<link rel="stylesheet" href="../src/themes.css">
+<link rel="stylesheet" href="../src/components.css">
+<link rel="stylesheet" href="../src/motion.css">
+<style>
+  body { padding: var(--sp-8); max-width: 900px; margin: 0 auto; }
+  h1 { font-family: var(--ff-display); font-weight: 400; font-size: var(--fs-h1); margin: 0 0 var(--sp-2); }
+  .lede { font-family: var(--ff-display); font-style: italic; color: var(--muted); margin: 0 0 var(--sp-8); }
+  ul.index { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+  ul.index li a {
+    display: block; padding: var(--sp-4); border: 1px solid var(--border);
+    border-radius: var(--r-md); color: var(--ink); text-decoration: none;
+    transition: border-color .15s, border-style .15s;
+  }
+  ul.index li a:hover { border-style: dashed; border-color: var(--border-strong); }
+  ul.index strong { display: block; font-weight: 600; margin-bottom: var(--sp-1); }
+  ul.index span { font-size: var(--fs-small); color: var(--muted); }
+  header.demo-header { display: flex; align-items: center; gap: var(--sp-4); margin-bottom: var(--sp-8); }
+  header.demo-header .sampo-theme-toggle { margin-left: auto; }
+</style>
+</head>
+<body>
+
+<header class="demo-header">
+  <a class="sampo-lockup" href="./" aria-label="Sampo Diagnostic Kit">
+    <span class="sampo-lockup-mark" id="lockupMark"></span>
+    <span class="sampo-lockup-type">
+      <span class="sampo-lockup-wordmark">SAMPO</span>
+      <span class="sampo-lockup-sub">BRAND DEMOS</span>
+    </span>
+  </a>
+  <button class="sampo-theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="sampo-theme-toggle-glyph"></span>
+  </button>
+</header>
+
+<h1>Component primitives</h1>
+<p class="lede">One page per primitive. Open in both light and dark via the toggle.</p>
+
+<ul class="index">
+  <li><a href="lockup.html">            <strong>.sampo-lockup</strong>         <span>Brand mark + stacked wordmark</span></a></li>
+  <li><a href="divider.html">           <strong>.sampo-divider</strong>        <span>Dashed horizontal rule</span></a></li>
+  <li><a href="corner-mark.html">       <strong>.sampo-corner-mark</strong>    <span>28px inline mill, rotates on hover</span></a></li>
+  <li><a href="watermark.html">         <strong>.sampo-watermark</strong>     <span>Big faint background mill</span></a></li>
+  <li><a href="preview-card.html">      <strong>.preview-card</strong>        <span>Cream-framed asset embed</span></a></li>
+  <li><a href="toast.html">             <strong>.sampo-toast</strong>          <span>Pumpkin-accent notification</span></a></li>
+  <li><a href="theme-toggle.html">      <strong>.sampo-theme-toggle</strong>  <span>Moon-glyph light/dark toggle</span></a></li>
+  <li><a href="buttons.html">           <strong>.btn / .btn-*</strong>        <span>Button variants (ghost, cta, dashed-hover)</span></a></li>
+  <li><a href="section-heading.html">   <strong>h2.section</strong>            <span>Uppercase heading + dashed rule</span></a></li>
+</ul>
+
+<script src="../src/mill.js"></script>
+<script src="../src/theme.js"></script>
+<script>
+  function applyBrand() {
+    const theme = window.SampoTheme.getTheme();
+    const el = document.getElementById('lockupMark');
+    if (el) el.innerHTML = window.SampoMill.iconMark(44, { transparent: true, showOuter: false, theme });
+  }
+  window.SampoTheme.initThemeToggle({ onChange: applyBrand });
+</script>
+
+</body>
+</html>

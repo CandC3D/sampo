@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>@sampo/brand · Section heading</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="stylesheet" href="../src/fonts.css">
+<link rel="stylesheet" href="../src/tokens.css">
+<link rel="stylesheet" href="../src/themes.css">
+<link rel="stylesheet" href="../src/components.css">
+<link rel="stylesheet" href="../src/motion.css">
+<link rel="stylesheet" href="_demo.css">
+
+</head>
+<body>
+
+<header class="demo-header">
+  <a class="back" href="index.html">← demos</a>
+  <a class="sampo-lockup" href="index.html" style="margin-left: var(--sp-3)">
+    <span class="sampo-lockup-mark" id="lockupMark"></span>
+    <span class="sampo-lockup-type">
+      <span class="sampo-lockup-wordmark">SAMPO</span>
+      <span class="sampo-lockup-sub">BRAND DEMOS</span>
+    </span>
+  </a>
+  <button class="sampo-theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="sampo-theme-toggle-glyph"></span>
+  </button>
+</header>
+
+<h1>Section heading<code>h2.section</code></h1>
+<p class="lede">Uppercase caption with a dashed horizontal rule that extends to the row edge. Stack a <code>.section-caption</code> italic beneath it for editorial context.</p>
+
+
+<section class="demo-specimen">
+  <h2 class="section">System at a glance</h2>
+  <p class="section-caption">Every graphic rendered from one source. Scroll to compare formats side-by-side.</p>
+</section>
+
+<pre class="demo-source">&lt;h2 class="section"&gt;System at a glance&lt;/h2&gt;
+&lt;p class="section-caption"&gt;Every graphic rendered from one source.&lt;/p&gt;</pre>
+
+<p style="color: var(--muted); margin-top: var(--sp-6); font-size: var(--fs-small);">
+  <code>h2.section</code> is the canonical pattern but the <code>.section</code> class works on any element — the selector lives in <code>components.css</code>.
+</p>
+
+
+<script src="../src/mill.js"></script>
+<script src="../src/theme.js"></script>
+<script>
+  function applyBrand() {
+    const theme = window.SampoTheme.getTheme();
+    const el = document.getElementById('lockupMark');
+    if (el) el.innerHTML = window.SampoMill.iconMark(44, { transparent: true, showOuter: false, theme });
+    
+  }
+  window.SampoTheme.initThemeToggle({ onChange: applyBrand });
+</script>
+
+</body>
+</html>

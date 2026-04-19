@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>@sampo/brand · Corner mark</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="stylesheet" href="../src/fonts.css">
+<link rel="stylesheet" href="../src/tokens.css">
+<link rel="stylesheet" href="../src/themes.css">
+<link rel="stylesheet" href="../src/components.css">
+<link rel="stylesheet" href="../src/motion.css">
+<link rel="stylesheet" href="_demo.css">
+
+</head>
+<body>
+
+<header class="demo-header">
+  <a class="back" href="index.html">← demos</a>
+  <a class="sampo-lockup" href="index.html" style="margin-left: var(--sp-3)">
+    <span class="sampo-lockup-mark" id="lockupMark"></span>
+    <span class="sampo-lockup-type">
+      <span class="sampo-lockup-wordmark">SAMPO</span>
+      <span class="sampo-lockup-sub">BRAND DEMOS</span>
+    </span>
+  </a>
+  <button class="sampo-theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="sampo-theme-toggle-glyph"></span>
+  </button>
+</header>
+
+<h1>Corner mark<code>.sampo-corner-mark</code></h1>
+<p class="lede">28 px inline mill. Opacity 0.55 at rest, rotates 12° and lifts to 0.85 when its parent is hovered. Used as a subtle brand ornament beside kit/section titles.</p>
+
+
+<section class="demo-specimen" style="padding: var(--sp-6) var(--sp-6)">
+  <div style="display: flex; align-items: center; gap: var(--sp-3);">
+    <span class="sampo-corner-mark" id="cornerMarkDemo" aria-hidden="true"></span>
+    <h2 style="margin:0; font-family: var(--ff-body); font-weight: 700; font-size: 1.15rem;">Hover me to see the rotation</h2>
+  </div>
+</section>
+
+<pre class="demo-source">&lt;div class="hoverable-row"&gt;
+  &lt;span class="sampo-corner-mark" id="cornerMark" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;h2&gt;Section heading&lt;/h2&gt;
+&lt;/div&gt;
+
+// The :hover handler watches ANY ancestor — position the corner mark
+// inside a container you want to treat as the hover target.
+document.getElementById('cornerMark').innerHTML =
+  SampoMill.iconMark(28, { transparent: true, showOuter: false, theme });</pre>
+
+<style>
+  /* Promote the whole specimen row into the hover target. */
+  .demo-specimen:hover .sampo-corner-mark {
+    opacity: 0.85;
+    transform: rotate(12deg);
+  }
+</style>
+
+
+<script src="../src/mill.js"></script>
+<script src="../src/theme.js"></script>
+<script>
+  function applyBrand() {
+    const theme = window.SampoTheme.getTheme();
+    const el = document.getElementById('lockupMark');
+    if (el) el.innerHTML = window.SampoMill.iconMark(44, { transparent: true, showOuter: false, theme });
+    const cm = document.getElementById('cornerMarkDemo');
+    if (cm) cm.innerHTML = window.SampoMill.iconMark(28, { transparent: true, showOuter: false, theme });
+  }
+  window.SampoTheme.initThemeToggle({ onChange: applyBrand });
+</script>
+
+</body>
+</html>

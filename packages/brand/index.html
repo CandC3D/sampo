@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>@sampo/brand — Sampo Diagnostic Kit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="light dark"/>
+<meta name="description" content="@sampo/brand — shared visual system for the Sampo Diagnostic Kit. Palette, typography, mill mark, component primitives. Consumed by sampo-graphics and sampo-site via HTTPS.">
+<link rel="stylesheet" href="src/fonts.css">
+<link rel="stylesheet" href="src/tokens.css">
+<link rel="stylesheet" href="src/themes.css">
+<link rel="stylesheet" href="src/components.css">
+<link rel="stylesheet" href="src/motion.css">
+<style>
+  body { padding: var(--sp-8); max-width: 780px; margin: 0 auto; position: relative; }
+  header.hero { display: flex; align-items: center; gap: var(--sp-4); margin-bottom: var(--sp-8); padding-bottom: var(--sp-4); border-bottom: 1px dashed var(--border); }
+  header.hero .sampo-theme-toggle { margin-left: auto; }
+  h1 { font-family: var(--ff-display); font-weight: 400; font-size: var(--fs-h1); margin: 0 0 var(--sp-2); }
+  .lede { font-family: var(--ff-display); font-style: italic; color: var(--muted); margin: 0 0 var(--sp-8); font-size: var(--fs-h3); }
+  h2.section { margin-top: var(--sp-8); }
+  p { color: var(--ink); line-height: var(--lh-body); }
+  code { font-family: var(--ff-mono); font-size: 0.92em; background: var(--surface); padding: 2px 6px; border-radius: var(--r-sm); }
+  pre { background: var(--surface); padding: var(--sp-4); border-radius: var(--r-sm); overflow-x: auto; font-family: var(--ff-mono); font-size: var(--fs-mono); }
+  a.ghost { display: inline-block; padding: var(--sp-3) var(--sp-4); border: 1px solid var(--border); border-radius: var(--r-md); color: var(--ink); text-decoration: none; margin-right: var(--sp-3); transition: border-color .15s, border-style .15s; }
+  a.ghost:hover { border-color: var(--border-strong); border-style: dashed; }
+  ul { line-height: 1.8; padding-left: 1.2em; }
+  ul code { font-size: 0.88em; }
+</style>
+</head>
+<body>
+
+<div class="sampo-watermark" id="watermark" aria-hidden="true" style="right: -120px; top: -60px; width: 360px; height: 360px;"></div>
+
+<header class="hero">
+  <a class="sampo-lockup" href="./">
+    <span class="sampo-lockup-mark" id="lockupMark"></span>
+    <span class="sampo-lockup-type">
+      <span class="sampo-lockup-wordmark">SAMPO</span>
+      <span class="sampo-lockup-sub">@SAMPO/BRAND</span>
+    </span>
+  </a>
+  <button class="sampo-theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="sampo-theme-toggle-glyph"></span>
+  </button>
+</header>
+
+<h1>@sampo/brand</h1>
+<p class="lede">Shared visual system for the Sampo Diagnostic Kit. Palette, typography, mill brand mark, component primitives. One source of truth for the generator and the public site.</p>
+
+<p>
+  <a class="ghost" href="demos/">Component demos →</a>
+  <a class="ghost" href="https://github.com/CandC3D/sampo">Source on GitHub →</a>
+</p>
+
+<h2 class="section">How to consume</h2>
+<p>Plain <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> tags — no bundler required:</p>
+<pre>&lt;link rel="stylesheet" href="https://candc3d.github.io/sampo-brand/src/fonts.css"&gt;
+&lt;link rel="stylesheet" href="https://candc3d.github.io/sampo-brand/src/tokens.css"&gt;
+&lt;link rel="stylesheet" href="https://candc3d.github.io/sampo-brand/src/themes.css"&gt;
+&lt;link rel="stylesheet" href="https://candc3d.github.io/sampo-brand/src/components.css"&gt;
+&lt;link rel="stylesheet" href="https://candc3d.github.io/sampo-brand/src/motion.css"&gt;
+&lt;script src="https://candc3d.github.io/sampo-brand/src/mill.js"&gt;&lt;/script&gt;
+&lt;script src="https://candc3d.github.io/sampo-brand/src/theme.js"&gt;&lt;/script&gt;</pre>
+
+<h2 class="section">What ships</h2>
+<ul>
+  <li><code>mill.js</code> — brand compositor (pure SVG strings)</li>
+  <li><code>theme.js</code> — <code>getTheme</code>, <code>applyTheme</code>, <code>initThemeToggle</code></li>
+  <li><code>tokens.css</code> — palette, type scale, spacing, radii</li>
+  <li><code>themes.css</code> — light/dark overrides</li>
+  <li><code>components.css</code> — <code>.sampo-lockup</code>, <code>.sampo-divider</code>, <code>.sampo-corner-mark</code>, <code>.sampo-watermark</code>, <code>.preview-card</code>, <code>.sampo-toast</code>, <code>.sampo-theme-toggle</code>, <code>.btn</code> variants</li>
+  <li><code>motion.css</code> — <code>prefers-reduced-motion</code> policy</li>
+  <li><code>fonts/</code> — self-hosted Instrument Sans + Instrument Serif (6 woff2, ~112 KB)</li>
+</ul>
+
+<p style="color: var(--muted); font-size: var(--fs-small); margin-top: var(--sp-12);">
+  The discipline cannot be bought or sold. It can be measured.
+</p>
+
+<script src="src/mill.js"></script>
+<script src="src/theme.js"></script>
+<script>
+  function applyBrand() {
+    const theme = window.SampoTheme.getTheme();
+    const lockup = document.getElementById('lockupMark');
+    if (lockup) lockup.innerHTML = window.SampoMill.iconMark(44, { transparent: true, showOuter: false, theme });
+    const wm = document.getElementById('watermark');
+    if (wm) wm.innerHTML = window.SampoMill.iconMark(360, { transparent: true, showOuter: true, theme });
+  }
+  window.SampoTheme.initThemeToggle({ onChange: applyBrand });
+</script>
+
+</body>
+</html>

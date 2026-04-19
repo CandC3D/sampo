@@ -1,0 +1,80 @@
+/* Shared chrome for every demo page. */
+
+body {
+  padding: var(--sp-8);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.demo-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-8);
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px dashed var(--border);
+}
+
+.demo-header .sampo-theme-toggle { margin-left: auto; }
+
+.demo-header a.back {
+  font-size: var(--fs-small);
+  color: var(--muted);
+  text-decoration: none;
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  transition: border-color .15s, border-style .15s;
+}
+
+.demo-header a.back:hover {
+  border-color: var(--border-strong);
+  border-style: dashed;
+  color: var(--ink);
+}
+
+h1 {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: var(--fs-h1);
+  margin: 0 0 var(--sp-2);
+}
+
+h1 code {
+  font-family: var(--ff-mono);
+  font-size: 0.7em;
+  color: var(--muted);
+  background: var(--surface);
+  padding: 2px 8px;
+  border-radius: var(--r-sm);
+  vertical-align: middle;
+  margin-left: var(--sp-3);
+}
+
+.lede {
+  font-family: var(--ff-display);
+  font-style: italic;
+  color: var(--muted);
+  margin: 0 0 var(--sp-8);
+}
+
+section.demo-specimen {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-6);
+  margin-bottom: var(--sp-4);
+  position: relative;
+}
+
+pre.demo-source {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: var(--sp-4);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-mono);
+  color: var(--muted);
+  overflow-x: auto;
+  margin: 0;
+}

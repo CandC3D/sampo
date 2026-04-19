@@ -42,8 +42,9 @@ const PACKAGES = {
     src: path.join(ROOT, 'packages', 'brand'),
     deploy: path.join(SIBLINGS, 'sampo-brand'),
     // Files shipped to consumers. README/package.json ride along for
-    // context on the deployed site; `src/` holds the actual assets.
-    include: ['src', 'README.md', 'package.json'],
+    // context on the deployed site; `src/` holds the actual assets;
+    // `demos/` is publicly browseable at /sampo-brand/demos/.
+    include: ['index.html', 'src', 'demos', 'README.md', 'package.json'],
     // Baseline files every deploy carries — copied from the deploy
     // repo itself (don't track in monorepo).
     baseline: ['google5315ac0eabfa5ec3.html', 'sitemap.xml'],
