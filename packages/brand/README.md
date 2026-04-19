@@ -80,16 +80,58 @@ site (CDN-style, cache-busted with `?v=N`):
 
 **Instrument Serif** (display, italic accents) paired with **Instrument
 Sans** (body, UI, wordmark) and a **system mono** stack for slugs and
-code. Self-hosted in `src/fonts/`.
+code.
 
-The pairing is carried forward from the generator's original
-`<link href="https://fonts.googleapis.com/...">` load. The italic
-Instrument Serif is a brand hallmark — it appears in the generator's
-subtitle, section captions, kit meta strings, and preview-card dim
-labels. Keep the italic usage consistent across surfaces.
+### Files
 
-Fallback stack favors warm humanist counters (Iowan Old Style, Cambria)
-over Georgia when the woff2 fails to load.
+Self-hosted in `src/fonts/`, referenced from `src/fonts.css`. Latin
+subset only, ~112 KB total over the wire (gzip'd further by GH Pages).
+
+```
+instrument-sans-400.woff2         Body, UI, labels
+instrument-sans-500.woff2         Emphasis, buttons
+instrument-sans-600.woff2         Stronger emphasis
+instrument-sans-700.woff2         Wordmark, H1–H3
+instrument-serif-400.woff2        Hero pull-quotes (rare)
+instrument-serif-400-italic.woff2 Section captions, metadata,
+                                    preview-card dim labels,
+                                    header subtitle — the italic is
+                                    the signature voice
+```
+
+`font-display: swap` on every face. FOUT (flash of unstyled text) is
+expected and acceptable; FOIT (flash of invisible text) is not.
+`unicode-range` set to the standard latin block so browsers skip the
+download for non-Latin-only pages.
+
+### Rationale
+
+The pairing carries forward from the generator's original Google Fonts
+load. Three reasons to stay with it rather than re-litigate:
+
+1. **It's already the brand voice.** Italic Instrument Serif has been
+   the signature across the generator since v1.0 — the subtitle
+   (`Unified web graphics system · v1.0`), section captions, kit meta
+   (`6 diagnostics`), preview-card dim labels. Changing it would make
+   the pages feel like a different product.
+2. **SIL OFL licensed, self-hostable.** Both families are freely
+   redistributable, so shipping woff2 files with the brand package is
+   unambiguous.
+3. **Not on the banned list.** The pages design brief explicitly
+   excluded Inter, Fraunces, Roboto, Arial, and system-fonts-only
+   stacks. Instrument is a deliberate editorial pick.
+
+### Fallback
+
+If the woff2 fails to load (offline, blocked, corrupted), the stack
+favors warm humanist counters over neutral defaults — Iowan Old Style
+and Cambria instead of Georgia. Tokens in `tokens.css`:
+
+```css
+--ff-display: 'Instrument Serif', ui-serif, 'Iowan Old Style', Georgia, Cambria, 'Times New Roman', Times, serif;
+--ff-body:    'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+--ff-mono:    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+```
 
 ## Design rules that show up across files
 
