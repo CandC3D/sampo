@@ -176,10 +176,20 @@
   cursor: pointer;
   list-style: none;
   user-select: none;
+  border-radius: var(--r-md);
+  outline: none;
 }
 
 .cat-card summary::-webkit-details-marker { display: none; }
 .cat-card summary::marker { content: ""; }
+
+/* Replace the browser's default focus ring with a brand-tone one.
+   Keyboard users get a clear affordance without the mismatched
+   system blue/white ring. */
+.cat-card summary:focus-visible {
+  outline: 2px solid var(--olive);
+  outline-offset: 2px;
+}
 
 /* Category number: mono, same size as the title it sits beside, with
    enough left gutter to let the tabular figure breathe. */
@@ -253,7 +263,23 @@
   border-radius: var(--r-md);
   padding: var(--sp-4);
   background: var(--surface);
+  border-top-width: 3px;
 }
+
+/* Signature colors for the three audit modes. Border-top carries the
+   accent; the label + title inherit it via currentColor on the
+   ::before pseudo-element. Steel A / Olive B / Pumpkin C is the
+   mill-system convention. */
+.result-card[data-option="a"] { border-top-color: var(--steel); }
+.result-card[data-option="b"] { border-top-color: var(--olive); }
+.result-card[data-option="c"] { border-top-color: var(--pumpkin); }
+
+.result-card[data-option="a"] .result-label,
+.result-card[data-option="a"] .result-value { color: var(--steel); }
+.result-card[data-option="b"] .result-label,
+.result-card[data-option="b"] .result-value { color: var(--olive); }
+.result-card[data-option="c"] .result-label,
+.result-card[data-option="c"] .result-value { color: var(--pumpkin); }
 
 .result-card .result-label {
   font-family: var(--ff-mono);
