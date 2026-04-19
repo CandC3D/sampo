@@ -573,13 +573,16 @@
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-3) var(--sp-4);
+  flex-direction: column;
+  gap: var(--sp-2);
   font-size: var(--fs-small);
   line-height: 1.4;
 }
 
 .kit-nav-list li { margin: 0; }
+
+/* Current item underline sits under the text — no stretch across full row. */
+.kit-nav-list li.current { width: max-content; }
 
 .kit-nav-list li.current {
   color: var(--ink);
