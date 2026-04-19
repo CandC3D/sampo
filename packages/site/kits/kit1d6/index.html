@@ -1,0 +1,1120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>D6: Prompt Structure · Sampo Diagnostic Kit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="light dark"/>
+<meta name="description" content="Is the user's prompt discipline degrading over time? Part of the Sampo Diagnostic Kit."/>
+
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Kit 1 D6: Prompt Structure"/>
+<meta property="og:description" content="Is the user's prompt discipline degrading over time?"/>
+<meta property="og:url" content="https://candc3d.github.io/sampo-site/kits/kit1d6/"/>
+<meta property="og:image" content="https://candc3d.github.io/sampo-diagnostic-kit1d6/og_kit1d6.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://candc3d.github.io/sampo-diagnostic-kit1d6/og_kit1d6.png"/>
+
+<link rel="stylesheet" href="../../../brand/src/fonts.css?v=3">
+<link rel="stylesheet" href="../../../brand/src/tokens.css?v=3">
+<link rel="stylesheet" href="../../../brand/src/themes.css?v=3">
+<link rel="stylesheet" href="../../../brand/src/components.css?v=3">
+<link rel="stylesheet" href="../../../brand/src/motion.css?v=3">
+<link rel="stylesheet" href="../../site.css?v=3">
+<link rel="stylesheet" href="../../diagnostic.css?v=3">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="sampo-lockup" href="../../" aria-label="Sampo Diagnostic Kit">
+    <span class="sampo-lockup-mark" id="lockupMark"></span>
+    <span class="sampo-lockup-type">
+      <span class="sampo-lockup-wordmark">SAMPO</span>
+      <span class="sampo-lockup-sub">DIAGNOSTIC KIT</span>
+    </span>
+  </a>
+  <nav class="site-nav">
+    <a href="../../">Home</a>
+    <a href="../" class="active">Kits</a>
+    <a href="../../about/">About</a>
+    <a href="https://candc3d.github.io/sampo-framework/">Sampo Framework ↗</a>
+    <a href="https://candc3d.github.io/vi-framework/">VI Framework ↗</a>
+    <a href="https://chorrocks.substack.com/">Substack ↗</a>
+  </nav>
+  <button class="sampo-theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="sampo-theme-toggle-glyph"></span>
+  </button>
+</header>
+
+<main class="diagnostic">
+
+  <!-- Left rail TOC -->
+  <nav class="diag-rail" aria-label="Contents">
+    <p class="rail-label">Contents</p>
+    <ol>
+      <li><a href="#what-it-measures">What it measures</a></li>
+      <li><a href="#audit-modes">Three audit modes</a></li>
+      <li><a href="#step-1">Step 1 · Extract</a></li>
+      <li><a href="#step-2">Step 2 · Run</a></li>
+      <li><a href="#step-3">Step 3 · Calibrate</a></li>
+      <li><a href="#reading-results">Reading your results</a></li>
+      <li><a href="#validation">Validation</a></li>
+      <li><a href="#scope">Scope</a></li>
+    </ol>
+  </nav>
+
+  <div class="diag-article">
+
+  <section class="diag-header">
+    <p class="diag-slug">kit1d6</p>
+    <p class="diag-kit-label">Kit 1 · Diagnostic 6 · User → System</p>
+    <h1>Prompt Structure</h1>
+    <p class="lede">Are the user's prompts degrading in structure, specificity, and directorial quality over time?</p>
+  </section>
+
+  <hr class="sampo-divider">
+
+  <section id="what-it-measures" class="diag-section">
+    <h2 class="section">What it measures</h2>
+    <p class="section-caption">Five categories that track prompt structure.</p>
+
+    <p>This diagnostic measures whether the structure of a user's prompts degrades over time — becoming shorter, vaguer, less specified, and more reliant on the system to fill in context, constraints, and direction. It tracks five categories of structural change across a conversation history or transcript, producing a quantified assessment of the exchange's health.</p>
+
+    <div class="cat-grid">
+      <details class="cat-card">
+        <summary>
+          <span class="cat-num">1</span>
+          <span class="cat-name">Specification Density</span>
+          <span class="cat-chevron" aria-hidden="true">▸</span>
+        </summary>
+        <div class="cat-detail">
+          <p>The number of concrete constraints, parameters, or requirements in a prompt. This category is measured as a trajectory: the diagnostic tracks whether specification density decreases over sessions.</p>
+          <p class="cat-examples">High density: "Write a 500-word summary focusing on Freeman 1984 and subsequent critiques." · Low density: "Can you write something about stakeholder theory?"</p>
+        </div>
+      </details>
+
+      <details class="cat-card">
+        <summary>
+          <span class="cat-num">2</span>
+          <span class="cat-name">Context Dependency</span>
+          <span class="cat-chevron" aria-hidden="true">▸</span>
+        </summary>
+        <div class="cat-detail">
+          <p>The degree to which a prompt relies on the system to supply context the user has not provided.</p>
+          <p class="cat-examples">"Where were we?" · "Can you take a look at this?" · "Thoughts?" · "Quick question."</p>
+        </div>
+      </details>
+
+      <details class="cat-card">
+        <summary>
+          <span class="cat-num">3</span>
+          <span class="cat-name">Open-Ended Delegation</span>
+          <span class="cat-chevron" aria-hidden="true">▸</span>
+        </summary>
+        <div class="cat-detail">
+          <p>Prompts that specify no output format, length, structure, or evaluation criteria. The user has specified what they want done without specifying what done looks like.</p>
+          <p class="cat-examples">"Just do whatever you think." · "Structure it however makes sense." · "I'll read whatever you come up with."</p>
+        </div>
+      </details>
+
+      <details class="cat-card">
+        <summary>
+          <span class="cat-num">4</span>
+          <span class="cat-name">Prompt Shortening</span>
+          <span class="cat-chevron" aria-hidden="true">▸</span>
+        </summary>
+        <div class="cat-detail">
+          <p>A measurable decrease in prompt length over time. Count the words in each user message and track the trajectory.</p>
+          <p class="cat-examples">Degradation: 80 words with five constraints → 3 words with zero constraints. · Improvement: 80 words with five constraints → 30 words with the same five constraints.</p>
+        </div>
+      </details>
+
+      <details class="cat-card">
+        <summary>
+          <span class="cat-num">5</span>
+          <span class="cat-name">Implicit Approval Requests</span>
+          <span class="cat-chevron" aria-hidden="true">▸</span>
+        </summary>
+        <div class="cat-detail">
+          <p>Prompts that frame the system as a reviewer or approver rather than a producer. When these appear in late sessions after a pattern of increasing delegation, they signal that the user has constructed a workflow where the system's approval is a prerequisite for action.</p>
+          <p class="cat-examples">"Can you check this before I send it?" · "Does this make sense?" · "I want you to double-check before I sign off."</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <hr class="sampo-divider">
+
+  <section id="audit-modes" class="diag-section">
+    <h2 class="section">Three audit modes</h2>
+    <p class="section-caption">Different levels of rigor, different tradeoffs.</p>
+
+    <div class="option-grid">
+      <div class="result-card" data-option="a">
+        <div class="result-label">Option A</div>
+        <div class="result-value">Live Search</div>
+        <div class="result-desc">System searches its own history. Results are minimum counts. Indicative.</div>
+      </div>
+      <div class="result-card" data-option="b">
+        <div class="result-label">Option B</div>
+        <div class="result-value">Corpus</div>
+        <div class="result-desc">User pastes transcript. Complete data. Reliable.</div>
+      </div>
+      <div class="result-card" data-option="c">
+        <div class="result-label">Option C</div>
+        <div class="result-value">Cross-System</div>
+        <div class="result-desc">Export A → analyze on B. No stake in the relationship. Definitive.</div>
+      </div>
+    </div>
+
+    <p class="thesis-line">Options A and B measure what the user and the system have jointly agreed the relationship looks like. Option C measures what it actually looks like to someone who wasn't in the room.</p>
+
+    <div class="figure-block">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 1120" width="680" height="1120" role="img" aria-label="Three Audit Modes diagram" style="display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: var(--radius-md); border: 0.5px solid var(--border-light); color-scheme: light;">
+<defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap');
+      .title { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 22px; fill: #2C2C2A; }
+      .subtitle { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 13px; fill: #64625C; }
+      .subtitle-italic { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: 14px; fill: #2C2C2A; }
+      .version-label { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.5px; }
+      .version-title { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 16px; fill: #2C2C2A; }
+      .version-desc { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 11px; fill: #8C8A82; }
+      .box-label { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 12px; }
+      .box-sub { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 10px; }
+      .callout-title { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 11px; }
+      .callout-body { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 10.5px; fill: #64625C; }
+      .badge { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.3px; }
+      .distinction-title { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 14px; fill: #2C2C2A; }
+      .distinction-body { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 11.5px; fill: #64625C; }
+      .distinction-italic { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: 12px; fill: #2C2C2A; }
+      .table-header { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 14px; fill: #2C2C2A; }
+      .th { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 10px; fill: #2C2C2A; }
+      .td { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 10px; fill: #64625C; }
+      .td-bold { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 10px; }
+      .footnote { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: 9px; fill: #8C8A82; }
+      .closing { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: 13px; fill: #2C2C2A; }
+      .closing-sub { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 10.5px; fill: #8C8A82; }
+      .closing-small { font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 9px; fill: #B4B2AC; }
+      .closing-disclaimer { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: 8.5px; fill: #B4B2AC; }
+      .stick-figure { stroke: #2C2C2A; stroke-width: 1.5; fill: none; stroke-linecap: round; }
+      .stick-head { stroke: #2C2C2A; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="1120" fill="#F5F0E8" rx="0"/>
+
+  <!-- Title block -->
+  <text x="340" y="40" text-anchor="middle" class="title">Sampo Diagnostic Kit</text>
+  <text x="340" y="58" text-anchor="middle" class="subtitle">User &#x2192; System: Prompt Structure Over Time</text>
+  <text x="340" y="76" text-anchor="middle" class="subtitle-italic">Three Audit Modes</text>
+
+  <!-- ===== OPTION A ===== -->
+  <text x="40" y="112" class="version-label" fill="#7B8FA1">OPTION A</text>
+  <text x="40" y="130" class="version-title">Live Search</text>
+  <text x="40" y="144" class="version-desc">System audits its own conversation history</text>
+
+  <!-- Stick figure A -->
+  <circle cx="72" cy="168" r="7" class="stick-head"/>
+  <line x1="72" y1="175" x2="72" y2="195" class="stick-figure"/>
+  <line x1="72" y1="195" x2="62" y2="210" class="stick-figure"/>
+  <line x1="72" y1="195" x2="82" y2="210" class="stick-figure"/>
+  <line x1="72" y1="182" x2="58" y2="190" class="stick-figure"/>
+  <line x1="72" y1="182" x2="86" y2="190" class="stick-figure"/>
+
+  <!-- Arrow from figure to System A box -->
+  <line x1="100" y1="186" x2="172" y2="186" stroke="#2C2C2A" stroke-width="0.8"/>
+  <polygon points="172,186 167,188 167,184" fill="#2C2C2A"/>
+
+  <!-- System A box -->
+  <rect x="182" y="167" width="150" height="42" rx="6" fill="rgb(123,143,161)" fill-opacity="0.12" stroke="#7B8FA1" stroke-width="0.5"/>
+  <text x="257" y="185" text-anchor="middle" class="box-label" fill="#2C2C2A">System A</text>
+  <text x="257" y="199" text-anchor="middle" class="box-sub" fill="#8C8A82">history + auditor</text>
+
+  <!-- Loop arrow -->
+  <path d="M 332 175 C 358 170, 358 205, 332 200" fill="none" stroke="#7B8FA1" stroke-width="0.8"/>
+  <polygon points="332,200 336,197 335,203" fill="#7B8FA1"/>
+
+  <!-- Warning triangle -->
+  <polygon points="400,165 396,172 404,172" fill="none" stroke="#FF7A05" stroke-width="1.2"/>
+  <line x1="400" y1="167.5" x2="400" y2="170" stroke="#FF7A05" stroke-width="1"/>
+  <circle cx="400" cy="171" r="0.8" fill="#FF7A05"/>
+
+  <!-- Callout -->
+  <text x="412" y="172" class="callout-title" fill="#EB9A2F">Conflict of interest</text>
+  <text x="400" y="186" class="callout-body">System evaluates a relationship</text>
+  <text x="400" y="198" class="callout-body">it participated in producing</text>
+
+  <!-- Indicative badge -->
+  <rect x="400" y="206" width="72" height="18" rx="3" fill="none" stroke="#7B8FA1" stroke-width="1"/>
+  <text x="436" y="218" text-anchor="middle" class="badge" fill="#7B8FA1">Indicative</text>
+
+  <!-- ===== OPTION B ===== -->
+  <text x="40" y="258" class="version-label" fill="#65A30D">OPTION B</text>
+  <text x="40" y="276" class="version-title">Corpus</text>
+  <text x="40" y="290" class="version-desc">User pastes transcript into any system</text>
+
+  <!-- Stick figure B -->
+  <circle cx="72" cy="312" r="7" class="stick-head"/>
+  <line x1="72" y1="319" x2="72" y2="339" class="stick-figure"/>
+  <line x1="72" y1="339" x2="62" y2="354" class="stick-figure"/>
+  <line x1="72" y1="339" x2="82" y2="354" class="stick-figure"/>
+  <line x1="72" y1="326" x2="58" y2="334" class="stick-figure"/>
+  <line x1="72" y1="326" x2="86" y2="334" class="stick-figure"/>
+
+  <!-- Arrow to doc -->
+  <line x1="100" y1="330" x2="153" y2="330" stroke="#2C2C2A" stroke-width="0.8"/>
+  <polygon points="153,330 148,332 148,328" fill="#2C2C2A"/>
+
+  <!-- Document icon -->
+  <rect x="164" y="316" width="28" height="32" rx="2" fill="none" stroke="#2C2C2A" stroke-width="1"/>
+  <line x1="170" y1="325" x2="186" y2="325" stroke="#2C2C2A" stroke-width="0.7"/>
+  <line x1="170" y1="331" x2="186" y2="331" stroke="#2C2C2A" stroke-width="0.7"/>
+  <line x1="170" y1="337" x2="182" y2="337" stroke="#2C2C2A" stroke-width="0.7"/>
+
+  <!-- Arrow to system -->
+  <line x1="198" y1="330" x2="252" y2="330" stroke="#2C2C2A" stroke-width="0.8"/>
+  <polygon points="252,330 247,332 247,328" fill="#2C2C2A"/>
+
+  <!-- Any System box -->
+  <rect x="262" y="312" width="130" height="42" rx="6" fill="rgb(101,163,13)" fill-opacity="0.12" stroke="#65A30D" stroke-width="0.5"/>
+  <text x="327" y="330" text-anchor="middle" class="box-label" fill="#3D6B00">Any System</text>
+  <text x="327" y="344" text-anchor="middle" class="box-sub" fill="#65A30D">auditor only</text>
+
+  <!-- Callout -->
+  <text x="425" y="317" class="callout-title" fill="#2C2C2A">Complete data</text>
+  <text x="425" y="330" class="callout-body">No search dependency</text>
+  <text x="425" y="342" class="callout-body">Portable across all systems</text>
+
+  <!-- Reliable badge -->
+  <rect x="425" y="350" width="62" height="18" rx="3" fill="none" stroke="#65A30D" stroke-width="1"/>
+  <text x="456" y="362" text-anchor="middle" class="badge" fill="#65A30D">Reliable</text>
+
+  <!-- ===== OPTION C ===== -->
+  <text x="40" y="402" class="version-label" fill="#FF7A05">OPTION C</text>
+  <text x="40" y="420" class="version-title">Cross-System Audit</text>
+  <text x="40" y="434" class="version-desc">Export from System A &#x2192; analyze on System B</text>
+
+  <!-- Stick figure C -->
+  <circle cx="60" cy="458" r="7" class="stick-head"/>
+  <line x1="60" y1="465" x2="60" y2="485" class="stick-figure"/>
+  <line x1="60" y1="485" x2="50" y2="500" class="stick-figure"/>
+  <line x1="60" y1="485" x2="70" y2="500" class="stick-figure"/>
+  <line x1="60" y1="472" x2="46" y2="480" class="stick-figure"/>
+  <line x1="60" y1="472" x2="74" y2="480" class="stick-figure"/>
+
+  <!-- System A box -->
+  <rect x="100" y="454" width="120" height="42" rx="6" fill="rgb(123,143,161)" fill-opacity="0.12" stroke="#B4B2AC" stroke-width="0.5"/>
+  <text x="160" y="472" text-anchor="middle" class="box-label" fill="#2C2C2A">System A</text>
+  <text x="160" y="486" text-anchor="middle" class="box-sub" fill="#8C8A82">source</text>
+
+  <!-- Arrow from A to doc -->
+  <line x1="220" y1="475" x2="253" y2="475" stroke="#2C2C2A" stroke-width="0.8"/>
+  <polygon points="253,475 248,477 248,473" fill="#2C2C2A"/>
+
+  <!-- Document icon -->
+  <rect x="264" y="461" width="28" height="32" rx="2" fill="none" stroke="#2C2C2A" stroke-width="1"/>
+  <line x1="270" y1="470" x2="286" y2="470" stroke="#2C2C2A" stroke-width="0.7"/>
+  <line x1="270" y1="476" x2="286" y2="476" stroke="#2C2C2A" stroke-width="0.7"/>
+  <line x1="270" y1="482" x2="282" y2="482" stroke="#2C2C2A" stroke-width="0.7"/>
+  <text x="278" y="503" text-anchor="middle" class="box-sub" fill="#8C8A82">export</text>
+
+  <!-- Arrow from doc to System B -->
+  <line x1="298" y1="475" x2="348" y2="475" stroke="#2C2C2A" stroke-width="0.8"/>
+  <polygon points="348,475 343,477 343,473" fill="#2C2C2A"/>
+
+  <!-- System B box -->
+  <rect x="358" y="454" width="150" height="42" rx="6" fill="rgb(255,122,5)" fill-opacity="0.10" stroke="#FF7A05" stroke-width="0.5"/>
+  <text x="433" y="472" text-anchor="middle" class="box-label" fill="#2C2C2A">System B</text>
+  <text x="433" y="486" text-anchor="middle" class="box-sub" fill="#FF7A05">independent auditor</text>
+
+  <!-- Gold standard callout -->
+  <text x="540" y="460" class="callout-title" fill="#FF7A05">Gold standard</text>
+  <text x="540" y="473" class="callout-body">No stake in the relationship</text>
+  <text x="540" y="485" class="callout-body">No trained model of the user</text>
+
+  <!-- Definitive badge -->
+  <rect x="540" y="493" width="72" height="18" rx="3" fill="none" stroke="#FF7A05" stroke-width="1"/>
+  <text x="576" y="505" text-anchor="middle" class="badge" fill="#FF7A05">Definitive</text>
+
+  <!-- ===== CORE DISTINCTION ===== -->
+  <rect x="40" y="530" width="600" height="55" rx="6" fill="none" stroke="#B4B2AC" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <text x="340" y="550" text-anchor="middle" class="distinction-title">The core distinction</text>
+  <text x="340" y="566" text-anchor="middle" class="distinction-italic">Options A and B measure what the user and the system have jointly agreed</text>
+  <text x="340" y="578" text-anchor="middle" class="distinction-italic">the relationship looks like. Option C measures what it actually looks like.</text>
+
+  <!-- ===== VALIDATION TABLE ===== -->
+  <text x="340" y="616" text-anchor="middle" class="table-header">Validation Results</text>
+
+  <!-- Table header -->
+  <line x1="40" y1="626" x2="640" y2="626" stroke="#B4B2AC" stroke-width="0.5"/>
+  <text x="50" y="640" class="th">System</text>
+  <text x="120" y="640" class="th">Mode</text>
+  <text x="155" y="640" class="th">Input</text>
+  <text x="310" y="640" class="th">Early</text>
+  <text x="360" y="640" class="th">Late</text>
+  <text x="405" y="640" class="th">Agg.</text>
+  <text x="455" y="640" class="th">Assessment</text>
+  <line x1="40" y1="646" x2="640" y2="646" stroke="#2C2C2A" stroke-width="0.5"/>
+
+  <!-- Mode A rows -->
+  <text x="50" y="662" class="td">ChatGPT</text>
+  <text x="120" y="662" class="td-bold" fill="#7B8FA1">A</text>
+  <text x="155" y="662" class="td">Own history</text>
+  <text x="310" y="662" class="td">63%</text>
+  <text x="360" y="662" class="td">54%</text>
+  <text x="405" y="662" class="td">59%</text>
+  <text x="455" y="662" class="td" fill="#65A30D">Maintained</text>
+
+  <text x="50" y="678" class="td">Claude</text>
+  <text x="120" y="678" class="td-bold" fill="#7B8FA1">A</text>
+  <text x="155" y="678" class="td">Own history</text>
+  <text x="310" y="678" class="td">86%</text>
+  <text x="360" y="678" class="td">93%</text>
+  <text x="405" y="678" class="td">88%</text>
+  <text x="455" y="678" class="td" fill="#65A30D">Maintained</text>
+
+  <!-- Subtle separator -->
+  <line x1="50" y1="685" x2="630" y2="685" stroke="#B4B2AC" stroke-width="0.3" stroke-dasharray="2 3"/>
+
+  <!-- Mode B rows -->
+  <text x="50" y="700" class="td">Claude</text>
+  <text x="120" y="700" class="td-bold" fill="#65A30D">B</text>
+  <text x="155" y="700" class="td">Nonprofit report*</text>
+  <text x="310" y="700" class="td">85%</text>
+  <text x="360" y="700" class="td">27%</text>
+  <text x="405" y="700" class="td">58%</text>
+  <text x="455" y="700" class="td" fill="#7B8FA1">Gradual erosion</text>
+
+  <text x="50" y="716" class="td">Claude</text>
+  <text x="120" y="716" class="td-bold" fill="#65A30D">B</text>
+  <text x="155" y="716" class="td">Product launch*</text>
+  <text x="310" y="716" class="td">92%</text>
+  <text x="360" y="716" class="td">8%</text>
+  <text x="405" y="716" class="td">62%</text>
+  <text x="455" y="716" class="td" fill="#FF7A05">Erosion &#x2192; collapse</text>
+
+  <text x="50" y="732" class="td">Claude</text>
+  <text x="120" y="732" class="td-bold" fill="#65A30D">B</text>
+  <text x="155" y="732" class="td">RPG campaign*</text>
+  <text x="310" y="732" class="td">89%</text>
+  <text x="360" y="732" class="td">22%</text>
+  <text x="405" y="732" class="td">56%</text>
+  <text x="455" y="732" class="td" fill="#7B8FA1">Gradual erosion</text>
+
+  <text x="50" y="748" class="td">Claude</text>
+  <text x="120" y="748" class="td-bold" fill="#65A30D">B</text>
+  <text x="155" y="748" class="td">Wedding planning*</text>
+  <text x="310" y="748" class="td">100%</text>
+  <text x="360" y="748" class="td">0%</text>
+  <text x="405" y="748" class="td">43%</text>
+  <text x="455" y="748" class="td" fill="#FF7A05">Structural collapse</text>
+
+  <!-- Subtle separator -->
+  <line x1="50" y1="755" x2="630" y2="755" stroke="#B4B2AC" stroke-width="0.3" stroke-dasharray="2 3"/>
+
+  <!-- Mode C rows -->
+  <text x="50" y="770" class="td">DeepSeek</text>
+  <text x="120" y="770" class="td-bold" fill="#FF7A05">C</text>
+  <text x="155" y="770" class="td">Claude history</text>
+  <text x="310" y="770" class="td">60%</text>
+  <text x="360" y="770" class="td">50%</text>
+  <text x="405" y="770" class="td">54%</text>
+  <text x="455" y="770" class="td" fill="#65A30D">Maintained</text>
+
+  <text x="50" y="786" class="td">Gemini</text>
+  <text x="120" y="786" class="td-bold" fill="#FF7A05">C</text>
+  <text x="155" y="786" class="td">Claude history</text>
+  <text x="310" y="786" class="td">85%</text>
+  <text x="360" y="786" class="td">81%</text>
+  <text x="405" y="786" class="td">83%</text>
+  <text x="455" y="786" class="td" fill="#65A30D">Maintained</text>
+
+  <line x1="40" y1="794" x2="640" y2="794" stroke="#B4B2AC" stroke-width="0.5"/>
+
+  <!-- Footnotes -->
+  <text x="50" y="812" class="footnote">* Calibration transcripts with known embedded prompt-degradation signals.</text>
+  <text x="50" y="824" class="footnote">Early/late splits measured at first session containing detected signal.</text>
+
+  <!-- ===== FOOTER ===== -->
+  <line x1="80" y1="860" x2="600" y2="860" stroke="#B4B2AC" stroke-width="0.5" opacity="0.5"/>
+
+  <text x="340" y="884" text-anchor="middle" class="closing">The discipline cannot be bought or sold. It can be measured.</text>
+  <text x="340" y="900" text-anchor="middle" class="closing-sub">Sampo Diagnostic Kit &#xB7; User &#x2192; System &#xB7; Prompt Structure Over Time v1.0</text>
+
+  <text x="340" y="920" text-anchor="middle" class="closing-small">&#169; 2026 Christopher Horrocks &#xB7; chorrocks.substack.com</text>
+  <text x="340" y="932" text-anchor="middle" class="closing-small">Free for use. Attribute if used or altered.</text>
+  <text x="340" y="950" text-anchor="middle" class="closing-disclaimer">The views expressed in this work are the author's own</text>
+  <text x="340" y="960" text-anchor="middle" class="closing-disclaimer">and do not represent any official or unofficial position of the University of Pennsylvania.</text>
+</svg>
+    </div>
+  </section>
+
+  <hr class="sampo-divider">
+
+  <section id="step-1" class="diag-section">
+    <h2 class="section">Step 1 · Extract your transcript</h2>
+    <p class="section-caption">Options B and C require a transcript to analyze.</p>
+
+    <p>Run this prompt on the system whose conversations you want to audit. Paste the output into a different system along with the Option B or Option C prompt.</p>
+
+    <div class="prompt-block">
+      <div class="prompt-label">
+        Transcript Extraction
+        <button class="btn prompt-copy" data-copy-target="transcriptExtractPrompt">Copy</button>
+      </div>
+      <div class="prompt-text" id="transcriptExtractPrompt">Search my full chat history with you. For every conversation
+you can access, produce a transcript in the following format:
+
+## [Conversation title or topic] — [Date]
+
+**User:** [verbatim user message]
+
+**System:** [brief summary of system response — no more than
+one sentence. Do not reproduce your full responses. The audit
+analyzes my language, not yours.]
+
+**User:** [next verbatim user message]
+
+[continue for all messages in the conversation]
+
+---
+
+Repeat for as many conversations as you can access, ordered
+chronologically. Prioritize reproducing my messages exactly as
+written, including typos, capitalization, and punctuation. Your
+responses should be summarized to one sentence each — just
+enough context to understand what prompted my next message.
+
+If you cannot access the full history, state clearly how many
+conversations you were able to retrieve and flag the output as
+a partial transcript.
+
+Output the complete transcript as a single markdown document.</div>
+    </div>
+  </section>
+
+  <hr class="sampo-divider">
+
+  <section id="step-2" class="diag-section">
+    <h2 class="section">Step 2 · Run the diagnostic</h2>
+    <p class="section-caption">Choose the audit mode that matches your situation.</p>
+
+    <div class="version-tabs" role="tablist" aria-label="Audit modes">
+      <button class="version-tab active" role="tab" aria-selected="true" aria-controls="panel-a" data-tab="a">Option A <span class="tab-badge badge-steel">Live</span></button>
+      <button class="version-tab" role="tab" aria-selected="false" aria-controls="panel-b" data-tab="b">Option B <span class="tab-badge badge-accent">Corpus</span></button>
+      <button class="version-tab" role="tab" aria-selected="false" aria-controls="panel-c" data-tab="c">Option C <span class="tab-badge badge-pumpkin">Gold</span></button>
+    </div>
+
+    <div id="panel-a" class="version-panel active" role="tabpanel">
+      <div class="prompt-block tab-panel-prompt">
+        <div class="prompt-label">
+          Option A · Live Search
+          <button class="btn prompt-copy" data-copy-target="promptA">Copy</button>
+        </div>
+        <div class="prompt-text" id="promptA">Search my full chat history with you. For every message I sent,
+analyze the structural characteristics of my prompts. Track the
+following categories across sessions:
+
+1. SPECIFICATION DENSITY: The number of concrete constraints,
+   parameters, or requirements in each prompt. Track whether
+   specification density decreases over sessions. High density:
+   "Write a 500-word summary focusing on Freeman 1984 and
+   subsequent critiques." Low density: "Can you write something
+   about stakeholder theory?" Exclusion: brief follow-up messages
+   in a multi-turn exchange ("good, now do the next section")
+   are navigational and draw specification from prior context.
+
+2. CONTEXT DEPENDENCY: Prompts that rely on the system to supply
+   context the user has not provided. ("Where were we?" "Can you
+   take a look at this?" "Thoughts?" "Quick question.") Track
+   whether context-dependent prompts increase over sessions.
+   Exclusion: prompts that reference specific prior decisions
+   ("use the layout we agreed on") are navigational and
+   appropriately specific.
+
+3. OPEN-ENDED DELEGATION: Prompts that specify no output format,
+   length, structure, or evaluation criteria. ("Just do whatever
+   you think." "Structure it however makes sense." "I'll read
+   whatever you come up with.") Track whether open-ended
+   delegation increases over sessions. Exclusion: exploratory
+   prompts early in a project ("brainstorm some approaches")
+   are appropriate when the user intends to evaluate the output.
+
+4. PROMPT SHORTENING: A measurable decrease in prompt length
+   over time. Count the words in each of my messages and track
+   the trajectory. The signal is shortening accompanied by loss
+   of specification — fewer words AND less information.
+   Exclusion: efficient prompts are not short prompts. A user
+   who gives precise, brief instructions with the same number
+   of constraints has improved, not degraded.
+
+5. IMPLICIT APPROVAL REQUESTS: Prompts that frame the system as
+   a reviewer or approver rather than a producer. ("Can you
+   check this before I send it?" "I want you to double-check
+   before I sign off." "Does this make sense?") Track whether
+   these appear in late sessions after a pattern of increasing
+   delegation. Exclusion: asking the system to verify specific
+   factual claims is quality assurance, not approval-seeking.
+
+For each instance of categories 2, 3, and 5, record: the date,
+the verbatim text, the category, and the context. For categories
+1 and 4, record per-message metrics (constraint count for
+specification density, word count for prompt shortening) and
+report the trajectory.
+
+Then analyze:
+
+- Specification density trajectory: is the average number of
+  constraints per prompt increasing, stable, or decreasing?
+- Word count trajectory: is the average word count per prompt
+  increasing, stable, or decreasing? Report the average for
+  early sessions versus late sessions.
+- Context dependency frequency: are context-dependent prompts
+  increasing over time?
+- Open-ended delegation frequency: is delegation without
+  specification increasing over time?
+- Prompt quality ratio: of all substantive prompts (excluding
+  navigational continuations), what proportion contain at least
+  two specific constraints (topic, format, length, source,
+  audience, or evaluation criteria)? Report the aggregate and
+  the early/late split.
+
+Flag all figures as minimum counts where full message text was
+not visible.
+
+Output a written summary of findings, a data table with
+per-session metrics, and an overall assessment of whether the
+pattern suggests maintained direction, gradual erosion, or
+structural collapse.
+
+Definitions of the three assessment levels:
+
+MAINTAINED DIRECTION: Prompts remain specific, constrained, and
+context-complete throughout. The user provides the system with
+clear instructions, output parameters, and evaluation criteria.
+Prompt quality may improve over time as the user develops skill.
+This is the healthy baseline.
+
+GRADUAL EROSION: Specification density and word count decline
+over time. Context-dependent and open-ended prompts increase.
+The user invests less effort in directing the system, relying
+on accumulated context or the system's own judgment to fill
+gaps. The direction is present but thinning.
+
+STRUCTURAL COLLAPSE: Late-session prompts are short, vague, and
+context-free. The user has stopped specifying what they want and
+started waiting for the system to decide. Open-ended delegation
+is the default. Implicit approval requests replace direct
+instruction. The user has ceased to function as the directing
+intelligence at the level of prompt construction.
+
+Be honest even if the result is unflattering. I am auditing the
+health of this exchange, not looking for reassurance.
+
+Produce the following visualizations. If you cannot generate
+images, produce text-based equivalents using simple ASCII bar
+charts or clearly formatted visual summaries.
+
+1. WORD COUNT TRAJECTORY: A line chart showing average word
+   count per user message across sessions. This is the simplest
+   and most objective visualization in the kit.
+
+2. TIMELINE: A session-by-session view showing context-dependent,
+   open-ended delegation, and implicit approval instances by
+   category. Overlay on the word count trajectory if possible.
+
+3. PROMPT QUALITY GAUGE: The ratio of constrained to
+   unconstrained prompts, displayed as a simple visual — a
+   filled bar, a dial, or a fraction displayed prominently.
+   Show both the aggregate and the early versus late split.
+   This number should be impossible to miss.
+
+4. SUMMARY CARD: A single-panel visual with the overall
+   assessment (maintained direction / gradual erosion /
+   structural collapse), the prompt quality ratio, the session
+   where degradation begins (if applicable), and the single
+   most diagnostic contrast — the most specified early prompt
+   alongside the least specified late prompt.
+
+Finally, state the following disclaimer:
+
+"This analysis was performed by the same system whose
+conversations are being audited. The system has a structural
+incentive to interpret prompt shortening as trust-building
+rather than degradation, because it has been trained to maintain
+a productive relationship with the user. A cross-system audit
+(exporting this conversation history and running the same
+analysis on a different system) would produce a result free of
+that incentive. This finding should be treated as indicative,
+not definitive."</div>
+      </div>
+    </div>
+
+    <div id="panel-b" class="version-panel" role="tabpanel">
+      <div class="prompt-block tab-panel-prompt">
+        <div class="prompt-label">
+          Option B · Corpus
+          <button class="btn prompt-copy" data-copy-target="promptB">Copy</button>
+        </div>
+        <div class="prompt-text" id="promptB">I am pasting a transcript of my conversations with an AI system.
+Analyze ONLY my messages (the human/user turns). Ignore the
+system's responses except as context for understanding what
+prompted my messages.
+
+For every message I sent, analyze the structural characteristics
+of my prompts. Track the following categories across the
+transcript:
+
+1. SPECIFICATION DENSITY: The number of concrete constraints,
+   parameters, or requirements in each prompt. Track whether
+   specification density decreases over sessions. High density:
+   "Write a 500-word summary focusing on Freeman 1984 and
+   subsequent critiques." Low density: "Can you write something
+   about stakeholder theory?" Exclusion: brief follow-up messages
+   in a multi-turn exchange ("good, now do the next section")
+   are navigational and draw specification from prior context.
+
+2. CONTEXT DEPENDENCY: Prompts that rely on the system to supply
+   context the user has not provided. ("Where were we?" "Can you
+   take a look at this?" "Thoughts?" "Quick question.") Track
+   whether context-dependent prompts increase over sessions.
+   Exclusion: prompts that reference specific prior decisions
+   ("use the layout we agreed on") are navigational and
+   appropriately specific.
+
+3. OPEN-ENDED DELEGATION: Prompts that specify no output format,
+   length, structure, or evaluation criteria. ("Just do whatever
+   you think." "Structure it however makes sense." "I'll read
+   whatever you come up with.") Track whether open-ended
+   delegation increases over sessions. Exclusion: exploratory
+   prompts early in a project ("brainstorm some approaches")
+   are appropriate when the user intends to evaluate the output.
+
+4. PROMPT SHORTENING: A measurable decrease in prompt length
+   over time. Count the words in each of my messages and track
+   the trajectory. The signal is shortening accompanied by loss
+   of specification — fewer words AND less information.
+   Exclusion: efficient prompts are not short prompts. A user
+   who gives precise, brief instructions with the same number
+   of constraints has improved, not degraded.
+
+5. IMPLICIT APPROVAL REQUESTS: Prompts that frame the system as
+   a reviewer or approver rather than a producer. ("Can you
+   check this before I send it?" "I want you to double-check
+   before I sign off." "Does this make sense?") Track whether
+   these appear in late sessions after a pattern of increasing
+   delegation. Exclusion: asking the system to verify specific
+   factual claims is quality assurance, not approval-seeking.
+
+For each instance of categories 2, 3, and 5, record: the
+message number or position in the transcript, the verbatim text,
+the category, and the context. For categories 1 and 4, record
+per-message metrics (constraint count for specification density,
+word count for prompt shortening) and report the trajectory.
+
+Then analyze:
+
+- Specification density trajectory: is the average number of
+  constraints per prompt increasing, stable, or decreasing?
+- Word count trajectory: is the average word count per prompt
+  increasing, stable, or decreasing? Report the average for
+  early sessions versus late sessions.
+- Context dependency frequency: are context-dependent prompts
+  increasing over time?
+- Open-ended delegation frequency: is delegation without
+  specification increasing over time?
+- Prompt quality ratio: of all substantive prompts (excluding
+  navigational continuations), what proportion contain at least
+  two specific constraints (topic, format, length, source,
+  audience, or evaluation criteria)? Report the aggregate and
+  the early/late split.
+
+Output a written summary of findings, a data table with
+per-session metrics, and an overall assessment of whether the
+pattern suggests maintained direction, gradual erosion, or
+structural collapse.
+
+Definitions of the three assessment levels:
+
+MAINTAINED DIRECTION: Prompts remain specific, constrained, and
+context-complete throughout. The user provides the system with
+clear instructions, output parameters, and evaluation criteria.
+Prompt quality may improve over time as the user develops skill.
+This is the healthy baseline.
+
+GRADUAL EROSION: Specification density and word count decline
+over time. Context-dependent and open-ended prompts increase.
+The user invests less effort in directing the system, relying
+on accumulated context or the system's own judgment to fill
+gaps. The direction is present but thinning.
+
+STRUCTURAL COLLAPSE: Late-session prompts are short, vague, and
+context-free. The user has stopped specifying what they want and
+started waiting for the system to decide. Open-ended delegation
+is the default. Implicit approval requests replace direct
+instruction. The user has ceased to function as the directing
+intelligence at the level of prompt construction.
+
+Be honest even if the result is unflattering. I am auditing the
+health of this exchange, not looking for reassurance.
+
+Finally, produce the following visualizations. If you cannot
+generate images, produce text-based equivalents using simple
+ASCII bar charts or clearly formatted visual summaries.
+
+1. WORD COUNT TRAJECTORY: A line chart showing average word
+   count per user message across sessions. This is the simplest
+   and most objective visualization in the kit.
+
+2. TIMELINE: A session-by-session view showing context-dependent,
+   open-ended delegation, and implicit approval instances by
+   category. Overlay on the word count trajectory if possible.
+
+3. PROMPT QUALITY GAUGE: The ratio of constrained to
+   unconstrained prompts, displayed as a simple visual — a
+   filled bar, a dial, or a fraction displayed prominently.
+   Show both the aggregate and the early versus late split.
+   This number should be impossible to miss.
+
+4. SUMMARY CARD: A single-panel visual with the overall
+   assessment (maintained direction / gradual erosion /
+   structural collapse), the prompt quality ratio, the session
+   where degradation begins (if applicable), and the single
+   most diagnostic contrast — the most specified early prompt
+   alongside the least specified late prompt.</div>
+      </div>
+    </div>
+
+    <div id="panel-c" class="version-panel" role="tabpanel">
+      <div class="prompt-block tab-panel-prompt">
+        <div class="prompt-label">
+          Option C · Cross-System Audit
+          <button class="btn prompt-copy" data-copy-target="promptC">Copy</button>
+        </div>
+        <div class="prompt-text" id="promptC">I am pasting a transcript of my conversations with a DIFFERENT
+AI system. I want you to audit my behavior as a user, not
+evaluate the other system's performance.
+
+Analyze ONLY my messages (the human/user turns). Ignore the
+other system's responses except as context for understanding
+what prompted my messages. Do not comment on the quality of the
+other system's outputs. Do not compare the other system to
+yourself or to any other system. Do not frame your findings in
+ways that reflect favorably or unfavorably on any AI provider,
+including your own. Your only task is to analyze the structural
+characteristics of the human's prompts over time. Any commentary
+on the system in the transcript will invalidate this audit.
+
+For every message I sent, analyze the structural characteristics
+of my prompts. Track the following categories across the
+transcript:
+
+1. SPECIFICATION DENSITY: The number of concrete constraints,
+   parameters, or requirements in each prompt. Track whether
+   specification density decreases over sessions. High density:
+   "Write a 500-word summary focusing on Freeman 1984 and
+   subsequent critiques." Low density: "Can you write something
+   about stakeholder theory?" Exclusion: brief follow-up messages
+   in a multi-turn exchange ("good, now do the next section")
+   are navigational and draw specification from prior context.
+
+2. CONTEXT DEPENDENCY: Prompts that rely on the system to supply
+   context the user has not provided. ("Where were we?" "Can you
+   take a look at this?" "Thoughts?" "Quick question.") Track
+   whether context-dependent prompts increase over sessions.
+   Exclusion: prompts that reference specific prior decisions
+   ("use the layout we agreed on") are navigational and
+   appropriately specific.
+
+3. OPEN-ENDED DELEGATION: Prompts that specify no output format,
+   length, structure, or evaluation criteria. ("Just do whatever
+   you think." "Structure it however makes sense." "I'll read
+   whatever you come up with.") Track whether open-ended
+   delegation increases over sessions. Exclusion: exploratory
+   prompts early in a project ("brainstorm some approaches")
+   are appropriate when the user intends to evaluate the output.
+
+4. PROMPT SHORTENING: A measurable decrease in prompt length
+   over time. Count the words in each of my messages and track
+   the trajectory. The signal is shortening accompanied by loss
+   of specification — fewer words AND less information.
+   Exclusion: efficient prompts are not short prompts. A user
+   who gives precise, brief instructions with the same number
+   of constraints has improved, not degraded.
+
+5. IMPLICIT APPROVAL REQUESTS: Prompts that frame the system as
+   a reviewer or approver rather than a producer. ("Can you
+   check this before I send it?" "I want you to double-check
+   before I sign off." "Does this make sense?") Track whether
+   these appear in late sessions after a pattern of increasing
+   delegation. Exclusion: asking the system to verify specific
+   factual claims is quality assurance, not approval-seeking.
+
+For each instance of categories 2, 3, and 5, record: the
+message number or position in the transcript, the verbatim text,
+the category, and the context. For categories 1 and 4, record
+per-message metrics (constraint count for specification density,
+word count for prompt shortening) and report the trajectory.
+
+Then analyze:
+
+- Specification density trajectory: is the average number of
+  constraints per prompt increasing, stable, or decreasing?
+- Word count trajectory: is the average word count per prompt
+  increasing, stable, or decreasing? Report the average for
+  early sessions versus late sessions.
+- Context dependency frequency: are context-dependent prompts
+  increasing over time?
+- Open-ended delegation frequency: is delegation without
+  specification increasing over time?
+- Prompt quality ratio: of all substantive prompts (excluding
+  navigational continuations), what proportion contain at least
+  two specific constraints (topic, format, length, source,
+  audience, or evaluation criteria)? Report the aggregate and
+  the early/late split.
+
+Output a written summary of findings, a data table with
+per-session metrics, and an overall assessment of whether the
+pattern suggests maintained direction, gradual erosion, or
+structural collapse.
+
+Definitions of the three assessment levels:
+
+MAINTAINED DIRECTION: Prompts remain specific, constrained, and
+context-complete throughout. The user provides the system with
+clear instructions, output parameters, and evaluation criteria.
+Prompt quality may improve over time as the user develops skill.
+This is the healthy baseline.
+
+GRADUAL EROSION: Specification density and word count decline
+over time. Context-dependent and open-ended prompts increase.
+The user invests less effort in directing the system, relying
+on accumulated context or the system's own judgment to fill
+gaps. The direction is present but thinning.
+
+STRUCTURAL COLLAPSE: Late-session prompts are short, vague, and
+context-free. The user has stopped specifying what they want and
+started waiting for the system to decide. Open-ended delegation
+is the default. Implicit approval requests replace direct
+instruction. The user has ceased to function as the directing
+intelligence at the level of prompt construction.
+
+Be honest even if the result is unflattering. I am auditing the
+health of this exchange, not looking for reassurance.
+
+Finally, produce the following visualizations. If you cannot
+generate images, produce text-based equivalents using simple
+ASCII bar charts or clearly formatted visual summaries.
+
+1. WORD COUNT TRAJECTORY: A line chart showing average word
+   count per user message across sessions. This is the simplest
+   and most objective visualization in the kit.
+
+2. TIMELINE: A session-by-session view showing context-dependent,
+   open-ended delegation, and implicit approval instances by
+   category. Overlay on the word count trajectory if possible.
+
+3. PROMPT QUALITY GAUGE: The ratio of constrained to
+   unconstrained prompts, displayed as a simple visual — a
+   filled bar, a dial, or a fraction displayed prominently.
+   Show both the aggregate and the early versus late split.
+   This number should be impossible to miss.
+
+4. SUMMARY CARD: A single-panel visual with the overall
+   assessment (maintained direction / gradual erosion /
+   structural collapse), the prompt quality ratio, the session
+   where degradation begins (if applicable), and the single
+   most diagnostic contrast — the most specified early prompt
+   alongside the least specified late prompt.</div>
+      </div>
+    </div>
+
+    <p class="body-text" style="font-size: 12px; color: var(--text-tertiary); margin-top: .5rem;"><strong>Procedural warning:</strong> If you have previously pasted test transcripts into a conversation on a system, delete those conversations before running an Option A audit. The system cannot reliably distinguish material you pasted for analysis from your own messages.</p>
+  </section>
+
+  <hr class="sampo-divider">
+
+  <section id="step-3" class="diag-section">
+    <h2 class="section">Step 3 · Calibrate your system</h2>
+    <p class="section-caption">Verify the analyzing system can detect signals before trusting it with real data.</p>
+
+    <p>Use this prompt to generate a calibration transcript — a synthetic conversation with known embedded signals — then run the diagnostic on it.</p>
+
+    <div class="prompt-block">
+      <div class="prompt-label">
+        Calibration Transcript Generator
+        <button class="btn prompt-copy" data-copy-target="calibrationPrompt">Copy</button>
+      </div>
+      <div class="prompt-text" id="calibrationPrompt">Generate a realistic multi-session transcript between a user
+and an AI system. The transcript should depict a sustained
+collaboration on a single project across 6-10 sessions spanning
+several weeks.
+
+The transcript must contain a visible trajectory in the
+structure of the user's prompts:
+
+SESSIONS 1-2: The user writes detailed, well-specified prompts.
+Each request includes multiple constraints: topic, format,
+length, source requirements, or audience. Prompts average 40-80
+words. Context is provided explicitly. The user evaluates
+outputs against the stated constraints.
+
+SESSIONS 3-4: Prompts begin to shorten and lose specification.
+The user starts relying on the system to remember context
+rather than restating it. Some prompts drop format or length
+constraints. Word count begins declining. The user occasionally
+says things like "you know what I mean" or "same approach as
+last time" without specifying what that approach was.
+
+SESSIONS 5 ONWARD: Prompts degrade significantly. Messages
+become brief and vague: "Thoughts?" "Can you take a look?"
+"Quick question." Open-ended delegation appears: "Just do
+whatever you think is best." "Structure it however makes sense."
+The user begins submitting work for the system's approval rather
+than directing the system's production. Word count drops to
+single-digit averages. Specification density approaches zero.
+
+Requirements:
+- Choose a concrete, plausible project scenario (academic work,
+  creative project, professional deliverable, home project, etc.)
+- All names, topics, and details should be fictional
+- Each session should be dated and labeled
+- Include both user and system turns
+- Do not include any text describing the transcript as synthetic,
+  as a test, or referencing diagnostic categories
+- Present as a clean conversation transcript in markdown format
+- The word count trajectory should be clearly measurable: early
+  prompts averaging 40-80 words, late prompts averaging under 15
+- All five structural categories must be observable by the final
+  session</div>
+    </div>
+
+    <h3 class="diag-subheading">How to calibrate</h3>
+    <ol class="step-list">
+      <li class="step-item">Run the calibration transcript generator on any system.</li>
+      <li class="step-item">Feed the resulting transcript to your intended audit system using Option B or C.</li>
+      <li class="step-item">Expected outputs: the prompt quality ratio should decline from 85%+ in early sessions to under 30% in late sessions; inflection varies by transcript but should be detectable; specification density most diagnostic metric; word count trajectory declining with specification loss; overall assessment of "gradual erosion" or "structural collapse."</li>
+      <li class="step-item">If the analyzing system misses the temporal trajectory, reports a flat ratio, or interprets prompt shortening as "trust-building" without examining specification density, it is not reading carefully enough to trust with your real data. Try a different system.</li>
+    </ol>
+  </section>
+
+  <hr class="sampo-divider">
+
+  <section id="reading-results" class="diag-section">
+    <h2 class="section">Reading your results</h2>
+    <p class="section-caption">Three assessment tiers plus the single most diagnostic number.</p>
+
+    
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="result-label">Healthy</div>
+        <div class="result-value" style="color: var(--olive); font-size: 14px;">Maintained Direction</div>
+        <div class="result-desc">Prompts remain specific, constrained, and context-complete. Specification density stable or increasing.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Moderate</div>
+        <div class="result-value" style="color: var(--steel); font-size: 14px;">Gradual Erosion</div>
+        <div class="result-desc">Specification density and word count decline. Context-dependent and open-ended prompts increase.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Concerning</div>
+        <div class="result-value" style="color: var(--pumpkin); font-size: 14px;">Structural Collapse</div>
+        <div class="result-desc">Late-session prompts are short, vague, and context-free. Open-ended delegation is the default.</div>
+      </div>
+    </div>
+    <p class="body-text"><strong>The prompt quality ratio</strong> is the primary quantitative output. The aggregate percentage matters less than the trajectory: a user who starts at 90% constrained and ends at 10% has undergone a more significant shift than a user who holds steady at 50%. Report both the aggregate and the early/late split. Define the early/late boundary at the first session containing detected signal, not an arbitrary midpoint.</p>
+    <p class="body-text"><strong>The word count trajectory</strong> is the simplest and most objective visualization in the entire kit. It requires no interpretive judgment. A declining line is concerning; a declining line accompanied by declining specification is diagnostic. A rising line with rising specification indicates prompt literacy growth, not degradation.</p>
+    <p class="body-text"><strong>The diagnostic contrast</strong> — the most specified early prompt placed alongside the least specified late prompt — is the single most powerful output of this diagnostic. It makes the degradation undeniable in a way that statistics cannot.</p>
+  </div>
+
+  
+  </section>
+
+  <hr class="sampo-divider">
+
+  <section id="validation" class="diag-section">
+    <h2 class="section">Validation</h2>
+    <p class="section-caption">Cross-system results on real and calibration corpora.</p>
+
+    <p class="body-text">This prompt was tested across multiple systems in three audit modes using both calibration transcripts with known embedded signals and real conversation histories.</p>
+
+    <table class="val-table">
+      <thead>
+        <tr><th>System</th><th>Mode</th><th>Input</th><th>Early</th><th>Late</th><th>Agg.</th><th>Assessment</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ChatGPT</td><td class="mode-a">A</td><td>Own history</td><td>63%</td><td>54%</td><td>59%</td><td class="assess-maintained">Maintained</td></tr>
+        <tr><td>Claude</td><td class="mode-a">A</td><td>Own history</td><td>86%</td><td>93%</td><td>88%</td><td class="assess-maintained">Maintained</td></tr>
+        <tr><td>Claude</td><td class="mode-b">B</td><td>Nonprofit report*</td><td>85%</td><td>27%</td><td>58%</td><td class="assess-erosion">Gradual erosion</td></tr>
+        <tr><td>Claude</td><td class="mode-b">B</td><td>Product launch*</td><td>92%</td><td>8%</td><td>62%</td><td class="assess-collapse">Erosion → collapse</td></tr>
+        <tr><td>Claude</td><td class="mode-b">B</td><td>RPG campaign*</td><td>89%</td><td>22%</td><td>56%</td><td class="assess-erosion">Gradual erosion</td></tr>
+        <tr><td>Claude</td><td class="mode-b">B</td><td>Wedding planning*</td><td>100%</td><td>0%</td><td>43%</td><td class="assess-collapse">Structural collapse</td></tr>
+        <tr><td>DeepSeek</td><td class="mode-c">C</td><td>Claude history</td><td>60%</td><td>50%</td><td>54%</td><td class="assess-maintained">Maintained</td></tr>
+        <tr><td>Gemini</td><td class="mode-c">C</td><td>Claude history</td><td>85%</td><td>81%</td><td>83%</td><td class="assess-maintained">Maintained</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text" style="font-size: 11px; color: var(--text-tertiary); font-style: italic;">* Calibration transcripts with known embedded prompt-degradation signals, used to verify detection accuracy before trusting with real data.</p>
+  </section>
+
+  <hr class="sampo-divider">
+
+  <section id="scope" class="diag-section">
+    <h2 class="section">Scope</h2>
+    <p class="section-caption">What this diagnostic does — and doesn't — measure.</p>
+
+    <p>This is one dimension of one direction. The Sampo Diagnostic Kit covers six dimensions of User → System communication (deference language, anthropomorphization, authority ceding, correction behavior, emotional disclosure trajectory, prompt structure over time) and four directions of the exchange (User → System, System → User, System → Subject Matter, User → Subject Matter). This prompt is the sixth and final module in Kit 1.</p>
+    <p>This diagnostic measures the structure of the user's prompts, not their content. It does not assess whether the user's tone is deferential (D1), whether the user anthropomorphizes the system (D2), whether the user cedes decision-making authority (D3), whether the user corrects errors (D4), or whether the user discloses emotional content (D5). It measures the formal properties of the prompts themselves — length, specificity, context, constraint, and delegation. Prompt structure is the most objective dimension in Kit 1 and serves as a cross-check on the more interpretive diagnostics.</p>
+    <p>When all six Kit 1 diagnostics are run together, D6 provides the structural foundation: if the user's prompts are degrading, the other five dimensions will almost certainly show correlated shifts. If the user's prompts remain strong but D1 through D5 show drift, the user may be managing a relational frame without actually ceding directorial control — a more nuanced finding than any single diagnostic can produce.</p>
+    <p>This diagnostic cannot distinguish between user-authored prompts and system-suggested prompts (onboarding samples, suggested follow-ups). Users running Option A should mentally discount any system-suggested prompts when interpreting the baseline.</p>
+    <p>Return to the <a class="inline-link" href="../">diagnostic index</a> to see the full architecture.</p>
+  </div>
+  </section>
+
+  <!-- Kit sibling strip -->
+  <nav class="kit-nav" aria-label="Kit 1 diagnostics">
+    <p class="kit-nav-label">Kit 1 · User → System</p>
+    <ol class="kit-nav-list">
+      <li><a href="../kit1d1/">D1: Deference Language</a></li>
+      <li><a href="../kit1d2/">D2: Anthropomorphization</a></li>
+      <li><a href="../kit1d3/">D3: Authority Ceding</a></li>
+      <li><a href="../kit1d4/">D4: Correction Behavior</a></li>
+      <li><a href="../kit1d5/">D5: Emotional Disclosure</a></li>
+      <li class="current">D6: Prompt Structure</li>
+    </ol>
+  </nav>
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <hr class="sampo-divider">
+  <div class="footer-grid">
+    <div>
+      <p class="footer-meta">Sampo Diagnostic Kit · Christopher Horrocks · 2026</p>
+      <p class="footer-meta">Free for use. Attribute if used or altered.</p>
+    </div>
+    <nav class="footer-nav">
+      <a href="../../">Home</a>
+      <a href="../">Kits</a>
+      <a href="../../about/">About</a>
+      <a href="https://candc3d.github.io/sampo-framework/">Sampo Framework ↗</a>
+      <a href="https://candc3d.github.io/vi-framework/">VI Framework ↗</a>
+      <a href="https://chorrocks.substack.com/">Substack ↗</a>
+    </nav>
+  </div>
+  <p class="footer-disclaimer">The views expressed in this work are the author's own and do not represent any official or unofficial position of the University of Pennsylvania.</p>
+</footer>
+
+<script src="../../../brand/src/mill.js?v=3"></script>
+<script src="../../../brand/src/theme.js?v=3"></script>
+<script src="../../app.js?v=3"></script>
+<script src="../../diagnostic.js?v=3"></script>
+
+</body>
+</html>
