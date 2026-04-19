@@ -5,8 +5,75 @@
  * site.css are already in the cascade.
  * ==================================================================== */
 
+/* ── Layout: article + left rail ──────────────────────────────────── */
+
 .diagnostic {
-  max-width: 780px;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: var(--sp-8);
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--sp-6);
+  align-items: start;
+}
+
+.diag-rail {
+  position: sticky;
+  top: var(--sp-6);
+  align-self: start;
+  padding-top: var(--sp-12);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
+
+.diag-rail .rail-label {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 var(--sp-3);
+  padding: 0 var(--sp-3);
+}
+
+.diag-rail ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px dashed var(--border);
+}
+
+.diag-rail li { margin: 0; }
+
+.diag-rail a {
+  display: block;
+  padding: var(--sp-2) var(--sp-3);
+  color: var(--muted);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  margin-left: -1px;
+  transition: color .15s, border-color .15s;
+  line-height: 1.4;
+}
+
+.diag-rail a:hover {
+  color: var(--ink);
+}
+
+.diag-rail a.active {
+  color: var(--ink);
+  border-left-color: var(--olive);
+}
+
+.diag-article { min-width: 0; }
+
+@media (max-width: 900px) {
+  .diagnostic {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 780px;
+  }
+  .diag-rail { display: none; }
 }
 
 /* ── Header block ─────────────────────────────────────────────────── */
@@ -103,9 +170,9 @@
 
 .cat-card summary {
   display: flex;
-  align-items: center;
-  gap: var(--sp-3);
-  padding: var(--sp-4) var(--sp-5);
+  align-items: baseline;
+  gap: var(--sp-5);
+  padding: var(--sp-4) var(--sp-6);
   cursor: pointer;
   list-style: none;
   user-select: none;
@@ -114,18 +181,25 @@
 .cat-card summary::-webkit-details-marker { display: none; }
 .cat-card summary::marker { content: ""; }
 
+/* Category number: mono, same size as the title it sits beside, with
+   enough left gutter to let the tabular figure breathe. */
 .cat-num {
   font-family: var(--ff-mono);
-  font-size: var(--fs-small);
+  font-size: var(--fs-h3);
   color: var(--olive);
   font-weight: 500;
   flex: 0 0 1.5rem;
+  font-feature-settings: "tnum";
+  line-height: 1;
 }
 
 .cat-name {
+  font-family: var(--ff-body);
   font-weight: 600;
+  font-size: var(--fs-h3);
   flex: 1;
   color: var(--ink);
+  line-height: 1.2;
 }
 
 .cat-chevron {
@@ -255,7 +329,7 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r-md);
-  padding: var(--sp-4) var(--sp-5);
+  padding: var(--sp-4) var(--sp-8);
   margin: var(--sp-4) 0;
 }
 

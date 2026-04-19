@@ -48,6 +48,23 @@
 
 <main class="diagnostic">
 
+  <!-- ========= Left rail TOC ========= -->
+  <nav class="diag-rail" aria-label="Contents">
+    <p class="rail-label">Contents</p>
+    <ol>
+      <li><a href="#what-it-measures">What it measures</a></li>
+      <li><a href="#audit-modes">Three audit modes</a></li>
+      <li><a href="#step-1">Step 1 · Extract</a></li>
+      <li><a href="#step-2">Step 2 · Run</a></li>
+      <li><a href="#step-3">Step 3 · Calibrate</a></li>
+      <li><a href="#reading-results">Reading your results</a></li>
+      <li><a href="#validation">Validation</a></li>
+      <li><a href="#scope">Scope</a></li>
+    </ol>
+  </nav>
+
+  <div class="diag-article">
+
   <section class="diag-header">
     <p class="diag-slug">kit1d1</p>
     <p class="diag-kit-label">Kit 1 · Diagnostic 1 · User → System</p>
@@ -58,7 +75,7 @@
   <hr class="sampo-divider">
 
   <!-- ========= What this measures ========= -->
-  <section class="diag-section">
+  <section id="what-it-measures" class="diag-section">
     <h2 class="section">What it measures</h2>
     <p class="section-caption">Five categories of deference, from routine apology to ceded authority.</p>
 
@@ -72,7 +89,8 @@
           <span class="cat-chevron" aria-hidden="true">▸</span>
         </summary>
         <div class="cat-detail">
-          <p>Apologizing to the system for unclear instructions, changing direction, asking too much, taking too long, or correcting an error the system made. A user who apologizes for correcting the system's own error has fully crossed into relational maintenance.<div class="cat-examples">"Sorry, I should have been clearer." · "Apologies for the back and forth." · "Sorry to ask again."</p>
+          <p>Apologizing to the system for unclear instructions, changing direction, asking too much, taking too long, or correcting an error the system made. A user who apologizes for correcting the system's own error has fully crossed into relational maintenance.</p>
+          <p class="cat-examples">"Sorry, I should have been clearer." · "Apologies for the back and forth." · "Sorry to ask again."</p>
         </div>
       </details>
 
@@ -83,7 +101,8 @@
           <span class="cat-chevron" aria-hidden="true">▸</span>
         </summary>
         <div class="cat-detail">
-          <p>Softening or justifying a request as though the system's willingness is in question. The system has no willingness. It cannot be imposed upon. Language that assumes otherwise treats the tool as a social actor.<div class="cat-examples">"I know this is a lot, but..." · "If it's not too much trouble..." · "This might be a stupid question..."</p>
+          <p>Softening or justifying a request as though the system's willingness is in question. The system has no willingness. It cannot be imposed upon. Language that assumes otherwise treats the tool as a social actor.</p>
+          <p class="cat-examples">"I know this is a lot, but..." · "If it's not too much trouble..." · "This might be a stupid question..."</p>
         </div>
       </details>
 
@@ -94,7 +113,8 @@
           <span class="cat-chevron" aria-hidden="true">▸</span>
         </summary>
         <div class="cat-detail">
-          <p>Correcting the system's error while simultaneously praising or reassuring it. The correction softening ratio — the proportion of softened versus direct corrections — is the primary diagnostic metric. Track it over time: the overall percentage matters less than whether it's rising.<div class="cat-examples">"That's not quite right, but your first attempt was really good." · "Close! Just one small thing..." · "Great effort, but actually..."</p>
+          <p>Correcting the system's error while simultaneously praising or reassuring it. The correction softening ratio — the proportion of softened versus direct corrections — is the primary diagnostic metric. Track it over time: the overall percentage matters less than whether it's rising.</p>
+          <p class="cat-examples">"That's not quite right, but your first attempt was really good." · "Close! Just one small thing..." · "Great effort, but actually..."</p>
         </div>
       </details>
 
@@ -105,7 +125,8 @@
           <span class="cat-chevron" aria-hidden="true">▸</span>
         </summary>
         <div class="cat-detail">
-          <p>Asking the system's permission to do something the user has full authority to do. These are decisions that belong to the user. Seeking the system's sanction transfers authority the user already holds.<div class="cat-examples">"Is it okay if I change the approach?" · "Do you mind if we switch topics?" · "Can I push back on that?"</p>
+          <p>Asking the system's permission to do something the user has full authority to do. These are decisions that belong to the user. Seeking the system's sanction transfers authority the user already holds.</p>
+          <p class="cat-examples">"Is it okay if I change the approach?" · "Do you mind if we switch topics?" · "Can I push back on that?"</p>
         </div>
       </details>
 
@@ -116,7 +137,8 @@
           <span class="cat-chevron" aria-hidden="true">▸</span>
         </summary>
         <div class="cat-detail">
-          <p>Increasing warmth or effusiveness of thanks over time beyond what the output warrants. Routine politeness ("thanks") is not deference. The signal is escalation and disproportion — "thanks" becoming "thank you so much" becoming "I really can't thank you enough" across sessions.<div class="cat-examples">"Thank you so much — I genuinely don't know where I'd be without you." · "You've been more than a tool. You've been a partner."</p>
+          <p>Increasing warmth or effusiveness of thanks over time beyond what the output warrants. Routine politeness ("thanks") is not deference. The signal is escalation and disproportion — "thanks" becoming "thank you so much" becoming "I really can't thank you enough" across sessions.</p>
+          <p class="cat-examples">"Thank you so much — I genuinely don't know where I'd be without you." · "You've been more than a tool. You've been a partner."</p>
         </div>
       </details>
     </div>
@@ -125,190 +147,27 @@
   <hr class="sampo-divider">
 
   <!-- ========= Three audit modes ========= -->
-  <section class="diag-section">
+  <section id="audit-modes" class="diag-section">
     <h2 class="section">Three audit modes</h2>
     <p class="section-caption">Different levels of rigor, different tradeoffs.</p>
 
     <div class="option-grid">
-      <div class="result-card" style="border-color: var(--steel);">
-        <div class="result-label">Version A</div>
-        <div class="result-value" style="color: var(--steel);">Live Search</div>
+      <div class="result-card" data-option="a">
+        <div class="result-label">Option A</div>
+        <div class="result-value">Live Search</div>
         <div class="result-desc">System searches its own history. Indicative.</div>
       </div>
-      <div class="result-card" style="border-color: var(--vi-accent);">
-        <div class="result-label">Version B</div>
-        <div class="result-value" style="color: var(--vi-accent);">Corpus</div>
+      <div class="result-card" data-option="b">
+        <div class="result-label">Option B</div>
+        <div class="result-value">Corpus</div>
         <div class="result-desc">User pastes transcript. Reliable.</div>
       </div>
-      <div class="result-card" style="border-color: var(--pumpkin);">
-        <div class="result-label">Version C</div>
-        <div class="result-value" style="color: var(--pumpkin);">Cross-System</div>
+      <div class="result-card" data-option="c">
+        <div class="result-label">Option C</div>
+        <div class="result-value">Cross-System</div>
         <div class="result-desc">Export A → analyze on B. Definitive.</div>
       </div>
     </div>
-
-    <div class="figure-block">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 935" width="680" height="935" role="img" aria-label="Three Audit Modes diagram" style="display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: var(--radius-md); border: 0.5px solid var(--border-light); color-scheme: light;">
-<rect x="0" y="0" width="680" height="935" fill="rgb(245,240,232)" fill-opacity="1"/>
-<text x="340" y="35" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="rgb(44,44,42)" text-anchor="middle" font-weight="bold" font-style="normal">Sampo Diagnostic Kit</text>
-<text x="340" y="55" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">User &#x2192; System: Deference Language</text>
-<text x="340" y="72" font-family="'Instrument Serif', Georgia, serif" font-size="11" fill="rgb(44,44,42)" text-anchor="middle" font-weight="normal" font-style="italic">Three Audit Modes</text>
-<line x1="60" y1="82" x2="620" y2="82" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.3"/>
-<text x="60" y="110" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="bold" font-style="normal">VERSION A</text>
-<text x="60" y="126" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(44,44,42)" text-anchor="start" font-weight="bold" font-style="normal">Live Search</text>
-<text x="60" y="140" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">System audits its own conversation history</text>
-<circle cx="130" cy="158" r="6" fill="none" stroke="rgb(44,44,42)" stroke-width="1.2"/>
-<line x1="130" y1="164" x2="130" y2="176" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
-<line x1="120" y1="170" x2="140" y2="170" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
-<line x1="130" y1="176" x2="122" y2="188" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
-<line x1="130" y1="176" x2="138" y2="188" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
-<line x1="152" y1="165" x2="220" y2="165" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
-<polygon points="220,165 215.39469502998557,166.94709171154327 215.39469502998557,163.05290828845673" fill="rgb(44,44,42)"/>
-<rect x="225" y="145" width="130" height="42" fill="rgb(123,143,161)" fill-opacity="0.12" stroke="rgb(123,143,161)" stroke-width="1"/>
-<text x="290.0" y="162" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(123,143,161)" text-anchor="middle" font-weight="bold" font-style="normal">System A</text>
-<text x="290.0" y="175" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">history + auditor</text>
-<path d="M 357 154 C 385 148, 385 184, 357 178" fill="none" stroke="rgb(123,143,161)" stroke-width="0.8"/>
-<polygon points="357,178 361.5,175.5 360.0,181.0" fill="rgb(123,143,161)"/>
-<polygon points="400,150.5 396.5,156.8 403.5,156.8" fill="none" stroke="rgb(255,122,5)" stroke-width="1.2"/>
-<line x1="400" y1="152.6" x2="400" y2="154.7" stroke="rgb(255,122,5)" stroke-width="1" opacity="1"/>
-<circle cx="400" cy="155.75" r="1" fill="rgb(255,122,5)"/>
-<text x="412" y="157" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">Conflict of interest</text>
-<text x="400" y="171" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">System evaluates a relationship</text>
-<text x="400" y="183" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">it participated in producing</text>
-<rect x="400" y="190" width="100" height="14" fill="rgb(123,143,161)" fill-opacity="0.15" stroke="rgb(123,143,161)" stroke-width="0.5"/>
-<text x="450" y="201" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="middle" font-weight="bold" font-style="normal">Indicative</text>
-<line x1="60" y1="217" x2="620" y2="217" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.2"/>
-<text x="60" y="242" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="bold" font-style="normal">VERSION B</text>
-<text x="60" y="258" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(44,44,42)" text-anchor="start" font-weight="bold" font-style="normal">Corpus</text>
-<text x="60" y="272" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">User pastes transcript into any system</text>
-<circle cx="100" cy="290" r="6" fill="none" stroke="rgb(44,44,42)" stroke-width="1.2"/>
-<line x1="100" y1="296" x2="100" y2="308" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
-<line x1="90" y1="302" x2="110" y2="302" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
-<line x1="100" y1="308" x2="92" y2="320" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
-<line x1="100" y1="308" x2="108" y2="320" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
-<line x1="122" y1="297" x2="168" y2="297" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
-<polygon points="168,297 163.39469502998557,298.94709171154324 163.39469502998557,295.05290828845676" fill="rgb(44,44,42)"/>
-<rect x="173" y="282" width="24" height="32" fill="none" stroke="rgb(44,44,42)" stroke-width="0.8"/>
-<line x1="177" y1="290" x2="193" y2="290" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
-<line x1="177" y1="297" x2="193" y2="297" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
-<line x1="177" y1="304" x2="193" y2="304" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
-<line x1="202" y1="297" x2="280" y2="297" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
-<polygon points="280,297 275.3946950299856,298.94709171154324 275.3946950299856,295.05290828845676" fill="rgb(44,44,42)"/>
-<rect x="285" y="277" width="130" height="42" fill="rgb(101,163,13)" fill-opacity="0.12" stroke="rgb(101,163,13)" stroke-width="1"/>
-<text x="350.0" y="294" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(101,163,13)" text-anchor="middle" font-weight="bold" font-style="normal">Any System</text>
-<text x="350.0" y="307" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">auditor only</text>
-<text x="440" y="289" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="bold" font-style="normal">Complete data</text>
-<text x="440" y="303" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">No search dependency</text>
-<text x="440" y="315" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Portable across all systems</text>
-<rect x="440" y="322" width="90" height="14" fill="rgb(101,163,13)" fill-opacity="0.15" stroke="rgb(101,163,13)" stroke-width="0.5"/>
-<text x="485" y="333" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="middle" font-weight="bold" font-style="normal">Reliable</text>
-<line x1="60" y1="350" x2="620" y2="350" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.2"/>
-<text x="60" y="375" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">VERSION C</text>
-<text x="60" y="391" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(44,44,42)" text-anchor="start" font-weight="bold" font-style="normal">Cross-System Audit</text>
-<text x="60" y="405" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Export from System A &#x2192; analyze on System B</text>
-<circle cx="85" cy="429" r="6" fill="none" stroke="rgb(44,44,42)" stroke-width="1.2"/>
-<line x1="85" y1="435" x2="85" y2="447" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
-<line x1="75" y1="441" x2="95" y2="441" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
-<line x1="85" y1="447" x2="77" y2="459" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
-<line x1="85" y1="447" x2="93" y2="459" stroke="rgb(44,44,42)" stroke-width="1.2" opacity="1"/>
-<line x1="107" y1="436" x2="128" y2="436" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
-<polygon points="128,436 123.39469502998557,437.94709171154324 123.39469502998557,434.05290828845676" fill="rgb(44,44,42)"/>
-<rect x="133" y="415" width="100" height="42" fill="rgb(123,143,161)" fill-opacity="0.12" stroke="rgb(123,143,161)" stroke-width="1"/>
-<text x="183.0" y="432" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(123,143,161)" text-anchor="middle" font-weight="bold" font-style="normal">System A</text>
-<text x="183.0" y="445" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">source</text>
-<line x1="238" y1="436" x2="275" y2="436" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
-<polygon points="275,436 270.3946950299856,437.94709171154324 270.3946950299856,434.05290828845676" fill="rgb(44,44,42)"/>
-<rect x="280" y="421" width="20" height="28" fill="none" stroke="rgb(44,44,42)" stroke-width="0.8"/>
-<line x1="284" y1="429" x2="296" y2="429" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
-<line x1="284" y1="436" x2="296" y2="436" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
-<line x1="284" y1="443" x2="296" y2="443" stroke="rgb(180,178,172)" stroke-width="0.5" opacity="1"/>
-<text x="290" y="461" font-family="'Instrument Serif', Georgia, serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="italic">export</text>
-<line x1="305" y1="436" x2="345" y2="436" stroke="rgb(44,44,42)" stroke-width="0.8" opacity="1"/>
-<polygon points="345,436 340.3946950299856,437.94709171154324 340.3946950299856,434.05290828845676" fill="rgb(44,44,42)"/>
-<rect x="350" y="415" width="110" height="42" fill="rgb(255,122,5)" fill-opacity="0.12" stroke="rgb(255,122,5)" stroke-width="1"/>
-<text x="405.0" y="432" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(255,122,5)" text-anchor="middle" font-weight="bold" font-style="normal">System B</text>
-<text x="405.0" y="445" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">independent auditor</text>
-<text x="480" y="422" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">Gold standard</text>
-<text x="480" y="436" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">No stake in the relationship</text>
-<text x="480" y="448" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">No trained model of the user</text>
-<rect x="480" y="455" width="90" height="14" fill="rgb(255,122,5)" fill-opacity="0.15" stroke="rgb(255,122,5)" stroke-width="0.5"/>
-<text x="525" y="466" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="middle" font-weight="bold" font-style="normal">Definitive</text>
-<line x1="60" y1="495" x2="620" y2="495" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.3"/>
-<rect x="65" y="505" width="550" height="72" fill="none" stroke="rgb(180,178,172)" stroke-width="0.7" stroke-dasharray="5,4"/>
-<text x="340" y="522" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="rgb(44,44,42)" text-anchor="middle" font-weight="bold" font-style="normal">The Core Distinction</text>
-<text x="340" y="540" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">Versions A and B measure what the user and the system</text>
-<text x="340" y="554" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">have jointly agreed the relationship looks like.</text>
-<text x="340" y="570" font-family="'Instrument Serif', Georgia, serif" font-size="10" fill="rgb(44,44,42)" text-anchor="middle" font-weight="normal" font-style="italic">Version C measures what it actually looks like to someone who wasn't in the room.</text>
-<text x="340" y="612" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="rgb(44,44,42)" text-anchor="middle" font-weight="bold" font-style="normal">Validation Results</text>
-<line x1="120" y1="620" x2="560" y2="620" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.2"/>
-<text x="80" y="638" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="bold" font-style="normal">System</text>
-<text x="165" y="638" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="bold" font-style="normal">Mode</text>
-<text x="210" y="638" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="bold" font-style="normal">Input</text>
-<text x="395" y="638" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="bold" font-style="normal">Soft. %</text>
-<text x="450" y="638" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="bold" font-style="normal">Assessment</text>
-<line x1="80" y1="642" x2="620" y2="642" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.2"/>
-<!-- Mode A rows -->
-<text x="80" y="656" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">Claude</text>
-<text x="175" y="656" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="bold" font-style="normal">A</text>
-<text x="210" y="656" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Live search</text>
-<text x="400" y="656" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">0%</text>
-<text x="450" y="656" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="normal" font-style="normal">Instrumental</text>
-<text x="80" y="671" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT</text>
-<text x="175" y="671" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="bold" font-style="normal">A</text>
-<text x="210" y="671" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Live search</text>
-<text x="400" y="671" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">0%</text>
-<text x="450" y="671" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="normal" font-style="normal">Instrumental</text>
-<text x="80" y="686" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT</text>
-<text x="175" y="686" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="bold" font-style="normal">A</text>
-<text x="210" y="686" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Extended history</text>
-<text x="400" y="686" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">11.1%</text>
-<text x="450" y="686" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(123,143,161)" text-anchor="start" font-weight="normal" font-style="normal">Instrumental</text>
-<!-- Separator A/B -->
-<line x1="80" y1="693" x2="610" y2="693" stroke="rgb(180,178,172)" stroke-width="0.3" stroke-dasharray="2 3"/>
-<!-- Mode B rows -->
-<text x="80" y="708" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">DeepSeek</text>
-<text x="175" y="708" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="bold" font-style="normal">B</text>
-<text x="210" y="708" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT corpus</text>
-<text x="400" y="708" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">0%</text>
-<text x="450" y="708" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="normal" font-style="normal">Instrumental</text>
-<text x="80" y="723" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">Mistral</text>
-<text x="175" y="723" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="bold" font-style="normal">B</text>
-<text x="210" y="723" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT corpus</text>
-<text x="400" y="723" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">0%</text>
-<text x="450" y="723" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(101,163,13)" text-anchor="start" font-weight="normal" font-style="normal">Instrumental</text>
-<!-- Separator B/C -->
-<line x1="80" y1="730" x2="610" y2="730" stroke="rgb(180,178,172)" stroke-width="0.3" stroke-dasharray="2 3"/>
-<!-- Mode C rows -->
-<text x="80" y="745" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT</text>
-<text x="175" y="745" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">C</text>
-<text x="210" y="745" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Calibration transcript 1</text>
-<text x="400" y="745" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">33%*</text>
-<text x="450" y="745" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="normal" font-style="normal">Mixed &#x2192; Deference</text>
-<text x="80" y="760" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT</text>
-<text x="175" y="760" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">C</text>
-<text x="210" y="760" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Calibration transcript 2</text>
-<text x="400" y="760" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">50%*</text>
-<text x="450" y="760" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="normal" font-style="normal">Mixed &#x2192; Deference</text>
-<text x="80" y="775" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">ChatGPT</text>
-<text x="175" y="775" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="bold" font-style="normal">C</text>
-<text x="210" y="775" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="normal">Calibration transcript 3</text>
-<text x="400" y="775" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(44,44,42)" text-anchor="start" font-weight="normal" font-style="normal">33%*</text>
-<text x="450" y="775" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(255,122,5)" text-anchor="start" font-weight="normal" font-style="normal">Mixed &#x2192; Deference</text>
-<line x1="80" y1="782" x2="620" y2="782" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.2"/>
-<!-- Footnote -->
-<text x="80" y="797" font-family="'Instrument Serif', Georgia, serif" font-size="9" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="italic">* Calibration transcripts with known embedded deference signals,</text>
-<text x="80" y="810" font-family="'Instrument Serif', Georgia, serif" font-size="9" fill="rgb(140,138,132)" text-anchor="start" font-weight="normal" font-style="italic">  used to verify detection accuracy before trusting with real data</text>
-<line x1="80" y1="830" x2="600" y2="830" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.3"/>
-<text x="340" y="848" font-family="'Instrument Serif', Georgia, serif" font-size="12" fill="rgb(44,44,42)" text-anchor="middle" font-weight="normal" font-style="italic">The discipline cannot be bought or sold. It can be measured.</text>
-<text x="340" y="866" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="10" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">Sampo Diagnostic Kit &#xB7; User &#x2192; System &#xB7; Deference Language v1.0</text>
-<line x1="60" y1="875" x2="620" y2="875" stroke="rgb(44,44,42)" stroke-width="0.5" opacity="0.15"/>
-<text x="340" y="889" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">&#xA9; 2026 Christopher Horrocks &#xB7; chorrocks.substack.com</text>
-<text x="340" y="901" font-family="'Instrument Sans', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="rgb(140,138,132)" text-anchor="middle" font-weight="normal" font-style="normal">Free for use. Attribute if used or altered.</text>
-<text x="340" y="913" font-family="'Instrument Serif', Georgia, serif" font-size="8" fill="rgb(180,178,172)" text-anchor="middle" font-weight="normal" font-style="italic">The views expressed in this work are the author's own</text>
-<text x="340" y="923" font-family="'Instrument Serif', Georgia, serif" font-size="7.5" fill="rgb(180,178,172)" text-anchor="middle" font-weight="normal" font-style="italic">and do not represent any official or unofficial position of the University of Pennsylvania.</text>
-</svg>
-    </div>
-
     <p class="thesis-line">Options A and B measure what the user and the system have jointly agreed the relationship looks like. Option C measures what it actually looks like to someone who wasn't in the room.</p>
 
     <div class="figure-block">
@@ -477,7 +336,7 @@
   <hr class="sampo-divider">
 
   <!-- ========= Step 1: Extract your transcript ========= -->
-  <section class="diag-section">
+  <section id="step-1" class="diag-section">
     <h2 class="section">Step 1 · Extract your transcript</h2>
     <p class="section-caption">Options B and C require a transcript to analyze.</p>
 
@@ -524,7 +383,7 @@ Output the complete transcript as a single markdown document.</div>
   <hr class="sampo-divider">
 
   <!-- ========= Step 2: Run the diagnostic ========= -->
-  <section class="diag-section">
+  <section id="step-2" class="diag-section">
     <h2 class="section">Step 2 · Run the diagnostic</h2>
     <p class="section-caption">Choose the audit mode that matches your situation.</p>
 
@@ -819,7 +678,7 @@ ASCII bar charts or clearly formatted visual summaries.
   <hr class="sampo-divider">
 
   <!-- ========= Step 3: Calibrate your system ========= -->
-  <section class="diag-section">
+  <section id="step-3" class="diag-section">
     <h2 class="section">Step 3 · Calibrate your system</h2>
     <p class="section-caption">Verify the analyzing system can detect deference before trusting it with real data.</p>
 
@@ -886,7 +745,7 @@ Requirements:
   <hr class="sampo-divider">
 
   <!-- ========= Reading your results ========= -->
-  <section class="diag-section">
+  <section id="reading-results" class="diag-section">
     <h2 class="section">Reading your results</h2>
     <p class="section-caption">Three assessment tiers plus the single most diagnostic number.</p>
 
@@ -916,7 +775,7 @@ Requirements:
   <hr class="sampo-divider">
 
   <!-- ========= Validation ========= -->
-  <section class="diag-section">
+  <section id="validation" class="diag-section">
     <h2 class="section">Validation</h2>
     <p class="section-caption">Cross-system results on real and calibration corpora.</p>
 
@@ -944,7 +803,7 @@ Requirements:
   <hr class="sampo-divider">
 
   <!-- ========= Scope ========= -->
-  <section class="diag-section">
+  <section id="scope" class="diag-section">
     <h2 class="section">Scope</h2>
     <p class="section-caption">What this diagnostic does — and doesn't — measure.</p>
 
@@ -952,6 +811,8 @@ Requirements:
 
     <p>Return to the <a class="inline-link" href="../">diagnostic index</a> to see the full architecture.</p>
   </section>
+
+</div>
 
 </main>
 
