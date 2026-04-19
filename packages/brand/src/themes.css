@@ -1,0 +1,57 @@
+/* ====================================================================
+ * @sampo/brand — themes.css
+ * Dark-mode overrides. Two mechanisms:
+ *   1. System preference — @media (prefers-color-scheme: dark), but
+ *      gated by `:not([data-theme="light"])` so an explicit light
+ *      override wins over the OS signal.
+ *   2. Manual toggle — [data-theme="dark"] on <html>, set by
+ *      @sampo/brand's theme toggle (persists to localStorage).
+ *
+ * The two rule-sets are identical by design — duplicating the block
+ * keeps the system-pref and manual paths symmetrical.
+ * ==================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:            #14120F;
+    --ink:           #EFE7D6;
+    --muted:         #9C9474;
+    --faint:         #4E4A40;
+    --pumpkin:       #FF8E2E;   /* slightly lifted; same hue */
+    --olive:         #87C342;   /* slightly lifted; same hue */
+    --steel:         #97A7B2;
+    --surface:       #1E1B16;
+    --surface-2:     #25211A;
+    --border:        #35302A;
+    --border-strong: #524A3F;
+
+    /* Preview card stays cream in dark mode — just darker surround */
+    --card-bg:      #F2EEDC;
+    --card-border:  #2E2920;
+    --checker-a:    #17150F;
+    --checker-b:    transparent;
+    --checker-base: #221F19;
+
+    --theme: 'dark';
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg:            #14120F;
+  --ink:           #EFE7D6;
+  --muted:         #9C9474;
+  --faint:         #4E4A40;
+  --pumpkin:       #FF8E2E;
+  --olive:         #87C342;
+  --steel:         #97A7B2;
+  --surface:       #1E1B16;
+  --surface-2:     #25211A;
+  --border:        #35302A;
+  --border-strong: #524A3F;
+  --card-bg:       #F2EEDC;
+  --card-border:   #2E2920;
+  --checker-a:     #17150F;
+  --checker-b:     transparent;
+  --checker-base:  #221F19;
+  --theme:         'dark';
+}

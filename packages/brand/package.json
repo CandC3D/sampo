@@ -1,0 +1,21 @@
+{
+  "name": "@sampo/brand",
+  "version": "0.1.0",
+  "description": "Shared visual system for the Sampo Diagnostic Kit — mill brand mark, palette, typography, component primitives. Consumed by the graphics generator and the public site.",
+  "private": true,
+  "type": "module",
+  "files": [
+    "src"
+  ],
+  "exports": {
+    ".": "./src/mill.js",
+    "./mill": "./src/mill.js",
+    "./theme": "./src/theme.js",
+    "./tokens.css": "./src/tokens.css",
+    "./themes.css": "./src/themes.css",
+    "./components.css": "./src/components.css",
+    "./motion.css": "./src/motion.css"
+  },
+  "license": "SEE LICENSE IN ../../LICENSE",
+  "author": "Christopher Horrocks"
+}

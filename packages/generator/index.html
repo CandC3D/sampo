@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Sampo Diagnostic Kit — Web Graphics</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!--
+  @sampo/brand — shared visual system.
+
+  Local dev (monorepo): relative paths to ../brand/src/.
+  Deployed: if this file is in the sampo-graphics repo, the sync
+  script rewrites these to https://candc3d.github.io/sampo-brand/src/…
+
+  Bump ?v=N on every script tag when shipping JS changes.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../brand/src/tokens.css">
+<link rel="stylesheet" href="../brand/src/themes.css">
+<link rel="stylesheet" href="../brand/src/components.css">
+<link rel="stylesheet" href="../brand/src/motion.css">
+<style>
+  /* ────────────────────────────────────────────────────────────────
+   * Generator — app-chrome layout.
+   * Tokens, themes, and brand primitives (theme toggle, preview
+   * card, corner mark, canvas watermark, section dashed dividers,
+   * toast) are loaded from @sampo/brand via <link> tags above.
+   * Only generator-specific layout lives in this block.
+   * ──────────────────────────────────────────────────────────────── */
+
+  /* ========= App chrome ========= */
+  header {
+    display: flex; align-items: center; gap: 24px;
+    padding: 20px 40px 18px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    position: sticky; top: 0; z-index: 10;
+  }
+
+  /* Temporary lockup (moves to @sampo/brand in Phase 2 as .sampo-lockup). */
+  .lockup {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none; color: inherit;
+    cursor: pointer;
+  }
+  .lockup-mark {
+    display: block; width: 44px; height: 44px;
+    flex: 0 0 44px;
+  }
+  .lockup-mark svg { display: block; width: 100%; height: 100%; }
+  .lockup-type {
+    display: flex; flex-direction: column;
+    line-height: 1; gap: 3px;
+  }
+  .lockup-wordmark {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+  .lockup-sub {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    color: var(--muted);
+  }
+  header .sub {
+    font-family: var(--ff-display);
+    font-style: italic;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  nav.tabs { margin-left: auto; display: flex; gap: 4px; }
+  nav.tabs button {
+    background: transparent; border: 1px solid transparent;
+    color: var(--ink); opacity: 0.6;
+    padding: 8px 14px 8px 14px; font: inherit; font-size: 14px;
+    border-radius: 999px; cursor: pointer;
+    transition: all .12s ease;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  nav.tabs button::before {
+    content: '';
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--pumpkin);
+    opacity: 0;
+    transition: opacity .12s ease;
+  }
+  nav.tabs button:hover { opacity: 1; }
+  nav.tabs button.active {
+    opacity: 1; border-color: var(--ink); background: var(--ink); color: var(--bg);
+  }
+  nav.tabs button.active::before { opacity: 1; }
+
+  main { padding: 32px 40px 80px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ========= Canvas grid ========= */
+  .canvas-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* ========= Generator tab ========= */
+  .gen-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+  .gen-controls {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+  }
+  .gen-controls label {
+    display: block;
+    font-size: 11px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin: 14px 0 6px;
+  }
+  .gen-controls label:first-child { margin-top: 0; }
+  .gen-controls select,
+  .gen-controls input[type="text"] {
+    width: 100%;
+    background: var(--bg); color: var(--ink);
+    border: 1px solid var(--border);
+    padding: 8px 10px; font: inherit; font-size: 14px;
+    border-radius: 6px;
+    font-family: inherit;
+  }
+  .gen-controls .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+  /* ========= Library tab ========= */
+  .lib-toolbar {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .lib-kits { display: grid; gap: 18px; }
+  .lib-kit {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .lib-kit-head {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .lib-kit-title {
+    font-size: 15px; font-weight: 700; min-width: 140px;
+    background: transparent; border: 1px solid transparent;
+    padding: 4px 8px; border-radius: 4px;
+    color: var(--ink); font-family: inherit;
+  }
+  .lib-kit-title:hover { border-color: var(--border); }
+  .lib-kit-title:focus { outline: 2px solid var(--olive); outline-offset: -1px; background: var(--bg); }
+  .lib-kit-meta {
+    font-size: 12px; color: var(--muted);
+    font-family: var(--ff-display); font-style: italic;
+    white-space: nowrap;
+  }
+  .lib-kit-actions { margin-left: auto; display: flex; gap: 6px; }
+  .lib-diags { display: grid; gap: 6px; }
+  .lib-diag {
+    display: flex; align-items: center; gap: 10px;
+    padding: 6px 8px;
+    border-radius: 4px;
+  }
+  .lib-diag:hover { background: rgba(0,0,0,0.02); }
+  .lib-diag .diag-slug {
+    font-family: var(--ff-mono);
+    font-size: 11px; color: var(--muted);
+    min-width: 70px;
+  }
+  .lib-diag input.diag-label {
+    flex: 1;
+    background: transparent; border: 1px solid transparent;
+    padding: 6px 10px; border-radius: 4px;
+    font: inherit; font-size: 14px; color: var(--ink);
+    font-family: inherit;
+  }
+  .lib-diag input.diag-label:hover { border-color: var(--border); background: var(--bg); }
+  .lib-diag input.diag-label:focus { outline: 2px solid var(--olive); outline-offset: -1px; background: var(--bg); }
+  .lib-diag .remove-btn {
+    background: transparent; border: none;
+    color: var(--faint); cursor: pointer;
+    font-size: 18px; line-height: 1; padding: 4px 8px;
+    border-radius: 4px;
+  }
+  .lib-diag .remove-btn:hover { background: rgba(255, 122, 5, 0.12); color: var(--pumpkin); }
+  .lib-add-diag {
+    margin-top: 8px;
+    background: transparent; border: 1px dashed var(--border);
+    color: var(--muted); padding: 7px 12px;
+    border-radius: 4px; font: inherit; font-size: 12px;
+    cursor: pointer; width: 100%;
+  }
+  .lib-add-diag:hover { border-color: var(--olive); color: var(--olive); border-style: solid; }
+
+  /* ========= Favicon tab ========= */
+  .favicon-row {
+    display: flex; gap: 28px; flex-wrap: wrap;
+    align-items: flex-end;
+  }
+  .favicon-tile {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+  }
+  .favicon-tile .tile-inner {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 14px;
+    display: inline-block;
+    border-radius: 6px;
+  }
+  .favicon-tile .tile-label {
+    margin-top: 10px;
+    font-size: 12px; color: var(--muted);
+  }
+  .favicon-tile .tile-label strong { color: var(--ink); display: block; font-weight: 600; font-size: 13px; }
+
+  /* ========= Export tab ========= */
+  .export-intro {
+    max-width: 640px;
+    font-family: var(--ff-display);
+    font-size: 18px; line-height: 1.55;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .export-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .export-cell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .export-cell h4 { margin: 0 0 4px 0; font-size: 13px; font-weight: 700; }
+  .export-cell .desc { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+  .export-cell .actions { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  /* ========= Legend ========= */
+  .spec-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px; margin-bottom: 28px;
+  }
+  .spec-cell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 12px; color: var(--muted);
+  }
+  .spec-cell strong { display: block; color: var(--ink); font-size: 13px; font-weight: 600; margin-bottom: 4px; letter-spacing: 0.01em; }
+  .swatch { display: inline-block; width: 12px; height: 12px; border-radius: 2px; border: 1px solid rgba(0,0,0,0.08); margin-right: 6px; vertical-align: -1px; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="lockup" href="#" id="lockup" aria-label="Sampo Diagnostic Kit">
+    <span class="lockup-mark" id="lockupMark"></span>
+    <span class="lockup-type">
+      <span class="lockup-wordmark">SAMPO</span>
+      <span class="lockup-sub">DIAGNOSTIC KIT</span>
+    </span>
+  </a>
+  <span class="sub">Unified web graphics system · v1.0</span>
+  <nav class="tabs">
+    <button data-tab="canvas" class="active">Canvas</button>
+    <button data-tab="generator">Generator</button>
+    <button data-tab="library">Library</button>
+    <button data-tab="favicons">Favicons</button>
+    <button data-tab="export">Export all</button>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">
+    <span class="theme-toggle-glyph" id="themeToggleGlyph"></span>
+  </button>
+</header>
+
+<main>
+
+  <!-- ======================================================= -->
+  <!-- CANVAS TAB -->
+  <!-- ======================================================= -->
+  <section class="tab-panel active" data-panel="canvas">
+    <div class="canvas-header">
+      <div class="canvas-header-text">
+        <h2 class="section">System at a glance</h2>
+        <p class="section-caption">Every graphic rendered from one source. Scroll to compare formats side-by-side.</p>
+      </div>
+      <div class="canvas-watermark" id="canvasWatermark" aria-hidden="true"></div>
+    </div>
+
+    <div class="spec-grid">
+      <div class="spec-cell"><strong>Background</strong><span class="swatch" style="background:#F5F0E8"></span>#F5F0E8 · cream</div>
+      <div class="spec-cell"><strong>Primary ink</strong><span class="swatch" style="background:#2C2C2A"></span>#2C2C2A</div>
+      <div class="spec-cell"><strong>Pumpkin</strong><span class="swatch" style="background:#FF7A05"></span>#FF7A05 · directed</div>
+      <div class="spec-cell"><strong>Olive</strong><span class="swatch" style="background:#65A30D"></span>#65A30D · emergent</div>
+      <div class="spec-cell"><strong>Steel blue-gray</strong><span class="swatch" style="background:#7B8FA1"></span>#7B8FA1 · mill lines</div>
+      <div class="spec-cell"><strong>Faint</strong><span class="swatch" style="background:#B4B2AC"></span>#B4B2AC · dashed rings</div>
+    </div>
+
+    <div class="canvas-grid" id="canvasGrid"><!-- populated --></div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- GENERATOR TAB -->
+  <!-- ======================================================= -->
+  <section class="tab-panel" data-panel="generator">
+    <h2 class="section">Per-diagnostic generator</h2>
+    <p class="section-caption">Pick a diagnostic dimension; export all three variants.</p>
+
+    <div class="gen-layout">
+      <aside class="gen-controls">
+        <h3>Diagnostic</h3>
+        <div class="field">
+          <label>Dimension</label>
+          <select id="genDim"></select>
+        </div>
+        <div class="field">
+          <label>Label (custom)</label>
+          <input id="genLabel" value="D3: Epistemic Overreach"/>
+        </div>
+        <div class="field">
+          <label>Subtitle</label>
+          <input id="genSubtitle" value="Measuring the health of human–AI exchange"/>
+        </div>
+        <div class="field">
+          <label>Attribution</label>
+          <input id="genAttribution" value="Christopher Horrocks · chorrocks.substack.com"/>
+        </div>
+        <div class="field">
+          <label>Slug</label>
+          <input id="genSlug" value="kit2d3"/>
+        </div>
+
+        <h3 style="margin-top:22px;">Export this diagnostic</h3>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <button class="btn primary" onclick="exportOne('og')">Download og_[slug].png (1200×630)</button>
+          <button class="btn primary" onclick="exportOne('square')">Download og_square_[slug].png (1200×1200)</button>
+          <button class="btn primary" onclick="exportOne('github')">Download github_[slug].png (1280×640)</button>
+          <button class="btn" onclick="exportAllForOneDiagnostic()">Download all three as zip</button>
+        </div>
+      </aside>
+
+      <div id="genPreviews"></div>
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- LIBRARY TAB -->
+  <!-- ======================================================= -->
+  <section class="tab-panel" data-panel="library">
+    <h2 class="section">Diagnostic library</h2>
+    <p class="section-caption">Add, rename, or remove kits and diagnostics. Saved in your browser. The Generator, Canvas and Export tabs update automatically.</p>
+
+    <div class="lib-toolbar">
+      <button class="btn primary" id="libAddKit">+ Add kit</button>
+      <button class="btn" id="libExportJson">Export JSON</button>
+      <button class="btn" id="libImportJson">Import JSON…</button>
+      <button class="btn" id="libReset" style="margin-left:auto;">Reset to defaults</button>
+    </div>
+
+    <div class="lib-kits" id="libKits"></div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- FAVICONS TAB -->
+  <!-- ======================================================= -->
+  <section class="tab-panel" data-panel="favicons">
+    <h2 class="section">Icon marks</h2>
+    <p class="section-caption">Cream background, mill mark only. Everything else is stripped until the element would disappear.</p>
+
+    <div class="favicon-row" id="faviconRow"></div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- EXPORT TAB -->
+  <!-- ======================================================= -->
+  <section class="tab-panel" data-panel="export">
+    <h2 class="section">Batch export</h2>
+    <p class="export-intro">
+      Generates every asset defined in the system: favicons, generic kit previews, and per-diagnostic variants
+      for Kit 1 (D1–D6) and Kit 2 (D1–D7). Downloads as a single zip.
+    </p>
+    <div style="display:flex; gap:10px; margin-bottom:24px;">
+      <button class="btn primary" onclick="exportEverything()">Generate complete zip</button>
+      <button class="btn" onclick="exportGenericOnly()">Generic kit assets only</button>
+      <button class="btn" onclick="exportFaviconsOnly()">Favicons only</button>
+    </div>
+
+    <h2 class="section">Asset manifest</h2>
+    <div class="export-grid" id="exportGrid"></div>
+  </section>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<!-- JSZip for batch downloads -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<!-- mill.js + theme.js come from @sampo/brand (canonical source). -->
+<script src="../brand/src/mill.js?v=10"></script>
+<script src="../brand/src/theme.js?v=10"></script>
+<script src="library.js?v=10"></script>
+<script src="app.js?v=10"></script>
+
+</body>
+</html>

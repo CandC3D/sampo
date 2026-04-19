@@ -1,0 +1,294 @@
+/* ====================================================================
+ * @sampo/brand — components.css
+ * Reusable primitives. Each component is self-contained: no absolute
+ * imports, no layout assumptions beyond the tokens in tokens.css.
+ *
+ * Phase 0 set: theme toggle, preview card + frame, dashed divider,
+ * corner mark, toast.
+ *
+ * Phase 2 will add: .sampo-lockup, .sampo-watermark, and polished
+ * demos at packages/brand/demos/.
+ * ==================================================================== */
+
+/* ── Theme toggle ─────────────────────────────────────────────────── */
+
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  transition: border-color .15s, border-style .15s;
+  margin-left: 4px;
+}
+
+.theme-toggle:hover {
+  border-color: var(--border-strong);
+  border-style: dashed;
+}
+
+/* Moon-glyph: a circle with an offset inner shadow creating the
+   crescent. Flips correctly between themes via currentColor-adjacent
+   tokens. */
+.theme-toggle-glyph {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: inset -4px -4px 0 var(--ink);
+  border: 1px solid var(--ink);
+}
+
+/* ── Dashed divider after section headings ────────────────────────── */
+
+/* A section heading plus its dashed horizontal rule. Consumers mark
+   a heading with class="section" (on h2 or any other tag) and the
+   rule extends to fill the row. */
+.section,
+h2.section {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section::after,
+h2.section::after {
+  content: '';
+  flex: 1;
+  border-top: 1px dashed var(--border-strong);
+}
+
+.section-caption {
+  font-family: var(--ff-display);
+  font-style: italic;
+  color: var(--muted);
+  font-size: 15px;
+  margin: 0 0 22px 0;
+}
+
+/* ── Corner mark ──────────────────────────────────────────────────── */
+
+/* Small inline mill icon that sits beside a heading. Rotates on the
+   parent's :hover — paired with a container that knows to expose
+   that hover (.lib-kit in the generator). */
+.lib-kit-corner-mark,
+.sampo-corner-mark {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  opacity: 0.55;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .3s ease;
+  flex: 0 0 28px;
+  vertical-align: middle;
+}
+
+.lib-kit-corner-mark svg,
+.sampo-corner-mark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.lib-kit:hover .lib-kit-corner-mark,
+:hover > .sampo-corner-mark {
+  opacity: 0.85;
+  transform: rotate(12deg);
+}
+
+/* ── Preview card — cream-framed asset embed ──────────────────────── */
+
+/* The canonical "here's what the shareable PNG looks like" block.
+   Interior is always cream because the asset ships cream. */
+.preview-card {
+  background: var(--card-bg);
+  border: 1px dashed var(--card-border);
+  border-radius: var(--r-md);
+  padding: 18px;
+  margin-bottom: 28px;
+  color: var(--g-ink);
+}
+
+.preview-card .meta {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.preview-card .meta .title {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--g-ink);
+}
+
+.preview-card .meta .dim {
+  font-family: var(--ff-display);
+  font-style: italic;
+  color: var(--g-muted);
+  font-size: 13px;
+}
+
+.preview-card .meta .actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+/* Checkered transparent-background for the asset itself — so users
+   can tell at a glance whether the exported PNG is transparent or
+   filled. */
+.preview-frame {
+  background-color: var(--checker-base, #ECE6D0);
+  background-image:
+    linear-gradient(45deg, var(--checker-a) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--checker-a) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--checker-a) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--checker-a) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+  border: 1px solid var(--card-border);
+  border-radius: var(--r-sm);
+  overflow: auto;
+  padding: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.preview-frame svg {
+  display: block;
+  max-width: 100%;
+  max-height: 560px;
+  height: auto;
+  width: auto;
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.preview-frame.fit-wide svg {
+  max-width: 100%;
+  max-height: none;
+}
+
+/* ── Buttons — base + primary + preview-card override ─────────────── */
+
+button.btn {
+  background: var(--bg);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  font: inherit;
+  font-size: 12px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: border .12s ease, background .12s ease;
+}
+
+button.btn:hover {
+  background: var(--surface-2);
+  border-style: dashed;
+  border-color: var(--border-strong);
+}
+
+button.btn.primary {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+
+button.btn.primary:hover {
+  background: var(--ink);
+  filter: brightness(1.15);
+  border-style: dashed;
+}
+
+/* Buttons inside a preview-card live on cream — force graphic-palette
+   colors so they read consistently in both light and dark mode. */
+.preview-card button.btn {
+  background: var(--g-bg);
+  color: var(--g-ink);
+  border-color: var(--card-border);
+}
+
+.preview-card button.btn:hover {
+  background: #FFF8E8;
+  border-color: var(--g-ink);
+}
+
+.preview-card button.btn.primary {
+  background: var(--g-ink);
+  color: var(--g-bg);
+  border-color: var(--g-ink);
+}
+
+.preview-card button.btn.primary:hover {
+  background: #000;
+}
+
+/* ── Toast ────────────────────────────────────────────────────────── */
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 12px 18px 12px 16px;
+  border-radius: var(--r-sm);
+  border-left: 3px solid var(--pumpkin);
+  font-size: 13px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .2s ease, transform .2s ease;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Canvas watermark ─────────────────────────────────────────────── */
+
+/* Faint decorative mill in the corner of a tab header. Subtle
+   animation on theme change handled by JS — not a keyframe. */
+.canvas-header {
+  position: relative;
+  margin-bottom: 10px;
+  min-height: 80px;
+}
+
+.canvas-header-text {
+  position: relative;
+  z-index: 2;
+}
+
+.canvas-watermark {
+  position: absolute;
+  right: -40px;
+  top: -30px;
+  width: 180px;
+  height: 180px;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .canvas-watermark { opacity: 0.22; }
+}
+:root[data-theme="dark"] .canvas-watermark { opacity: 0.22; }

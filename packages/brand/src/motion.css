@@ -1,0 +1,26 @@
+/* ====================================================================
+ * @sampo/brand — motion.css
+ * Global motion policy. Per-component transitions live alongside
+ * their components in components.css — this file handles the
+ * cross-cutting reduced-motion fallback and any keyframes shared
+ * across the system.
+ *
+ * Phase 5 will add: scroll-linked watermark rotation, crossfade
+ * route transitions, dashed-hover utility class.
+ * ==================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Keep opacity-only transitions — they're safe under reduced motion
+     and feel more polished than a hard cut. Specific components can
+     re-enable by using transition-property: opacity explicitly. */
+  .toast { transition-duration: 200ms !important; }
+}

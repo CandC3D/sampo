@@ -1,0 +1,100 @@
+/* ====================================================================
+ * @sampo/brand — tokens.css
+ * Palette, base reset, default typography. Light-mode values live on :root.
+ * Dark-mode overrides live in themes.css.
+ * ==================================================================== */
+
+:root {
+  /* Graphic palette — NEVER changes with mode.
+     These match the exported PNG cards: whatever ships is what the
+     preview renders. Preview cards stay cream in both themes. */
+  --g-bg:       #F5F0E8;
+  --g-ink:      #2C2C2A;
+  --g-muted:    #8C8A5C;
+  --g-faint:    #B4B2AC;
+  --g-pumpkin:  #FF7A05;
+  --g-olive:    #65A30D;
+  --g-steel:    #7B8FA1;
+
+  /* App chrome — rebound under dark mode in themes.css */
+  --bg:         #F5F0E8;
+  --ink:        #2C2C2A;
+  --muted:      #8C8A5C;
+  --faint:      #B4B2AC;
+  --pumpkin:    #FF7A05;
+  --olive:      #65A30D;
+  --steel:      #7B8FA1;
+  --surface:    #EDE7DC;
+  --surface-2:  #E4DDD0;
+  --border:     #D6CEC0;
+  --border-strong: #B8AE9C;
+
+  /* Preview-card chrome — card stays cream in dark mode because the
+     exported asset is cream-backed. Showing it on dark chrome would lie
+     about what gets shared. Frame + checker adapt. */
+  --card-bg:      #F2EEDC;
+  --card-border:  #C8BE9E;
+  --checker-a:    #e8e2d4;
+  --checker-b:    transparent;
+  --checker-base: #ECE6D0;
+
+  /* Theme hint — read by JS via getComputedStyle().
+     CSS is the source of truth for light/dark; JS reads the resolved
+     value rather than duplicating the media-query logic. */
+  --theme: 'light';
+
+  /* Type stacks. Instrument Serif / Instrument Sans are self-hosted
+     in fonts/. Fallback stacks favor warm humanist counters. */
+  --ff-display: 'Instrument Serif', ui-serif, 'Iowan Old Style', Georgia, Cambria, 'Times New Roman', Times, serif;
+  --ff-body:    'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --ff-mono:    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+
+  /* Type scale */
+  --fs-display: clamp(2.5rem, 5vw, 4.5rem);
+  --fs-h1:      clamp(2rem, 3vw, 3rem);
+  --fs-h2:      1.75rem;
+  --fs-h3:      1.25rem;
+  --fs-body:    1.0625rem;
+  --fs-small:   0.875rem;
+  --fs-mono:    0.8125rem;
+
+  /* Leading */
+  --lh-tight: 1.15;
+  --lh-body:  1.55;
+
+  /* Spacing — 4px base */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-24: 96px;
+
+  /* Radii */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+
+  /* Dashed stroke — matches generator's dividers + card borders */
+  --dash: 5 4;
+}
+
+/* Minimal reset + body baseline. Body opts into brand typography by
+   default; consumers can override per-element. */
+* { box-sizing: border-box; }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--ff-body);
+}
+
+body {
+  min-height: 100vh;
+}

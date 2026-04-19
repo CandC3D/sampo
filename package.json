@@ -1,0 +1,20 @@
+{
+  "name": "sampo-workspace",
+  "version": "0.1.0",
+  "description": "Sampo Diagnostic Kit — monorepo source of truth. Contains @sampo/brand (shared visual system), @sampo/generator (graphics generator, deployed to candc3d/sampo-graphics), and @sampo/site (public pages, deployed to candc3d/sampo-site).",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "serve:brand":     "npx serve packages/brand -l 3020",
+    "serve:generator": "npx serve packages/generator -l 3021",
+    "serve:site":      "npx serve packages/site -l 3022",
+    "sync:brand":      "node scripts/sync-deploys.mjs brand",
+    "sync:generator":  "node scripts/sync-deploys.mjs generator",
+    "sync:site":       "node scripts/sync-deploys.mjs site",
+    "sync:all":        "node scripts/sync-deploys.mjs all"
+  },
+  "author": "Christopher Horrocks",
+  "license": "SEE LICENSE IN LICENSE"
+}
