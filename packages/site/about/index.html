@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>About · Sampo Diagnostic Kit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="light dark"/>
+<meta name="description" content="About the Sampo Diagnostic Kit — a free, open toolkit for measuring the health of human–AI exchange, by Christopher Horrocks.">
+
+<link rel="stylesheet" href="../../brand/src/fonts.css">
+<link rel="stylesheet" href="../../brand/src/tokens.css">
+<link rel="stylesheet" href="../../brand/src/themes.css">
+<link rel="stylesheet" href="../../brand/src/components.css">
+<link rel="stylesheet" href="../../brand/src/motion.css">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="sampo-lockup" href="../" aria-label="Sampo Diagnostic Kit">
+    <span class="sampo-lockup-mark" id="lockupMark"></span>
+    <span class="sampo-lockup-type">
+      <span class="sampo-lockup-wordmark">SAMPO</span>
+      <span class="sampo-lockup-sub">DIAGNOSTIC KIT</span>
+    </span>
+  </a>
+  <nav class="site-nav">
+    <a href="../">Home</a>
+    <a href="../kits/">Kits</a>
+    <a href="./" class="active">About</a>
+    <a href="https://candc3d.github.io/sampo-graphics/">Generator ↗</a>
+  </nav>
+  <button class="sampo-theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="sampo-theme-toggle-glyph"></span>
+  </button>
+</header>
+
+<main>
+
+  <section style="padding: var(--sp-8) 0 var(--sp-4);">
+    <p class="hero-eyebrow">About</p>
+    <h1 style="font-size: var(--fs-h1); max-width: 24ch;">A measurement discipline for human–AI exchange.</h1>
+  </section>
+
+  <hr class="sampo-divider">
+
+  <section>
+    <h2 class="section">The project</h2>
+    <p class="section-caption">What the kit is and isn't.</p>
+    <div class="about-prose">
+      <p>
+        The Sampo Diagnostic Kit is a free, open toolkit of structured prompts for measuring the health of human–AI exchange. Each diagnostic is a precisely constructed prompt that any user can run on any AI system. The prompts measure specific, observable patterns — in the user's language, or in the system's output, or in the relationship between the two — and produce quantified assessments rather than opinions.
+      </p>
+      <p>
+        The kit operationalizes the Sampo framework, which argues that productive human–AI exchange requires the human to remain the directing intelligence. When that role erodes — when the user defers, anthropomorphizes, cedes authority — the exchange degrades in measurable ways. The diagnostics make that degradation visible so the user can decide what to do about it.
+      </p>
+      <p>
+        The kit is not a benchmark. It does not rank systems. It does not certify a conversation as good or bad. It produces a reading; the reader decides.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section">The author</h2>
+    <p class="section-caption">Christopher Horrocks · University of Pennsylvania.</p>
+    <div class="about-prose">
+      <p>
+        The Virtual Intelligence essay series, the Sampo framework, and this diagnostic kit are the work of <a href="https://chorrocks.substack.com/">Christopher Horrocks</a>, a writer at the University of Pennsylvania.
+      </p>
+      <p>
+        The series is a sustained examination of AI systems that produce intelligence-like outputs without possessing agency, intentionality, or moral accountability. It argues that intelligence arises in the exchange between the human and the system, not inside the machine — and that the human is constitutive, not optional.
+      </p>
+      <p>
+        The diagnostics in this kit measure whether the human is maintaining that constitutive role.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section">License and use</h2>
+    <p class="section-caption">Free for use. Attribute if used or altered.</p>
+    <div class="about-prose">
+      <p>
+        This kit is free. It will remain free. The discipline it measures cannot be bought or sold — it can only be built through sustained practice. Anyone may use, share, and adapt these prompts. If you build something with them, a link back to the Virtual Intelligence project is appreciated.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section">Credits</h2>
+    <p class="section-caption">The tools that built the tools.</p>
+    <div class="about-prose">
+      <p>
+        The visual system — palette, mill mark, typography, component primitives — is maintained as the <a href="https://candc3d.github.io/sampo-brand/">@sampo/brand</a> package. The graphics generator (OG cards, favicons, GitHub social previews for every diagnostic page) runs at <a href="https://candc3d.github.io/sampo-graphics/">sampo-graphics</a>. Source for all three surfaces (brand, generator, site) lives in <a href="https://github.com/CandC3D/sampo">candc3d/sampo</a>.
+      </p>
+      <p>
+        Typography is <strong>Instrument Serif</strong> (display, italic accents) and <strong>Instrument Sans</strong> (body, UI), self-hosted from the brand package and SIL OFL licensed. System mono stack for slugs and code.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <hr class="sampo-divider">
+  <div class="footer-grid">
+    <div>
+      <p class="footer-meta">Sampo Diagnostic Kit · Christopher Horrocks · 2026</p>
+      <p class="footer-meta">Free for use. Attribute if used or altered.</p>
+    </div>
+    <nav class="footer-nav">
+      <a href="../">Home</a>
+      <a href="../kits/">Kits</a>
+      <a href="https://candc3d.github.io/sampo-graphics/">Generator ↗</a>
+      <a href="https://candc3d.github.io/sampo-brand/">Brand ↗</a>
+      <a href="https://chorrocks.substack.com/">Substack ↗</a>
+    </nav>
+  </div>
+  <p class="footer-disclaimer">The views expressed in this work are the author's own and do not represent any official or unofficial position of the University of Pennsylvania.</p>
+</footer>
+
+<script src="../../brand/src/mill.js?v=1"></script>
+<script src="../../brand/src/theme.js?v=1"></script>
+<script src="../app.js?v=1"></script>
+
+</body>
+</html>

@@ -1,0 +1,435 @@
+/* ====================================================================
+ * @sampo/site — site.css
+ * Site-specific layout. Tokens, themes, and primitives come from
+ * @sampo/brand via sibling <link> tags. Anything in here is chrome
+ * or content layout unique to the public-facing pages.
+ * ==================================================================== */
+
+body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+/* ── Shell ────────────────────────────────────────────────────────── */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+  padding: var(--sp-4) var(--sp-6);
+  max-width: 1120px;
+  margin: 0 auto;
+  border-bottom: 1px dashed var(--border);
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--sp-4);
+  margin-left: auto;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-sm);
+  border: 1px solid transparent;
+  transition: color .15s, border-color .15s, border-style .15s;
+}
+
+.site-nav a:hover {
+  color: var(--ink);
+  border-color: var(--border);
+  border-style: dashed;
+}
+
+.site-nav a.active {
+  color: var(--ink);
+}
+
+.site-header .sampo-theme-toggle {
+  margin-left: var(--sp-2);
+}
+
+main {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: var(--sp-12) var(--sp-6);
+}
+
+/* ── Hero ─────────────────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: var(--sp-12) 0 var(--sp-8);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+}
+
+.hero-eyebrow {
+  font-family: var(--ff-display);
+  font-style: italic;
+  color: var(--muted);
+  font-size: var(--fs-body);
+  margin: 0 0 var(--sp-4);
+}
+
+h1 {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  margin: 0 0 var(--sp-6);
+  max-width: 18ch;
+}
+
+.lede {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0 0 var(--sp-8);
+  max-width: 60ch;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin: 0;
+}
+
+.hero-cta .btn {
+  font-size: var(--fs-body);
+  padding: var(--sp-3) var(--sp-6);
+}
+
+/* ── Feature sections ─────────────────────────────────────────────── */
+
+.feature {
+  position: relative;
+  overflow: hidden;
+  padding: var(--sp-12) 0;
+}
+
+.feature + .feature,
+hr + .feature {
+  padding-top: var(--sp-8);
+}
+
+.feature > h2.section {
+  position: relative;
+  z-index: 1;
+}
+
+.feature-body {
+  position: relative;
+  z-index: 1;
+  max-width: 60ch;
+}
+
+.feature-body p {
+  margin: 0 0 var(--sp-4);
+}
+
+.feature-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Kit index grid ───────────────────────────────────────────────── */
+
+.kit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--sp-4);
+  margin: var(--sp-8) 0;
+}
+
+.kit-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-6);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  transition: border-color .15s, border-style .15s, background .15s;
+  position: relative;
+  overflow: hidden;
+}
+
+.kit-card:hover {
+  border-color: var(--border-strong);
+  border-style: dashed;
+  background: var(--surface-2);
+}
+
+.kit-card-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  justify-content: space-between;
+}
+
+.kit-card-slug {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-small);
+  color: var(--steel);
+  font-weight: 500;
+}
+
+.kit-card-direction {
+  font-family: var(--ff-display);
+  font-style: italic;
+  color: var(--muted);
+  font-size: var(--fs-small);
+}
+
+.kit-card h3 {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-tight);
+  margin: 0;
+}
+
+.kit-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--fs-small);
+  line-height: var(--lh-body);
+}
+
+.kit-section-heading {
+  margin-top: var(--sp-12);
+  margin-bottom: var(--sp-4);
+}
+
+.kit-section-heading:first-of-type {
+  margin-top: var(--sp-4);
+}
+
+/* ── Diagnostic page template ─────────────────────────────────────── */
+
+.diag-header {
+  padding: var(--sp-8) 0 var(--sp-6);
+}
+
+.diag-slug {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-small);
+  color: var(--steel);
+  font-weight: 500;
+  margin: 0 0 var(--sp-2);
+}
+
+.diag-kit-label {
+  font-family: var(--ff-display);
+  font-style: italic;
+  color: var(--muted);
+  font-size: var(--fs-body);
+  margin: 0 0 var(--sp-2);
+}
+
+.diag-header h1 {
+  font-size: var(--fs-h1);
+  max-width: 20ch;
+}
+
+.diag-placeholder {
+  border: 1px dashed var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-6);
+  color: var(--muted);
+  font-family: var(--ff-display);
+  font-style: italic;
+  margin: var(--sp-6) 0;
+}
+
+.diag-related {
+  margin-top: var(--sp-12);
+  padding-top: var(--sp-6);
+  border-top: 1px dashed var(--border);
+}
+
+.diag-related h2 {
+  margin-top: 0;
+}
+
+.diag-related-strip {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  margin-top: var(--sp-3);
+}
+
+.diag-related-strip a {
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  color: var(--muted);
+  text-decoration: none;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-small);
+  transition: border-color .15s, border-style .15s, color .15s;
+}
+
+.diag-related-strip a:hover {
+  border-color: var(--border-strong);
+  border-style: dashed;
+  color: var(--ink);
+}
+
+.diag-related-strip a.current {
+  color: var(--ink);
+  background: var(--surface);
+}
+
+/* ── About page ───────────────────────────────────────────────────── */
+
+.about-prose {
+  max-width: 60ch;
+  margin: var(--sp-4) 0;
+}
+
+.about-prose p {
+  margin: 0 0 var(--sp-4);
+}
+
+/* ── 404 ──────────────────────────────────────────────────────────── */
+
+.nf-page {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--sp-12);
+  position: relative;
+}
+
+.nf-mill {
+  width: 220px;
+  height: 220px;
+  opacity: 0.4;
+  transform: rotate(23deg);
+  margin-bottom: var(--sp-6);
+}
+
+.nf-mill svg { display: block; width: 100%; height: 100%; }
+
+.nf-page h1 {
+  font-size: var(--fs-h1);
+  margin: 0 0 var(--sp-2);
+}
+
+.nf-page .nf-sub {
+  font-family: var(--ff-mono);
+  color: var(--muted);
+  margin: 0 0 var(--sp-8);
+  font-size: var(--fs-body);
+}
+
+.nf-return {
+  background: var(--card-bg);
+  border: 1px dashed var(--card-border);
+  border-radius: var(--r-md);
+  padding: var(--sp-4) var(--sp-6);
+  color: var(--g-ink);
+  text-decoration: none;
+  font-family: var(--ff-body);
+  font-weight: 500;
+  transition: border-color .15s;
+}
+
+.nf-return:hover {
+  border-color: var(--g-ink);
+  border-style: solid;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────── */
+
+.site-footer {
+  max-width: 1120px;
+  margin: var(--sp-16) auto 0;
+  padding: 0 var(--sp-6) var(--sp-12);
+}
+
+.site-footer .sampo-divider {
+  margin: 0 0 var(--sp-6);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--sp-6);
+  align-items: start;
+  margin-bottom: var(--sp-6);
+}
+
+.footer-meta {
+  margin: 0 0 var(--sp-1);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-mono);
+  color: var(--muted);
+}
+
+.footer-nav {
+  display: flex;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: var(--fs-small);
+  transition: color .15s;
+}
+
+.footer-nav a:hover {
+  color: var(--ink);
+}
+
+.footer-disclaimer {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: var(--fs-small);
+  color: var(--faint);
+  margin: 0;
+  max-width: 60ch;
+  line-height: 1.5;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .site-header {
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+  }
+
+  .site-nav {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    overflow-x: auto;
+  }
+
+  main {
+    padding: var(--sp-8) var(--sp-4);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}

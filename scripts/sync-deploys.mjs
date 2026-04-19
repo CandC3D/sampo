@@ -60,23 +60,24 @@ const PACKAGES = {
   site: {
     src: path.join(ROOT, 'packages', 'site'),
     deploy: path.join(SIBLINGS, 'sampo-site'),
-    include: ['index.html', 'app.js', 'kits', 'about', '404.html', 'public'],
+    include: ['index.html', 'site.css', 'app.js', 'kits', 'about', '404.html'],
     baseline: ['google5315ac0eabfa5ec3.html', 'sitemap.xml'],
     rewrite: rewriteBrandPathsHTTPS,
   },
 };
 
 /**
- * For each text file, rewrite `../brand/src/NAME.(css|js)` to
- * `https://candc3d.github.io/sampo-brand/src/NAME.(css|js)`.
- * Keeps `?v=N` query strings intact.
+ * For each text file, rewrite `<any number of ../>brand/src/...` to
+ * the deployed HTTPS URL. Depth depends on where the consumer file
+ * lives in the monorepo — generator is 1 up, site root is 1 up,
+ * site's /kits/[slug]/ pages are 3 up. Preserves ?v=N cache-busting.
  */
 function rewriteBrandPathsHTTPS(filePath) {
   // Only touch text formats that might reference brand paths.
   if (!/\.(html|css|js|md)$/i.test(filePath)) return;
   const before = fs.readFileSync(filePath, 'utf8');
   const after = before.replace(
-    /\.\.\/brand\/src\//g,
+    /(?:\.\.\/)+brand\/src\//g,
     BRAND_HTTPS_BASE + '/',
   );
   if (after !== before) {

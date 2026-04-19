@@ -304,7 +304,8 @@ h2.section::after {
 
 /* ── Buttons — base + primary + preview-card override ─────────────── */
 
-button.btn {
+button.btn,
+a.btn {
   background: var(--bg);
   color: var(--ink);
   border: 1px solid var(--border);
@@ -313,22 +314,29 @@ button.btn {
   font-size: 12px;
   border-radius: var(--r-sm);
   cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
   transition: border .12s ease, background .12s ease;
 }
 
-button.btn:hover {
+button.btn:hover,
+a.btn:hover {
   background: var(--surface-2);
   border-style: dashed;
   border-color: var(--border-strong);
 }
 
-button.btn.primary {
+button.btn.primary,
+a.btn.primary {
   background: var(--ink);
   color: var(--bg);
   border-color: var(--ink);
 }
 
-button.btn.primary:hover {
+button.btn.primary:hover,
+a.btn.primary:hover {
   background: var(--ink);
   filter: brightness(1.15);
   border-style: dashed;
@@ -337,6 +345,7 @@ button.btn.primary:hover {
 /* Ghost — transparent bg, subtle border. Used for secondary actions
    in prose-heavy contexts (the site's section CTAs). */
 button.btn.btn-ghost,
+a.btn.btn-ghost,
 .btn-ghost {
   background: transparent;
   color: var(--ink);
@@ -344,6 +353,7 @@ button.btn.btn-ghost,
 }
 
 button.btn.btn-ghost:hover,
+a.btn.btn-ghost:hover,
 .btn-ghost:hover {
   border-color: var(--border-strong);
   background: var(--surface);
@@ -367,6 +377,7 @@ button.btn.btn-ghost:hover,
    "Open the generator"). The generator's inline primary buttons
    use var(--ink) instead; the site uses pumpkin. */
 button.btn.btn-cta,
+a.btn.btn-cta,
 .btn-cta {
   background: var(--pumpkin);
   color: #fff;
@@ -375,10 +386,12 @@ button.btn.btn-cta,
 }
 
 button.btn.btn-cta:hover,
+a.btn.btn-cta:hover,
 .btn-cta:hover {
   filter: brightness(1.08);
   border-style: dashed;
   border-color: var(--pumpkin);
+  color: #fff;
 }
 
 /* Buttons inside a preview-card live on cream — force graphic-palette
