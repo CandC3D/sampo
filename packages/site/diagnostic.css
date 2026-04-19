@@ -519,6 +519,71 @@
 
 .inline-link:hover { color: var(--ink); }
 
+/* ── Kit sibling strip (footer nav) ───────────────────────────────── */
+
+/* Horizontal nav that sits below the article and above the site
+   footer. Shows the kit's direction label, then every diagnostic in
+   the kit with the current page as plain text and siblings as links
+   to the deployed diagnostic URLs. Mirrors the legacy pattern used
+   on the 14 already-deployed sampo-diagnostic-* repos so visitors
+   can hop between the old and new surfaces without relearning. */
+
+.kit-nav {
+  margin-top: var(--sp-12);
+  padding-top: var(--sp-6);
+  border-top: 1px dashed var(--border);
+}
+
+.kit-nav-label {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 var(--sp-4);
+}
+
+.kit-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3) var(--sp-4);
+  font-size: var(--fs-small);
+  line-height: 1.4;
+}
+
+.kit-nav-list li { margin: 0; }
+
+.kit-nav-list li.current {
+  color: var(--ink);
+  font-weight: 600;
+  position: relative;
+}
+
+/* Subtle olive mark under the current item — same visual vocabulary
+   as the active tab underline. */
+.kit-nav-list li.current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 2px;
+  background: var(--olive);
+}
+
+.kit-nav-list li a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .15s;
+}
+
+.kit-nav-list li a:hover {
+  color: var(--ink);
+}
+
 /* ── Legacy class aliases from the source page ────────────────────── */
 
 .body-text { max-width: 60ch; margin: 0 0 var(--sp-4); line-height: var(--lh-body); }
